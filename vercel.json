@@ -1,0 +1,43 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/index", "destination": "/", "permanent": true },
+    { "source": "/pdofaden(\\.html)?", "destination": "/fadenlifting-zuerich", "permanent": true },
+    { "source": "/hyaluronsaure(\\.html)?", "destination": "/hyaluron-zuerich", "permanent": true },
+    { "source": "/hyaluronlippen(\\.html)?", "destination": "/hyaluron-zuerich", "permanent": true },
+    { "source": "/mesotherapie(\\.html)?", "destination": "/mesotherapie-zuerich", "permanent": true },
+    { "source": "/biostimulatoren(\\.html)?", "destination": "/biostimulatoren-zuerich", "permanent": true },
+    { "source": "/prp-vampirelifting(\\.html)?", "destination": "/prp-vampirelifting-zuerich", "permanent": true },
+    { "source": "/permamente([^-]+)haarentfernung(\\.html)?", "destination": "/laser-haarentfernung-zuerich", "permanent": true },
+    { "source": "/endolift(\\.html)?", "destination": "/endolift-zuerich", "permanent": true },
+    { "source": "/rf([^-]+)needling(\\.html)?", "destination": "/rf-needling-zuerich", "permanent": true },
+    { "source": "/micodermabrasion(\\.html)?", "destination": "/microdermabrasion-zuerich", "permanent": true },
+    { "source": "/microdermabrasion(\\.html)?", "destination": "/microdermabrasion-zuerich", "permanent": true },
+    { "source": "/carbon([^-]+)laser([^-]+)peeling(\\.html)?", "destination": "/carbon-laser-peeling-zuerich", "permanent": true },
+    { "source": "/classic([^-]+)massage(\\.html)?", "destination": "/klassische-massage-zuerich", "permanent": true },
+    { "source": "/anti-cellulite([^-]+)massage(\\.html)?", "destination": "/anti-cellulite-massage-zuerich", "permanent": true },
+    { "source": "/fruchtsaure([^-]+)behandlung(\\.html)?", "destination": "/fruchtsaeure-peeling-zuerich", "permanent": true },
+    { "source": "/uberuns(\\.html)?", "destination": "/ueber-uns", "permanent": true },
+    { "source": "/velashape(\\.html)?", "destination": "/preise", "permanent": true },
+    { "source": "/roya(\\.html)?", "destination": "/ueber-uns", "permanent": true },
+    { "source": "/perfect-shape-zuerich-partner", "destination": "/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" }
+      ]
+    }
+  ]
+}

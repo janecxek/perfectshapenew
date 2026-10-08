@@ -1,0 +1,249 @@
+{
+ "fadenlifting-zuerich": {
+  "w": 1241,
+  "h": 768,
+  "widths": [
+   480,
+   800,
+   1200,
+   1241
+  ],
+  "ratio": 0.6188557614826753
+ },
+ "hyaluron-zuerich": {
+  "w": 1920,
+  "h": 1080,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.5625
+ },
+ "mesotherapie-zuerich": {
+  "w": 1125,
+  "h": 624,
+  "widths": [
+   480,
+   800,
+   1125
+  ],
+  "ratio": 0.5546666666666666
+ },
+ "biostimulatoren-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "prp-vampirelifting-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "laser-haarentfernung-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "endolift-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "rf-needling-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "microdermabrasion-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "carbon-laser-peeling-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "klassische-massage-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "anti-cellulite-massage-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "fruchtsaeure-peeling-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "apparative-kosmetik-zuerich": {
+  "w": 5120,
+  "h": 3414,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.666796875
+ },
+ "aesthetik-lasermedizin-zuerich": {
+  "w": 2800,
+  "h": 1964,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.7014285714285714
+ },
+ "studio-perfect-shape-zuerich-empfang": {
+  "w": 2048,
+  "h": 1536,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.75
+ },
+ "studio-perfect-shape-zuerich-behandlungsraum": {
+  "w": 2048,
+  "h": 1536,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.75
+ },
+ "studio-perfect-shape-zuerich-zertifikate": {
+  "w": 2048,
+  "h": 1504,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 0.734375
+ },
+ "dr-med-roya-jeyrani": {
+  "w": 693,
+  "h": 1024,
+  "widths": [
+   480,
+   693
+  ],
+  "ratio": 1.4776334776334776
+ },
+ "agnieszka-jaggy": {
+  "w": 1188,
+  "h": 1588,
+  "widths": [
+   480,
+   800,
+   1188
+  ],
+  "ratio": 1.3367003367003367
+ },
+ "agnieszka-jaggy-behandlung": {
+  "w": 1800,
+  "h": 2048,
+  "widths": [
+   480,
+   800,
+   1200,
+   1600
+  ],
+  "ratio": 1.1377777777777778
+ },
+ "partner-endolift": {
+  "w": 480,
+  "h": 204
+ },
+ "partner-revolax": {
+  "w": 480,
+  "h": 164
+ },
+ "partner-vivacy": {
+  "w": 480,
+  "h": 223
+ },
+ "partner-dives-med": {
+  "w": 480,
+  "h": 197
+ },
+ "logo": {
+  "w": 640,
+  "h": 125
+ }
+}
