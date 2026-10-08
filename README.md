@@ -19,7 +19,8 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
 
 ## Podmiana zdjęć (hero itd.)
 
-1. Wrzuć nowe zdjęcie (najlepiej min. 2400 px szerokości) i wygeneruj warianty WebP – nazwy plików: `assets/img/<nazwa>-{480,800,1200,1600,2000,2560}.webp` + `assets/img/<nazwa>.jpg`, oraz wpis w `scripts/imgmeta.json` (`w`, `h`, `widths`). Najprościej: skrypt `images.py` użyty przy budowie (Pillow) albo dowolny konwerter.
+1. Przygotuj zdjęcie (najlepiej min. 2400 px szerokości) i uruchom:
+   `python3 scripts/add-image.py moje-zdjecie.jpg nazwa-zdjecia` (wymaga Pillow: `pip install Pillow`) – skrypt sam utworzy wszystkie rozmiary WebP/JPG i wpis w `imgmeta.json`.
 2. W `scripts/content.mjs` w obiekcie `HOME` zmień nazwę obrazu:
    - `heroImage` – pełnoekranowe zdjęcie na stronie głównej (`heroPos` / `heroPosMobile` = kadrowanie, np. `'40% 50%'`)
    - `bandImage` – zdjęcie w sekcji „Natürlich schön”
