@@ -730,3 +730,17 @@ export const AGB = [
   ['8. Salvatorische Klausel', 'Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Gültigkeit der übrigen Bestimmungen unberührt.'],
   ['9. Gerichtsstand und anwendbares Recht', 'Es gilt ausschliesslich schweizerisches Recht. Gerichtsstand für alle Streitigkeiten ist Zürich.'],
 ];
+
+// Bilder der Startseite – zum Austauschen einfach den Bildnamen ändern (Dateien in assets/img, siehe README)
+export const HOME = {
+  heroImage: 'apparative-kosmetik-zuerich',
+  heroAlt: 'Ästhetische Gesichtsbehandlung bei Perfect Shape Zürich',
+  heroPos: '50% 40%',
+  heroPosMobile: '38% 50%',
+  bandImage: 'studio-perfect-shape-zuerich-empfang',
+  bandAlt: 'Studio von Perfect Shape an der Bahnhofstrasse 94 in Zürich',
+  ctaImage: 'rf-needling-zuerich',
+  ctaAlt: 'Entspannte Behandlung bei Perfect Shape Zürich',
+  aboutHero: 'studio-perfect-shape-zuerich-empfang',
+  treatmentsHero: 'studio-perfect-shape-zuerich-behandlungsraum',
+};

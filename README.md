@@ -1,7 +1,7 @@
 # Perfect Shape Zürich – strona www
 
 Nowa wersja strony **perfectshape-zuerich.ch** – studio estetyki i medycyny laserowej, Bahnhofstrasse 94, Zürich.
-Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery) generowana jednym skryptem Node, hostowana na Vercel.
+Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Lenis – MIT) generowana jednym skryptem Node, hostowana na Vercel.
 
 ## Struktura
 
@@ -10,11 +10,23 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery) generowana jednym s
 | `scripts/content.mjs` | **Wszystkie treści**: dane kontaktowe, zabiegi, ceny, FAQ, zespół, opinie, AGB |
 | `scripts/build.mjs` | Generator: layout, header/footer, podstrony, JSON-LD, sitemap.xml, robots.txt |
 | `assets/css/style.css` | Style (źródło) → build tworzy `style.min.css` |
-| `assets/js/main.js` | Interakcje: menu, mega-menu, animacje, filtr, slider, FAQ, modal rezerwacji, mapa, formularz |
+| `assets/js/main.js` | Interakcje: płynny scroll, header nad hero, paralaksa, menu, lista zabiegów z podglądem, slider, FAQ, modal rezerwacji, mapa, formularz |
+| `assets/js/lenis.min.js` | Biblioteka płynnego przewijania (MIT) |
 | `assets/img/` | Zoptymalizowane obrazy WebP (480–1600 px) + JPG fallback, logo, OG-image |
 | `assets/fonts/` | Fonty self-hosted (Inter Tight, Instrument Serif – licencja OFL) |
 | `*.html`, `sitemap.xml`, `robots.txt` | **Wygenerowane** – nie edytować ręcznie |
 | `vercel.json` | Czyste URL-e, przekierowania 301 ze starych adresów, cache, nagłówki bezpieczeństwa |
+
+## Podmiana zdjęć (hero itd.)
+
+1. Wrzuć nowe zdjęcie (najlepiej min. 2400 px szerokości) i wygeneruj warianty WebP – nazwy plików: `assets/img/<nazwa>-{480,800,1200,1600,2000,2560}.webp` + `assets/img/<nazwa>.jpg`, oraz wpis w `scripts/imgmeta.json` (`w`, `h`, `widths`). Najprościej: skrypt `images.py` użyty przy budowie (Pillow) albo dowolny konwerter.
+2. W `scripts/content.mjs` w obiekcie `HOME` zmień nazwę obrazu:
+   - `heroImage` – pełnoekranowe zdjęcie na stronie głównej (`heroPos` / `heroPosMobile` = kadrowanie, np. `'40% 50%'`)
+   - `bandImage` – zdjęcie w sekcji „Natürlich schön”
+   - `ctaImage` – zdjęcie w końcowym CTA „Ihr Termin wartet auf Sie”
+   - `aboutHero`, `treatmentsHero` – hero podstron „Über uns” i „Behandlungen”
+   - zdjęcia zabiegów: pole `image` przy każdym zabiegu
+3. `node scripts/build.mjs`
 
 ## Zmiana treści / cen
 
@@ -40,7 +52,7 @@ Wszystkie stare adresy (np. `/pdofaden.html`, `/permamente haarentfernung.html`,
 - `canonical`, `hreflang="de-CH"`, Open Graph + Twitter Card z dedykowanym obrazem 1200×630
 - `sitemap.xml` (z obrazami) + `robots.txt`, plik weryfikacyjny Google Search Console zachowany
 - Wydajność: WebP + `srcset`, preload obrazu hero i fontów, lazy-loading, brak zewnętrznych bibliotek, CLS = 0
-- Lighthouse (lokalnie, mobile): SEO 100 · Best Practices 100 · Accessibility 100 · Performance ~95
+- Lighthouse (lokalnie, mobile, bez kompresji): SEO 100 · Best Practices 100 · Performance 92–97
 - Prywatność (nDSG): fonty lokalnie, brak cookies śledzących, Google Maps ładowane dopiero po kliknięciu
 
 ## Po wdrożeniu (ważne dla pozycji w Google)
