@@ -147,7 +147,7 @@ export const EN_TREATMENTS = {
     title: 'PRP Vampire Facelift Zurich – Skin & Hair | Perfect Shape',
     description: 'PRP vampire facelift in Zurich: your own plasma for glow, finer skin & against hair loss. 100% natural. From CHF 300 – book your appointment online.',
     h1: 'PRP Vampire Facelift',
-    h1Accent: 'regeneration with your own plasma',
+    h1Accent: 'with your own plasma',
     lead: 'Concentrated platelet-rich plasma (PRP) obtained from your own blood stimulates natural regeneration: more glow, finer texture, more elastic skin – completely natural and without foreign substances.',
     card: 'Your own plasma for glow, elasticity & stronger hair.',
     imageAlt: 'PRP vampire facelift in Zurich – treatment for face and scalp',
