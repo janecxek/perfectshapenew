@@ -23,10 +23,11 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
 1. Przygotuj zdjęcie (najlepiej min. 2400 px szerokości) i uruchom:
    `python3 scripts/add-image.py moje-zdjecie.jpg nazwa-zdjecia` (wymaga Pillow: `pip install Pillow`) – skrypt sam utworzy wszystkie rozmiary WebP/JPG i wpis w `imgmeta.json`.
 2. W `scripts/content.mjs` w obiekcie `HOME` zmień nazwę obrazu:
-   - `heroImage` – pełnoekranowe zdjęcie na stronie głównej (`heroPos` / `heroPosMobile` = kadrowanie, np. `'40% 50%'`)
+   - `heroImage` – pełnoekranowe zdjęcie na stronie głównej (`heroPos` / `heroPosMobile` = kadrowanie, np. `'40% 50%'`). Jeśli istnieje obraz `<nazwa>-portrait` (pionowy kadr ok. 9:16), telefony w pionie dostaną właśnie jego – dużo mniejszy plik i lepszy kadr.
    - `bandImage` – zdjęcie w sekcji „Natürlich schön”
    - `ctaImage` – zdjęcie w końcowym CTA „Ihr Termin wartet auf Sie”
    - `aboutHero`, `treatmentsHero` – hero podstron „Über uns” i „Behandlungen”
+   - zdjęcia kategorii: pole `image` w `CATEGORIES`
    - zdjęcia zabiegów: pole `image` przy każdym zabiegu
 3. `node scripts/build.mjs`
 

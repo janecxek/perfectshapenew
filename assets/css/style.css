@@ -216,7 +216,7 @@ body.menu-open { overflow: hidden; }
 .hero__media { position: absolute; inset: 0; z-index: 0; }
 .hero__media picture, .hero__media img { width: 100%; height: 100%; }
 .hero__media img { object-fit: cover; object-position: var(--pos, 50% 50%); transform: scale(1.12); animation: heroZoom 2.4s var(--ease-out) forwards; will-change: transform; }
-.hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 11, 9, .38) 0%, rgba(14, 11, 9, 0) 26%, rgba(14, 11, 9, 0) 42%, rgba(14, 11, 9, .62) 78%, rgba(14, 11, 9, .78) 100%), linear-gradient(90deg, rgba(14, 11, 9, .35), rgba(14, 11, 9, 0) 60%); }
+.hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(14, 11, 9, .38) 0%, rgba(14, 11, 9, 0) 26%, rgba(14, 11, 9, 0) 34%, rgba(14, 11, 9, .66) 70%, rgba(14, 11, 9, .82) 100%), linear-gradient(90deg, rgba(14, 11, 9, .35), rgba(14, 11, 9, 0) 60%); }
 .hero--page .hero__media::after { background: linear-gradient(180deg, rgba(14, 11, 9, .45) 0%, rgba(14, 11, 9, .25) 30%, rgba(14, 11, 9, .45) 60%, rgba(14, 11, 9, .8) 100%), linear-gradient(90deg, rgba(14, 11, 9, .35), rgba(14, 11, 9, .15) 60%, rgba(14, 11, 9, .4)); }
 .hero__parallax { position: absolute; inset: -6% 0 0; will-change: transform; }
 .hero__content { position: relative; z-index: 1; width: 100%; padding-top: calc(var(--hh) + 40px); padding-bottom: clamp(28px, 4vw, 52px); }

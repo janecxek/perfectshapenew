@@ -107,12 +107,17 @@ function pic(name, alt, { sizes = '100vw', eager = false } = {}) {
   if (!m) throw new Error('Bild fehlt: ' + name);
   const fw = Math.min(1200, m.w);
   const fh = Math.round(m.h * (fw / m.w));
-  return `<picture><source type="image/webp" srcset="${srcset(name)}" sizes="${sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}" ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
+  // Optionaler Hochformat-Ausschnitt (<name>-portrait) für Smartphones im Hochformat
+  const portrait = IMG[name + '-portrait'] ? `<source media="(orientation: portrait)" type="image/webp" srcset="${srcset(name + '-portrait')}" sizes="${PORTRAIT_SIZES}">` : '';
+  return `<picture>${portrait}<source type="image/webp" srcset="${srcset(name)}" sizes="${portrait ? '100vw' : sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}" ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const HERO_SIZES = '(orientation: portrait) 160vh, 100vw';
+const PORTRAIT_SIZES = '(max-aspect-ratio: 9/16) 57vh, 100vw';
 function preloadImg(name) {
   const m = IMG[name];
-  return `<link rel="preload" as="image" href="/assets/img/${name}-${m.widths[Math.min(2, m.widths.length - 1)]}.webp" imagesrcset="${srcset(name)}" imagesizes="${HERO_SIZES}" fetchpriority="high">`;
+  const link = (n, sizes, media) => `<link rel="preload" as="image" href="/assets/img/${n}-${IMG[n].widths[Math.min(2, IMG[n].widths.length - 1)]}.webp" imagesrcset="${srcset(n)}" imagesizes="${sizes}"${media ? ` media="${media}"` : ''} fetchpriority="high">`;
+  if (IMG[name + '-portrait']) return link(name + '-portrait', PORTRAIT_SIZES, '(orientation: portrait)') + '\n' + link(name, '100vw', '(orientation: landscape)');
+  return link(name, HERO_SIZES);
 }
 
 const ICONS = {
@@ -532,7 +537,7 @@ function buildLang(lang) {
       revEyebrow: 'Client reviews', revTitle: 'Real', revAccent: 'Experiences', stars: '5 out of 5 stars', prev: 'Previous review', next: 'Next review', google: 'All reviews on Google',
       fTitle: 'Frequent', fAccent: 'Questions', fText: 'Your question isn’t listed? Call or write to us – we’re happy to help.', fLink: 'Get in touch',
       title: 'Aesthetic & Laser Clinic Zurich | Perfect Shape', description: 'Thread lifts, lip fillers, laser hair removal & Endolift® in Zurich – at Bahnhofstrasse 94. Transparent prices, honest advice. Book your appointment online.',
-      heroAlt: 'Aesthetic facial treatment at Perfect Shape Zurich',
+      heroAlt: 'Relaxed woman in the bright Perfect Shape studio overlooking Zurich',
       gReviews: 'Google reviews', studioNav: ['Reception', 'Treatment room', 'Certificates'], studioShow: 'Show image:',
     };
     const body = `

@@ -28,11 +28,11 @@ export const SITE = {
 };
 
 export const CATEGORIES = [
-  { id: 'aesthetik', name: 'Ästhetische Medizin', short: 'Injektionen, Fäden & Regeneration', image: 'biostimulatoren-zuerich' },
-  { id: 'laser', name: 'Laserbehandlungen', short: 'Haarentfernung & Laser-Straffung', image: 'laser-haarentfernung-zuerich' },
-  { id: 'apparativ', name: 'Apparative Kosmetik', short: 'Hautbild, Poren & Kollagen', image: 'apparative-kosmetik-zuerich' },
-  { id: 'massage', name: 'Massagen', short: 'Entspannung & Körperkontur', image: 'klassische-massage-zuerich' },
-  { id: 'peeling', name: 'Fruchtsäure & Peeling', short: 'Glow & ebenmässiger Teint', image: 'fruchtsaeure-peeling-zuerich' },
+  { id: 'aesthetik', name: 'Ästhetische Medizin', short: 'Injektionen, Fäden & Regeneration', image: 'aesthetische-medizin-zuerich' },
+  { id: 'laser', name: 'Laserbehandlungen', short: 'Haarentfernung & Laser-Straffung', image: 'laserbehandlungen-zuerich' },
+  { id: 'apparativ', name: 'Apparative Kosmetik', short: 'Hautbild, Poren & Kollagen', image: 'apparative-kosmetik-behandlung-zuerich' },
+  { id: 'massage', name: 'Massagen', short: 'Entspannung & Körperkontur', image: 'massagen-zuerich' },
+  { id: 'peeling', name: 'Fruchtsäure & Peeling', short: 'Glow & ebenmässiger Teint', image: 'fruchtsaeure-peeling-behandlung-zuerich' },
 ];
 
 const STD_CONTRA_NOTE = 'Die finale Eignung wird ärztlich beurteilt.';
@@ -741,10 +741,10 @@ export const AGB = [
 
 // Bilder der Startseite – zum Austauschen einfach den Bildnamen ändern (Dateien in assets/img, siehe README)
 export const HOME = {
-  heroImage: 'apparative-kosmetik-zuerich',
-  heroAlt: 'Ästhetische Gesichtsbehandlung bei Perfect Shape Zürich',
-  heroPos: '50% 40%',
-  heroPosMobile: '38% 50%',
+  heroImage: 'aesthetik-klinik-zuerich-hero', // + automatisch 'aesthetik-klinik-zuerich-hero-portrait' für Smartphones
+  heroAlt: 'Entspannte Frau im hellen Studio von Perfect Shape mit Blick über Zürich',
+  heroPos: '50% 30%',
+  heroPosMobile: '50% 50%',
   bandImage: 'studio-perfect-shape-zuerich-empfang',
   bandAlt: 'Studio von Perfect Shape an der Bahnhofstrasse 94 in Zürich',
   ctaImage: 'rf-needling-zuerich',

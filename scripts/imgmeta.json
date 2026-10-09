@@ -142,19 +142,6 @@
   ],
   "ratio": 0.6666666666666666
  },
- "apparative-kosmetik-zuerich": {
-  "w": 5120,
-  "h": 3414,
-  "widths": [
-   480,
-   800,
-   1200,
-   1600,
-   2000,
-   2560
-  ],
-  "ratio": 0.666796875
- },
  "aesthetik-lasermedizin-zuerich": {
   "w": 2800,
   "h": 1964,
@@ -263,5 +250,84 @@
  "logo": {
   "w": 400,
   "h": 78
+ },
+ "aesthetische-medizin-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "laserbehandlungen-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "apparative-kosmetik-behandlung-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "massagen-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "fruchtsaeure-peeling-behandlung-zuerich": {
+  "w": 1536,
+  "h": 1024,
+  "widths": [
+   480,
+   800,
+   1200,
+   1536
+  ],
+  "ratio": 0.6666666666666666
+ },
+ "aesthetik-klinik-zuerich-hero": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799
+ },
+ "aesthetik-klinik-zuerich-hero-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
  }
 }
