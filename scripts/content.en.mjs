@@ -441,6 +441,9 @@ export const EN_TEAM = [
 export const EN_REVIEW_TAGS = ['Lip enhancement with hyaluronic acid', 'Regular client for over 3 years'];
 
 export const EN_HOME_FAQ = [
+  ['Will the result look natural?', 'Yes – that is our standard. We work in measured doses tailored to you, and we honestly advise against a treatment if it doesn’t suit you. The goal is for you to look fresher – not “done”.'],
+  ['Is the treatment painful?', 'Most treatments are well tolerated. Where useful, we use numbing cream or cooling. Beforehand, we explain exactly what you will feel.'],
+  ['Can I go straight back to my day after treatment?', 'For many treatments, yes – immediately or after a few hours. Depending on the method, mild redness or swelling may occur and usually fades within a few days. Details are on each treatment page.'],
   ['Where is Perfect Shape Zurich located?', 'Our studio is at Bahnhofstrasse 94 (2nd floor), 8001 Zurich – just a few minutes’ walk from Zurich main station (Hauptbahnhof) and easy to reach by tram, train or on foot.'],
   ['How can I book an appointment?', 'Fastest online – 24/7 via our booking system. You can also reach us by phone at +41 76 608 61 61, via WhatsApp or by email.'],
   ['Who performs the treatments?', 'Diagnosis and treatments are performed by certified physicians and qualified specialists – including Dr. med. Roya Jeyrani and Agnieszka Jaggy, a certified laser safety officer.'],

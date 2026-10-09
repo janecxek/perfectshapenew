@@ -56,7 +56,7 @@ const STR = {
     legal: [['agb', 'AGB'], ['privacy', 'Datenschutz'], ['imprint', 'Impressum']],
     modalTitle: 'Termin', modalAccent: 'online buchen', modalExt: 'In neuem Tab öffnen', close: 'Schliessen', modalIframe: 'Online-Terminbuchung Perfect Shape Zürich', modalFoot: 'Probleme mit der Buchung? Rufen Sie uns an:',
     crumbs: 'Breadcrumb', more: 'Mehr erfahren',
-    visitEyebrow: 'Kontakt &amp; Anfahrt', visitTitle: 'In Kontakt', visitAccent: 'kommen', address: 'Adresse', phone: 'Telefon', email: 'E-Mail', appointments: 'Termine', appointmentsText: 'Nach Vereinbarung – online rund um die Uhr', whatsappText: 'Nachricht schreiben', route: 'Route planen',
+    visitEyebrow: 'Kontakt &amp; Anfahrt', visitTitle: 'In Kontakt', visitAccent: 'kommen', address: 'Adresse', phone: 'Telefon', email: 'E-Mail', appointments: 'Termine', hours: 'Öffnungszeiten', appointmentsText: 'Nach Vereinbarung – online rund um die Uhr', whatsappText: 'Nachricht schreiben', route: 'Route planen',
     mapLoad: 'Karte laden', mapNote: 'Beim Laden der Karte werden Daten an Google übertragen.', privacy: 'Datenschutz', mapTitle: 'Google Maps – Perfect Shape Zürich, Bahnhofstrasse 94', mapAria: 'Karte',
     langLabel: 'Sprache wählen',
   },
@@ -72,7 +72,7 @@ const STR = {
     legal: [['agb', 'Terms (DE)'], ['privacy', 'Privacy (DE)'], ['imprint', 'Imprint (DE)']],
     modalTitle: 'Book', modalAccent: 'online', modalExt: 'Open in new tab', close: 'Close', modalIframe: 'Online booking Perfect Shape Zurich', modalFoot: 'Trouble booking? Give us a call:',
     crumbs: 'Breadcrumb', more: 'Learn more',
-    visitEyebrow: 'Contact &amp; directions', visitTitle: 'Get in', visitAccent: 'touch', address: 'Address', phone: 'Phone', email: 'Email', appointments: 'Appointments', appointmentsText: 'By appointment – online booking around the clock', whatsappText: 'Send a message', route: 'Get directions',
+    visitEyebrow: 'Contact &amp; directions', visitTitle: 'Get in', visitAccent: 'touch', address: 'Address', phone: 'Phone', email: 'Email', appointments: 'Appointments', hours: 'Opening hours', appointmentsText: 'By appointment – online booking around the clock', whatsappText: 'Send a message', route: 'Get directions',
     mapLoad: 'Load map', mapNote: 'Loading the map transfers data to Google.', privacy: 'Privacy', mapTitle: 'Google Maps – Perfect Shape Zurich, Bahnhofstrasse 94', mapAria: 'Map',
     langLabel: 'Choose language',
   },
@@ -159,6 +159,7 @@ const businessSchema = () => ({
   telephone: '+41766086161',
   email: SITE.email,
   priceRange: 'CHF 40 – CHF 1800',
+  ...(SITE.hours.length ? { openingHoursSpecification: SITE.hours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days.map((d) => `https://schema.org/${{ Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday', Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday' }[d]}`), opens: h.opens, closes: h.closes })) } : {}),
   currenciesAccepted: 'CHF',
   paymentAccepted: LANG === 'de' ? 'Bargeld, Kreditkarte, TWINT' : 'Cash, credit card, TWINT',
   address: { '@type': 'PostalAddress', streetAddress: 'Bahnhofstrasse 94, 2. Etage', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
@@ -465,7 +466,7 @@ function visitBlock() {
         <li><b>${S.phone}</b><a href="${SITE.phoneHref}">${esc(SITE.phone)}</a></li>
         <li><b>WhatsApp</b><a href="${SITE.whatsapp}" target="_blank" rel="noopener">${S.whatsappText}</a></li>
         <li><b>${S.email}</b><a href="mailto:${SITE.email}">${esc(SITE.email)}</a></li>
-        <li><b>${S.appointments}</b><span>${S.appointmentsText}</span></li>
+        ${SITE.hours.length ? `<li><b>${S.hours}</b><span>${SITE.hours.map((h) => `${esc(h[LANG])} ${h.opens}–${h.closes}`).join('<br>')}</span></li>` : `<li><b>${S.appointments}</b><span>${S.appointmentsText}</span></li>`}
       </ul>
       <div class="visit__ctas" data-reveal>${bookBtn()}<a class="btn btn--line" href="${SITE.route}" target="_blank" rel="noopener"><span>${S.route}</span>${icon('arrow')}</a></div>
     </div>
@@ -489,13 +490,13 @@ function buildLang(lang) {
   const CAT = catById();
   const TR = D.TREATMENTS;
 
-  /* Startseite – Reihenfolge wie auf der ursprünglichen Website */
+  /* Startseite – Reihenfolge nach Entscheidungsweg: Angebot → Vertrauen → Ablauf → Einwände → Abschluss */
   {
     const H = de ? {
       eyebrow: 'Ästhetik &amp; Lasermedizin · Bahnhofstrasse 94, Zürich', l1: 'Ästhetik &amp;', l2: 'Lasermedizin', l3: 'in Zürich',
-      lead: 'Fadenlifting, Hyaluron, Laser-Haarentfernung &amp; Endolift® – präzise durchgeführt von geprüften Ärzten und Spezialistinnen. Für Ergebnisse, die natürlich wirken.', second: 'Mehr erfahren',
+      lead: 'Fadenlifting, Hyaluron, Laser-Haarentfernung &amp; Endolift® – präzise durchgeführt von geprüften Ärzten und Spezialistinnen. Für Ergebnisse, die natürlich wirken.', second: 'Behandlungen ansehen',
       aEyebrow: 'Perfect Shape Zürich', aTitle: 'Das Beauty Studio', aAccent: 'auf höchstem Niveau',
-      aText: 'Wohlfühlen in Ihrer Haut – das ist das Bestreben bei Perfect Shape. In unserem Studio für Ästhetik und Lasermedizin werden Diagnostik und Behandlung von geprüften Ärzten und Spezialistinnen durchgeführt, unter Einsatz innovativster Lasertechnologien und qualitativ hochwertigster Materialien.',
+      aText: 'Wohlfühlen in Ihrer Haut – darum geht es bei Perfect Shape. Diagnostik und Behandlung liegen bei geprüften Ärzten und Spezialistinnen, mit modernster Lasertechnologie und hochwertigsten Materialien.',
       aLink: 'Über uns', aAlt: 'Natürliches Facelifting – Ästhetik &amp; Lasermedizin bei Perfect Shape Zürich',
       facts: [['Ärztlich', 'Geprüfte Ärzte und Spezialistinnen'], ['13', 'Behandlungen unter einem Dach'], ['Zentral', 'Bahnhofstrasse 94, nahe Hauptbahnhof']],
       brands: 'Premium-Marken &amp; Technologien',
@@ -508,11 +509,18 @@ function buildLang(lang) {
       fTitle: 'Häufige', fAccent: 'Fragen', fText: 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns – wir helfen gerne.', fLink: 'Kontakt aufnehmen',
       title: 'Ästhetik & Lasermedizin Zürich | Perfect Shape', description: 'Fadenlifting, Hyaluron, Laser-Haarentfernung & Endolift® in Zürich – ärztlich geführt an der Bahnhofstrasse 94. Transparente Preise. Jetzt Termin buchen.',
       heroAlt: HOME.heroAlt,
+      trustAria: 'Darum Perfect Shape', gReviews: 'Google-Bewertungen', gRead: 'Bewertungen ansehen',
+      trust: [['Ärztlich geführt', 'Geprüfte Ärzte &amp; Spezialistinnen'], ['13 Behandlungen', 'Ästhetik, Laser &amp; Haut'], ['Bahnhofstrasse 94', 'Wenige Minuten vom HB']],
+      freeTrust: ['Kostenlose Erstberatung', 'Unverbindlich &amp; ehrlich'],
+      teamSub: 'Ihre Expertinnen',
+      pEyebrow: 'So läuft es ab', pTitle: 'Ihr erster', pAccent: 'Besuch', pText: 'Kein Druck, keine Überraschungen: Sie wissen von Anfang an, was Sie erwartet – und was es kostet.',
+      steps: [['Persönliche Beratung', 'Wir hören zu, analysieren Ihre Haut und sagen ehrlich, was sinnvoll ist – mit klaren Kosten.'], ['Behandlung', 'Durch Ärzte und Spezialistinnen – sorgfältig, hygienisch und so schonend wie möglich.'], ['Nachsorge', 'Sie erhalten klare Pflegetipps und bleiben auch nach dem Termin mit uns in Kontakt.']],
+      freeStep: 'Kostenlose Erstberatung',
     } : {
       eyebrow: 'Aesthetics &amp; Laser Medicine · Bahnhofstrasse 94, Zurich', l1: 'Aesthetic &amp;', l2: 'Laser Clinic', l3: 'in Zurich',
-      lead: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', second: 'Learn more',
+      lead: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', second: 'View treatments',
       aEyebrow: 'Perfect Shape Zurich', aTitle: 'The Beauty Studio', aAccent: 'at the highest level',
-      aText: 'Feeling good in your skin – that is what Perfect Shape is all about. In our studio for aesthetics and laser medicine, diagnosis and treatment are carried out by certified physicians and specialists, using the most innovative laser technologies and the highest-quality materials.',
+      aText: 'Feeling good in your skin – that is what Perfect Shape is about. Diagnosis and treatment are in the hands of certified physicians and specialists, using state-of-the-art laser technology and the finest materials.',
       aLink: 'About us', aAlt: 'Natural facelift – aesthetics &amp; laser medicine at Perfect Shape Zurich',
       facts: [['Medical', 'Certified physicians and specialists'], ['13', 'Treatments under one roof'], ['Central', 'Bahnhofstrasse 94, near the main station']],
       brands: 'Premium brands &amp; technologies',
@@ -525,7 +533,17 @@ function buildLang(lang) {
       fTitle: 'Frequent', fAccent: 'Questions', fText: 'Your question isn’t listed? Call or write to us – we’re happy to help.', fLink: 'Get in touch',
       title: 'Aesthetic & Laser Clinic Zurich | Perfect Shape', description: 'Thread lifts, lip fillers, laser hair removal & Endolift® in Zurich – at Bahnhofstrasse 94. Transparent prices, honest advice. Book your appointment online.',
       heroAlt: 'Aesthetic facial treatment at Perfect Shape Zurich',
+      trustAria: 'Why Perfect Shape', gReviews: 'Google reviews', gRead: 'Read our reviews',
+      trust: [['Physician-led', 'Certified physicians &amp; specialists'], ['13 treatments', 'Aesthetics, laser &amp; skin'], ['Bahnhofstrasse 94', 'Near the main station']],
+      freeTrust: ['Free consultation', 'No obligation, honest advice'],
+      teamSub: 'Your experts',
+      pEyebrow: 'How it works', pTitle: 'Your first', pAccent: 'Visit', pText: 'No pressure, no surprises: from the start you know what to expect – and what it costs.',
+      steps: [['Personal consultation', 'We listen, analyse your skin and goals and tell you honestly what makes sense – with transparent costs.'], ['Treatment', 'By physicians and specialists – careful, hygienic and as gentle as possible.'], ['Aftercare', 'You get clear aftercare advice and stay in touch with us after your appointment.']],
+      freeStep: 'Free consultation',
     };
+    const rating = SITE.googleRating && SITE.googleReviewCount;
+    const trustItems = SITE.freeConsultation ? [H.freeTrust, ...H.trust.filter((_, i) => i !== 1)] : H.trust;
+    const steps = SITE.freeConsultation ? [[H.freeStep, H.steps[0][1]], ...H.steps.slice(1)] : H.steps;
     const body = `
 <section class="hero" aria-labelledby="hero-title">
   ${heroMedia(HOME.heroImage, H.heroAlt, HOME.heroPos, HOME.heroPosMobile)}
@@ -535,24 +553,19 @@ function buildLang(lang) {
       <h1 class="title title--xl title--light hero__title" id="hero-title"><span class="ln"><span>${H.l1}</span></span><span class="ln"><span>${H.l2}</span></span><span class="ln"><span><em>${H.l3}</em></span></span></h1>
       <div class="hero__side">
         <p class="fade-up d1">${H.lead}</p>
-        <div class="hero__ctas fade-up d2">${bookBtn(S.book, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="#perfect-shape"><span>${H.second}</span></a></div>
+        <div class="hero__ctas fade-up d2">${bookBtn(S.book, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="#behandlungen"><span>${H.second}</span></a></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="section" id="perfect-shape" aria-labelledby="about-title">
-  <div class="container about">
-    <figure class="about__img" data-reveal="img">${pic('aesthetik-lasermedizin-zuerich', H.aAlt.replace(/&amp;/g, '&'), { sizes: '(max-width: 900px) 92vw, 44vw' })}</figure>
-    <div class="about__text">
-      <p class="eyebrow" data-reveal>${H.aEyebrow}</p>
-      ${title(H.aTitle, H.aAccent, { id: 'about-title' })}
-      <p class="lead" data-reveal>${H.aText}</p>
-      <p data-reveal><a class="link" href="${P('about')}">${H.aLink} ${icon('right')}</a></p>
-      <ul class="facts facts--compact">${H.facts.map(([b, x], i) => `<li data-reveal${i ? ` style="--d:${i * 120}ms"` : ''}><b>${b}</b><span>${x}</span></li>`).join('')}</ul>
-    </div>
+<section class="trust" aria-label="${H.trustAria}">
+  <div class="container">
+    <ul class="trust__in">
+      <li data-reveal><a class="trust__g" href="${SITE.googleMaps}" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">${icon('star').repeat(5)}</span><b>${rating ? `${String(SITE.googleRating).replace('.', de ? ',' : '.')} / 5` : 'Google'}</b><span>${rating ? `${SITE.googleReviewCount} ${H.gReviews}` : H.gRead}</span></a></li>
+      ${trustItems.map(([b, x], i) => `<li data-reveal style="--d:${(i + 1) * 90}ms"><b>${b}</b><span>${x}</span></li>`).join('')}
+    </ul>
   </div>
-  <div class="container">${brands(H.brands)}</div>
 </section>
 
 <section class="section section--alt" id="behandlungen" aria-labelledby="treat-title">
@@ -566,37 +579,18 @@ function buildLang(lang) {
   </div>
 </section>
 
-<section class="section" aria-labelledby="studio-title">
-  <div class="container">
-    <div class="head">
-      <div><p class="eyebrow" data-reveal>${H.sEyebrow}</p>${title(H.sTitle, H.sAccent, { id: 'studio-title' })}</div>
-      <div class="head__text" data-reveal><p>${H.sText}</p><a class="link" href="${SITE.route}" target="_blank" rel="noopener">${H.route} ${icon('arrow')}</a></div>
-    </div>
-    <div class="gallery">
-      <figure class="gallery__a" data-reveal="img">${pic('studio-perfect-shape-zuerich-empfang', H.g[0], { sizes: '(max-width: 900px) 92vw, 56vw' })}</figure>
-      <figure class="gallery__b" data-reveal="img">${pic('studio-perfect-shape-zuerich-behandlungsraum', H.g[1], { sizes: '(max-width: 900px) 92vw, 36vw' })}</figure>
-      <figure class="gallery__c" data-reveal="img">${pic('studio-perfect-shape-zuerich-zertifikate', H.g[2], { sizes: '(max-width: 900px) 92vw, 36vw' })}</figure>
+<section class="section" id="perfect-shape" aria-labelledby="about-title">
+  <div class="container about">
+    <figure class="about__img" data-reveal="img">${pic('studio-perfect-shape-zuerich-empfang', H.g[0], { sizes: '(max-width: 900px) 92vw, 44vw' })}</figure>
+    <div class="about__text">
+      <p class="eyebrow" data-reveal>${H.aEyebrow}</p>
+      ${title(H.aTitle, H.aAccent, { id: 'about-title' })}
+      <p class="lead" data-reveal>${H.aText}</p>
+      <p data-reveal><a class="link" href="${P('about')}">${H.aLink} ${icon('right')}</a></p>
     </div>
   </div>
-</section>
-
-<section class="band band--cta" aria-labelledby="ready-title">
-  <div class="band__media" data-parallax>${pic(HOME.ctaImage, H.cAlt)}</div>
-  <div class="container band__in">
-    <p class="eyebrow eyebrow--light" data-reveal>${H.cEyebrow}</p>
-    <h2 class="title title--lg title--light" id="ready-title" data-reveal>${esc(H.cTitle)} <em>${esc(H.cAccent)}</em></h2>
-    <p data-reveal>${H.cText}</p>
-    <div class="hero__ctas" data-reveal>${bookBtn(S.bookNow, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="${SITE.phoneHref}">${icon('phone')}<span>${esc(SITE.phone)}</span></a></div>
-    <p class="band__small" data-reveal>${S.ctaSmall.map((x) => `<span>${esc(x)}</span>`).join('')}</p>
-  </div>
-</section>
-
-<section class="section" aria-labelledby="team-title">
-  <div class="container">
-    <div class="head">
-      <div><p class="eyebrow" data-reveal>${H.teamEyebrow}</p>${title(H.teamTitle, H.teamAccent, { id: 'team-title' })}</div>
-      <div class="head__text" data-reveal><p>${H.teamText}</p><a class="link" href="${P('about')}">${H.teamLink} ${icon('right')}</a></div>
-    </div>
+  <div class="container team-wrap">
+    <p class="eyebrow" data-reveal>${H.teamSub}</p>
     <div class="team">
       ${D.TEAM.map((p) => `<a class="member" href="${P('about')}" data-reveal>
         <div class="member__img" data-reveal="img">${pic(p.image, p.alt, { sizes: '(max-width: 900px) 48vw, 44vw' })}</div>
@@ -628,7 +622,19 @@ function buildLang(lang) {
   </div>
 </section>
 
-<section class="section" aria-labelledby="faq-title">
+<section class="section" aria-labelledby="process-title">
+  <div class="container">
+    <div class="head">
+      <div><p class="eyebrow" data-reveal>${H.pEyebrow}</p>${title(H.pTitle, H.pAccent, { id: 'process-title' })}</div>
+      <div class="head__text" data-reveal><p>${H.pText}</p></div>
+    </div>
+    <ol class="steps steps--3">
+      ${steps.map(([h, d], i) => `<li data-reveal style="--d:${i * 100}ms"><span class="steps__n">0${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></li>`).join('')}
+    </ol>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="faq-title">
   <div class="container faq-grid">
     <div class="faq-grid__head">
       <p class="eyebrow" data-reveal>FAQ</p>
@@ -637,6 +643,17 @@ function buildLang(lang) {
       <p data-reveal><a class="link" href="${P('contact')}">${H.fLink} ${icon('right')}</a></p>
     </div>
     ${faqList(D.HOME_FAQ)}
+  </div>
+</section>
+
+<section class="band band--cta" aria-labelledby="ready-title">
+  <div class="band__media" data-parallax>${pic(HOME.ctaImage, H.cAlt)}</div>
+  <div class="container band__in">
+    <p class="eyebrow eyebrow--light" data-reveal>${H.cEyebrow}</p>
+    <h2 class="title title--lg title--light" id="ready-title" data-reveal>${esc(H.cTitle)} <em>${esc(H.cAccent)}</em></h2>
+    <p data-reveal>${H.cText}</p>
+    <div class="hero__ctas" data-reveal>${bookBtn(S.bookNow, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="${SITE.phoneHref}">${icon('phone')}<span>${esc(SITE.phone)}</span></a></div>
+    <p class="band__small" data-reveal>${S.ctaSmall.map((x) => `<span>${esc(x)}</span>`).join('')}</p>
   </div>
 </section>
 

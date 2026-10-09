@@ -70,9 +70,16 @@ Wszystkie stare adresy (np. `/pdofaden.html`, `/permamente haarentfernung.html`,
 2. **Profil Firmy w Google (Google Business Profile)** → ustawić link do strony, kategorie (np. „Kosmetikstudio”, „Klinik für ästhetische Chirurgie/Medizin”), godziny otwarcia, zdjęcia, regularnie zbierać opinie – to najważniejszy czynnik dla wyników lokalnych („… Zürich”).
 3. Sprawdzić dane strukturalne: https://search.google.com/test/rich-results
 
-## Do uzupełnienia przez klientkę
+## Strona główna – kolejność (psychologia decyzji)
 
-- **Godziny otwarcia** – nie było ich na starej stronie (teraz: „Termine nach Vereinbarung”). Po uzupełnieniu warto dodać `openingHoursSpecification` w `businessSchema()` w `build.mjs`.
+Hero → pasek zaufania (Google, ärztlich geführt, 13 zabiegów, adres) → kategorie zabiegów → o nas + zespół → opinie → „Ihr erster Besuch” (3 kroki) → FAQ (najpierw obiekcje: naturalny efekt, ból, regeneracja) → CTA → kontakt.
+
+## Do uzupełnienia przez klientkę (w `SITE` w `scripts/content.mjs`)
+
+- **Ocena Google** – `googleRating` (np. `4.9`) i `googleReviewCount` (np. `87`). Dopóki puste, pasek zaufania pokazuje tylko gwiazdki i link do opinii.
+- **Godziny otwarcia** – `hours` (przykład w komentarzu). Pojawią się w sekcji kontaktu i w danych strukturalnych (`openingHoursSpecification`); dopóki puste: „Nach Vereinbarung”.
+- **Bezpłatna konsultacja** – `freeConsultation: true` dodaje „Kostenlose Erstberatung” w pasku zaufania i w krokach wizyty.
+- **Więcej opinii** – kolejne wpisy w `REVIEWS` (najlepiej prawdziwe opinie z Google, za zgodą).
 - **Impressum** – nazwa prawna firmy / właścicielka i ewentualny numer UID (CHE-…).
 - **WhatsApp** – przyciski prowadzą do `wa.me/41766086161`; potwierdzić, że numer ma WhatsApp.
 - **Formularz kontaktowy** działa przez `mailto:` (otwiera program pocztowy). Jeśli formularz ma wysyłać wiadomości bezpośrednio, można podłączyć np. Formspree/Web3Forms.

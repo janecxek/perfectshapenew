@@ -19,6 +19,12 @@ export const SITE = {
   facebook: 'https://www.facebook.com/perfectshapezurich',
   googleMaps: 'https://www.google.com/maps?cid=15609887584479979352',
   route: 'https://www.google.com/maps/dir/?api=1&destination=Perfect+Shape+Bahnhofstrasse+94+8001+Z%C3%BCrich',
+  // ▼ Von der Kundin zu ergänzen – leer/null lassen = wird nicht angezeigt
+  googleRating: null, // z. B. 4.9 (Durchschnitt laut Google-Profil)
+  googleReviewCount: null, // z. B. 87 (Anzahl Google-Bewertungen)
+  freeConsultation: false, // true = „Kostenlose Erstberatung“ wird auf der Startseite hervorgehoben
+  // Öffnungszeiten, z. B. { days: ['Mo', 'Tu', 'We', 'Th', 'Fr'], de: 'Mo–Fr', en: 'Mon–Fri', opens: '09:00', closes: '19:00' }
+  hours: [],
   mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.843490410852!2d8.537066977004203!3d47.375973071169746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a069d042a6d%3A0xd8a1760da8b5a758!2sPerfect%20Shape!5e0!3m2!1sde!2sch!4v1758100930328!5m2!1sde!2sch',
 };
 
@@ -711,6 +717,9 @@ export const REVIEWS = [
 ];
 
 export const HOME_FAQ = [
+  ['Sieht das Ergebnis natürlich aus?', 'Ja – das ist unser Anspruch. Wir arbeiten dosiert und typgerecht und raten ehrlich ab, wenn eine Behandlung nicht zu Ihnen passt. Ziel ist, dass Sie frischer aussehen – nicht „gemacht“.'],
+  ['Ist die Behandlung schmerzhaft?', 'Die meisten Behandlungen sind gut verträglich. Wo sinnvoll, verwenden wir eine Betäubungscreme oder Kühlung. Vorab besprechen wir genau, was Sie spüren werden.'],
+  ['Bin ich nach der Behandlung direkt wieder gesellschaftsfähig?', 'Bei vielen Behandlungen ja – sofort oder nach wenigen Stunden. Leichte Rötungen oder Schwellungen sind je nach Methode möglich und klingen meist innert weniger Tage ab. Details finden Sie auf der jeweiligen Behandlungsseite.'],
   ['Wo befindet sich Perfect Shape Zürich?', 'Unser Studio befindet sich an der Bahnhofstrasse 94 (2. Etage) in 8001 Zürich – nur wenige Gehminuten vom Hauptbahnhof Zürich entfernt und bestens mit Tram, Bahn und zu Fuss erreichbar.'],
   ['Wie kann ich einen Termin buchen?', 'Am schnellsten online – rund um die Uhr über unser Buchungssystem. Alternativ erreichen Sie uns telefonisch unter +41 76 608 61 61, per WhatsApp oder per E-Mail.'],
   ['Wer führt die Behandlungen durch?', 'Diagnostik und Behandlungen werden von geprüften Ärzten und qualifizierten Spezialistinnen durchgeführt – darunter Dr. med. Roya Jeyrani und Agnieszka Jaggy, zertifizierte Laserschutzbeauftragte.'],
