@@ -30,12 +30,12 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
    - zdjęcia zabiegów: pole `image` przy każdym zabiegu
 3. `node scripts/build.mjs`
 
-## Wersja angielska
+## Wersja angielska (na tej samej stronie)
 
-- Niemiecki (de-CH) jest językiem głównym (adresy w katalogu głównym), angielski jest pod `/en/...` z angielskimi adresami pod SEO (np. `/en/thread-lift-zurich`).
+- Każda strona zawiera obie wersje językowe – niemiecką (de-CH, domyślna) i angielską. Przełącznik DE/EN w nagłówku zmienia język **na miejscu**, bez przeładowania i bez osobnych adresów. Wybór jest zapamiętywany (localStorage) na kolejnych podstronach.
+- Link bezpośrednio do wersji angielskiej: dowolny adres + `?lang=en` (np. `https://perfectshape-zuerich.ch/?lang=en`).
 - Treści EN: `scripts/content.en.mjs` (klucz = niemiecki slug zabiegu, ceny liczbowe brane automatycznie z wersji DE). Teksty interfejsu i strony głównej: `STR` i bloki `de ? … : …` w `scripts/build.mjs`.
-- Każda strona ma `hreflang` (de-CH / en / x-default), sitemap zawiera alternatywy językowe. Przełącznik DE/EN prowadzi do odpowiednika aktualnej strony.
-- AGB, Datenschutz i Impressum są tylko po niemiecku (wersja prawnie wiążąca) – w EN stopka linkuje do nich z dopiskiem „(DE)”.
+- Google indeksuje wersję niemiecką (główną). AGB, Datenschutz i Impressum mają treść tylko po niemiecku (wersja prawnie wiążąca).
 
 ## Zmiana treści / cen
 

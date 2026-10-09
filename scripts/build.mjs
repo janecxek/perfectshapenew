@@ -1,6 +1,6 @@
 // Statischer Site-Generator für perfectshape-zuerich.ch (Deutsch = Hauptsprache, Englisch unter /en)
 // Aufruf: node scripts/build.mjs  → schreibt alle HTML-Seiten, sitemap.xml und robots.txt ins Projekt-Root.
-import { writeFileSync, readFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, readFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as DE from './content.mjs';
@@ -31,16 +31,16 @@ DATA.de.TREATMENTS = DATA.de.TREATMENTS.map((t) => ({ ...t, deSlug: t.slug }));
 
 // Seiten-Schlüssel → Pfade je Sprache (für hreflang & Sprachumschalter)
 const PATHS = {
-  home: { de: '/', en: '/en' },
-  treatments: { de: '/behandlungen', en: '/en/treatments' },
-  prices: { de: '/preise', en: '/en/prices' },
-  about: { de: '/ueber-uns', en: '/en/about' },
-  contact: { de: '/kontakt', en: '/en/contact' },
+  home: { de: '/' },
+  treatments: { de: '/behandlungen' },
+  prices: { de: '/preise' },
+  about: { de: '/ueber-uns' },
+  contact: { de: '/kontakt' },
   agb: { de: '/agb' },
   privacy: { de: '/datenschutz' },
   imprint: { de: '/impressum' },
 };
-for (const t of DE.TREATMENTS) PATHS['t:' + t.slug] = { de: '/' + t.slug, en: '/en/' + EN_TREATMENTS[t.slug].slug };
+for (const t of DE.TREATMENTS) PATHS['t:' + t.slug] = { de: '/' + t.slug };
 
 /* ---------- UI-Texte ---------- */
 const STR = {
@@ -82,7 +82,7 @@ const STR = {
 let LANG = 'de';
 let S = STR.de;
 let D = DATA.de;
-const P = (key, lang = LANG) => (PATHS[key] && (PATHS[key][lang] || PATHS[key].de)) || '/';
+const P = (key) => (PATHS[key] && PATHS[key].de) || '/'; // eine URL pro Seite – beide Sprachen auf derselben Seite
 const tPath = (t) => P('t:' + t.deSlug);
 
 /* ---------- Helpers ---------- */
@@ -188,13 +188,9 @@ const faqSchema = (faq) => ({ '@context': 'https://schema.org', '@type': 'FAQPag
 /* ---------- Layout ---------- */
 const logoImgs = () => `<img class="logo__color" src="/assets/img/logo.svg" alt="Perfect Shape Zürich" width="${LOGO_W}" height="${LOGO_H}"><img class="logo__white" src="/assets/img/logo-white.svg" alt="" width="${LOGO_W}" height="${LOGO_H}" aria-hidden="true">`;
 
-function langSwitch(key) {
-  const has = PATHS[key] && PATHS[key].en;
-  const item = (l, label) => {
-    const href = has ? P(key, l) : P('home', l);
-    return `<a href="${href}" hreflang="${STR[l].htmlLang}" lang="${STR[l].htmlLang}"${l === LANG ? ' aria-current="true"' : ''} data-lang="${l}">${label}</a>`;
-  };
-  return `<nav class="lang" data-active="${LANG}" aria-label="${S.langLabel}">${item('de', 'DE')}${item('en', 'EN')}</nav>`;
+function langSwitch() {
+  const item = (l, label) => `<button type="button" lang="${STR[l].htmlLang}" data-set-lang="${l}" aria-pressed="${l === LANG}">${label}</button>`;
+  return `<div class="lang" role="group" data-active="${LANG}" aria-label="${S.langLabel}">${item('de', 'DE')}${item('en', 'EN')}</div>`;
 }
 
 function header(active, key) {
@@ -218,7 +214,7 @@ function header(active, key) {
       </ul>
     </nav>
     <div class="hdr__actions">
-      ${langSwitch(key)}
+      ${langSwitch()}
       <a class="hdr__phone" href="${SITE.phoneHref}" aria-label="${S.call}: ${esc(SITE.phone)}">${icon('phone')}<span>${esc(SITE.phone)}</span></a>
       ${bookBtn(S.book, 'btn btn--dark hdr__cta')}
       <button class="burger" type="button" aria-label="${S.menuOpen}" data-label-open="${S.menuOpen}" data-label-close="${S.menuClose}" aria-expanded="false" aria-controls="mnav"><span></span><span></span></button>
@@ -313,59 +309,70 @@ function footer({ cta = true } = {}) {
 }
 
 function layout({ key, title: pageTitle, description, active = '', body, schemas = [], ogImage = '/assets/img/og-image.jpg', preload = '', noindex = false, hasHero = false, cta = true }) {
-  const path = P(key);
-  const canonical = abs(path);
-  const alts = PATHS[key] && PATHS[key].en
-    ? `<link rel="alternate" hreflang="de-CH" href="${abs(PATHS[key].de)}">\n<link rel="alternate" hreflang="en" href="${abs(PATHS[key].en)}">\n<link rel="alternate" hreflang="x-default" href="${abs(PATHS[key].de)}">`
-    : '';
-  const ld = [websiteSchema(), businessSchema(), ...schemas].map((s) => `<script type="application/ld+json">${JSON.stringify(s)}</script>`).join('\n');
+  return {
+    title: pageTitle, description, ogImage, preload, noindex, hasHero,
+    ld: [websiteSchema(), businessSchema(), ...schemas].map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n'),
+    inner: `${header(active, key)}\n<main id="main">\n${body}\n</main>\n${footer({ cta })}`,
+  };
+}
+
+// IDs der englischen Ebene eindeutig machen (beide Sprachen liegen im selben Dokument)
+function suffixIds(html) {
+  return html
+    .replace(/\sid="([^"]+)"/g, ' id="$1-en"')
+    .replace(/\s(aria-labelledby|aria-controls|for)="([^"]+)"/g, ' $1="$2-en"')
+    .replace(/href="#([^"]+)"/g, 'href="#$1-en"');
+}
+
+function compose(key, de, en) {
+  const canonical = abs(P(key));
   return `<!doctype html>
-<html lang="${S.htmlLang}">
+<html lang="de-CH" data-title-de="${esc(de.title)}" data-title-en="${esc(en.title)}" data-desc-de="${esc(de.description)}" data-desc-en="${esc(en.description)}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>${esc(pageTitle)}</title>
-<meta name="description" content="${esc(description)}">
-${noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">'}
+<script>(function(){var d=document.documentElement;d.classList.add('js');try{var q=new URLSearchParams(location.search).get('lang');if(q==='en'||q==='de')localStorage.setItem('ps-lang',q);if(localStorage.getItem('ps-lang')==='en'){d.classList.add('lang-en');d.lang='en';}}catch(e){}})()</script>
+<title>${esc(de.title)}</title>
+<meta name="description" content="${esc(de.description)}">
+${de.noindex ? '<meta name="robots" content="noindex, follow">' : '<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">'}
 <link rel="canonical" href="${canonical}">
-${alts}
 <meta name="theme-color" content="#faf8f5">
 <meta name="format-detection" content="telephone=no">
 <meta name="geo.region" content="CH-ZH">
 <meta name="geo.placename" content="Zürich">
 <meta property="og:type" content="website">
-<meta property="og:locale" content="${S.ogLocale}">
-<meta property="og:locale:alternate" content="${LANG === 'de' ? 'en_GB' : 'de_CH'}">
+<meta property="og:locale" content="de_CH">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:site_name" content="${esc(SITE.name)}">
-<meta property="og:title" content="${esc(pageTitle)}">
-<meta property="og:description" content="${esc(description)}">
+<meta property="og:title" content="${esc(de.title)}">
+<meta property="og:description" content="${esc(de.description)}">
 <meta property="og:url" content="${canonical}">
-<meta property="og:image" content="${SITE.url}${ogImage}">
+<meta property="og:image" content="${SITE.url}${de.ogImage}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="${esc(pageTitle)}">
-<meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${SITE.url}${ogImage}">
+<meta name="twitter:title" content="${esc(de.title)}">
+<meta name="twitter:description" content="${esc(de.description)}">
+<meta name="twitter:image" content="${SITE.url}${de.ogImage}">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/inter-tight-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/instrument-serif-italic.woff2" as="font" type="font/woff2" crossorigin>
-${preload}
+${de.preload}
 <link rel="stylesheet" href="/assets/css/style.min.css?v=${VERSION}">
-<script>document.documentElement.classList.add('js')</script>
 <script src="/assets/js/lenis.min.js?v=${VERSION}" defer></script>
 <script src="/assets/js/main.js?v=${VERSION}" defer></script>
-${ld}
+${de.ld}
 </head>
-<body${hasHero ? ' class="has-hero"' : ''}>
-${header(active, key)}
-<main id="main">
-${body}
-</main>
-${footer({ cta })}
+<body${de.hasHero ? ' class="has-hero"' : ''}>
+<div class="lp lp--de" data-pane="de" lang="de-CH">
+${de.inner}
+</div>
+<div class="lp lp--en" data-pane="en" lang="en" hidden>
+${suffixIds(en.inner).replace('<main id="main-en">', '<main id="main-en" hidden>')}
+</div>
 </body>
 </html>
 `;
@@ -438,11 +445,11 @@ function visitBlock() {
 }
 
 /* ---------- Seiten ---------- */
-const pages = [];
-const add = (key, html, { priority = '0.7', changefreq = 'monthly', sitemap = true, file } = {}) => {
+const PAGES = {};
+const add = (key, parts, { priority = '0.7', changefreq = 'monthly', sitemap = true, file } = {}) => {
   const path = P(key);
-  const f = file || (path === '/' ? 'index.html' : path === '/en' ? 'en/index.html' : path.slice(1) + '.html');
-  pages.push({ key, lang: LANG, file: f, path, html, priority, changefreq, sitemap });
+  PAGES[key] = PAGES[key] || { key, path, file: file || (path === '/' ? 'index.html' : path.slice(1) + '.html'), priority, changefreq, sitemap };
+  PAGES[key][LANG] = parts;
 };
 
 function buildLang(lang) {
@@ -941,9 +948,7 @@ ${visitBlock()}
     }), { priority: de ? '0.8' : '0.7' });
   }
 
-  if (!de) return;
-
-  /* Rechtliches (nur Deutsch) */
+  /* Rechtliches (Inhalt nur auf Deutsch – rechtlich verbindlich) */
   const stand = new Date().toLocaleDateString('de-CH', { month: 'long', year: 'numeric' });
   const legal = (key, pageTitle, h1, description, content) => {
     const body = `
@@ -994,13 +999,12 @@ ${visitBlock()}
   /* 404 */
   PATHS.notfound = { de: '/404' };
   add('notfound', layout({
-    key: 'notfound', title: 'Seite nicht gefunden | Perfect Shape Zürich', description: 'Diese Seite existiert leider nicht. Entdecken Sie unsere Behandlungen für Ästhetik & Lasermedizin in Zürich.', noindex: true, cta: false,
+    key: 'notfound', title: de ? 'Seite nicht gefunden | Perfect Shape Zürich' : 'Page not found | Perfect Shape Zurich', description: de ? 'Diese Seite existiert leider nicht. Entdecken Sie unsere Behandlungen für Ästhetik & Lasermedizin in Zürich.' : 'This page does not exist. Discover our aesthetic and laser treatments in Zurich.', noindex: true, cta: false,
     body: `<section class="phead" style="min-height:70vh"><div class="container">
     <p class="nf__code">404</p>
-    <h1 class="title title--lg">Seite <em>nicht gefunden</em></h1>
-    <p class="lead" style="margin:24px 0 8px;max-width:560px">Die gesuchte Seite existiert nicht oder wurde verschoben.</p>
-    <p class="lead" lang="en" style="margin:0 0 30px;max-width:560px;color:var(--muted)">This page doesn’t exist or has been moved.</p>
-    <div class="hero__ctas"><a class="btn btn--dark btn--lg" href="/"><span>Zur Startseite</span></a><a class="btn btn--line btn--lg" href="/en"><span>English</span></a></div>
+    <h1 class="title title--lg">${de ? 'Seite <em>nicht gefunden</em>' : 'Page <em>not found</em>'}</h1>
+    <p class="lead" style="margin:24px 0 30px;max-width:560px">${de ? 'Die gesuchte Seite existiert nicht oder wurde verschoben.' : 'The page you are looking for doesn’t exist or has been moved.'}</p>
+    <div class="hero__ctas"><a class="btn btn--dark btn--lg" href="/"><span>${de ? 'Zur Startseite' : 'Back to home'}</span></a><a class="btn btn--line btn--lg" href="${P('treatments')}"><span>${de ? 'Alle Behandlungen' : 'All treatments'}</span></a></div>
   </div></section>`,
   }), { sitemap: false, file: '404.html' });
 }
@@ -1018,23 +1022,18 @@ const css = readFileSync(join(ROOT, 'assets/css/style.css'), 'utf8')
 writeFileSync(join(ROOT, 'assets/css/style.min.css'), css);
 
 /* ---------- Schreiben ---------- */
-mkdirSync(join(ROOT, 'en'), { recursive: true });
-for (const p of pages) writeFileSync(join(ROOT, p.file), p.html);
+const pages = Object.values(PAGES);
+for (const p of pages) writeFileSync(join(ROOT, p.file), compose(p.key, p.de, p.en));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${pages.filter((p) => p.sitemap).map((p) => {
-  const alt = PATHS[p.key] && PATHS[p.key].en
-    ? `
-    <xhtml:link rel="alternate" hreflang="de-CH" href="${abs(PATHS[p.key].de)}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="${abs(PATHS[p.key].en)}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${abs(PATHS[p.key].de)}"/>` : '';
   const t = p.key.startsWith('t:') ? DE.TREATMENTS.find((x) => 't:' + x.slug === p.key) : null;
   return `  <url>
     <loc>${abs(p.path)}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>${alt}${t ? `
+    <priority>${p.priority}</priority>${t ? `
     <image:image><image:loc>${imgUrl(t.image)}</image:loc></image:image>` : ''}
   </url>`;
 }).join('\n')}
@@ -1043,4 +1042,4 @@ ${pages.filter((p) => p.sitemap).map((p) => {
 writeFileSync(join(ROOT, 'sitemap.xml'), sitemap);
 writeFileSync(join(ROOT, 'robots.txt'), `User-agent: *\nAllow: /\nDisallow: /scripts/\n\nSitemap: ${SITE.url}/sitemap.xml\n`);
 
-console.log(`✓ ${pages.length} Seiten generiert (DE + EN)`);
+console.log(`✓ ${pages.length} Seiten generiert (je DE + EN auf derselben Seite)`);
