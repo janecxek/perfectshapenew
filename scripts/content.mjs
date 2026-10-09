@@ -22,7 +22,6 @@ export const SITE = {
   // ▼ Von der Kundin zu ergänzen – leer/null lassen = wird nicht angezeigt
   googleRating: null, // z. B. 4.9 (Durchschnitt laut Google-Profil)
   googleReviewCount: null, // z. B. 87 (Anzahl Google-Bewertungen)
-  freeConsultation: false, // true = „Kostenlose Erstberatung“ wird auf der Startseite hervorgehoben
   // Öffnungszeiten, z. B. { days: ['Mo', 'Tu', 'We', 'Th', 'Fr'], de: 'Mo–Fr', en: 'Mon–Fri', opens: '09:00', closes: '19:00' }
   hours: [],
   mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2701.843490410852!2d8.537066977004203!3d47.375973071169746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47900a069d042a6d%3A0xd8a1760da8b5a758!2sPerfect%20Shape!5e0!3m2!1sde!2sch!4v1758100930328!5m2!1sde!2sch',

@@ -72,13 +72,12 @@ Wszystkie stare adresy (np. `/pdofaden.html`, `/permamente haarentfernung.html`,
 
 ## Strona główna – kolejność (psychologia decyzji)
 
-Hero → kategorie zabiegów → studio (zdjęcia studia jako pełnoekranowe tło, płynnie się zmieniają) → zespół (kompaktowe wiersze z owalnymi portretami) → opinie → „Ihr erster Besuch” (3 kroki) → FAQ (najpierw obiekcje: naturalny efekt, ból, regeneracja) → CTA → kontakt.
+Hero → kategorie zabiegów → studio (zdjęcia studia jako pełnoekranowe tło, płynnie się zmieniają) → zespół (kompaktowe wiersze z owalnymi portretami) → opinie → FAQ (najpierw obiekcje: naturalny efekt, ból, regeneracja) → CTA → kontakt.
 
 ## Do uzupełnienia przez klientkę (w `SITE` w `scripts/content.mjs`)
 
 - **Ocena Google** – `googleRating` (np. `4.9`) i `googleReviewCount` (np. `87`). Pojawi się przy linku do opinii w sekcji „Echte Erfahrungen”.
 - **Godziny otwarcia** – `hours` (przykład w komentarzu). Pojawią się w sekcji kontaktu i w danych strukturalnych (`openingHoursSpecification`); dopóki puste: „Nach Vereinbarung”.
-- **Bezpłatna konsultacja** – `freeConsultation: true` dodaje „Kostenlose Erstberatung” jako pierwszy krok wizyty.
 - **Więcej opinii** – kolejne wpisy w `REVIEWS` (najlepiej prawdziwe opinie z Google, za zgodą).
 - **Impressum** – nazwa prawna firmy / właścicielka i ewentualny numer UID (CHE-…).
 - **WhatsApp** – przyciski prowadzą do `wa.me/41766086161`; potwierdzić, że numer ma WhatsApp.

@@ -510,9 +510,6 @@ function buildLang(lang) {
       title: 'Ästhetik & Lasermedizin Zürich | Perfect Shape', description: 'Fadenlifting, Hyaluron, Laser-Haarentfernung & Endolift® in Zürich – ärztlich geführt an der Bahnhofstrasse 94. Transparente Preise. Jetzt Termin buchen.',
       heroAlt: HOME.heroAlt,
       gReviews: 'Google-Bewertungen', studioNav: ['Empfang', 'Behandlungsraum', 'Zertifikate'], studioShow: 'Bild anzeigen:',
-      pEyebrow: 'So läuft es ab', pTitle: 'Ihr erster', pAccent: 'Besuch', pText: 'Kein Druck, keine Überraschungen: Sie wissen von Anfang an, was Sie erwartet – und was es kostet.',
-      steps: [['Persönliche Beratung', 'Wir hören zu, analysieren Ihre Haut und sagen ehrlich, was sinnvoll ist – mit klaren Kosten.'], ['Behandlung', 'Durch Ärzte und Spezialistinnen – sorgfältig, hygienisch und so schonend wie möglich.'], ['Nachsorge', 'Sie erhalten klare Pflegetipps und bleiben auch nach dem Termin mit uns in Kontakt.']],
-      freeStep: 'Kostenlose Erstberatung',
     } : {
       eyebrow: 'Aesthetics &amp; Laser Medicine · Bahnhofstrasse 94, Zurich', l1: 'Aesthetic &amp;', l2: 'Laser Clinic', l3: 'in Zurich',
       lead: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', second: 'View treatments',
@@ -531,11 +528,7 @@ function buildLang(lang) {
       title: 'Aesthetic & Laser Clinic Zurich | Perfect Shape', description: 'Thread lifts, lip fillers, laser hair removal & Endolift® in Zurich – at Bahnhofstrasse 94. Transparent prices, honest advice. Book your appointment online.',
       heroAlt: 'Aesthetic facial treatment at Perfect Shape Zurich',
       gReviews: 'Google reviews', studioNav: ['Reception', 'Treatment room', 'Certificates'], studioShow: 'Show image:',
-      pEyebrow: 'How it works', pTitle: 'Your first', pAccent: 'Visit', pText: 'No pressure, no surprises: from the start you know what to expect – and what it costs.',
-      steps: [['Personal consultation', 'We listen, analyse your skin and goals and tell you honestly what makes sense – with transparent costs.'], ['Treatment', 'By physicians and specialists – careful, hygienic and as gentle as possible.'], ['Aftercare', 'You get clear aftercare advice and stay in touch with us after your appointment.']],
-      freeStep: 'Free consultation',
     };
-    const steps = SITE.freeConsultation ? [[H.freeStep, H.steps[0][1]], ...H.steps.slice(1)] : H.steps;
     const body = `
 <section class="hero" aria-labelledby="hero-title">
   ${heroMedia(HOME.heroImage, H.heroAlt, HOME.heroPos, HOME.heroPosMobile)}
@@ -617,19 +610,7 @@ function buildLang(lang) {
   </div>
 </section>
 
-<section class="section" aria-labelledby="process-title">
-  <div class="container">
-    <div class="head">
-      <div><p class="eyebrow" data-reveal>${H.pEyebrow}</p>${title(H.pTitle, H.pAccent, { id: 'process-title' })}</div>
-      <div class="head__text" data-reveal><p>${H.pText}</p></div>
-    </div>
-    <ol class="steps steps--3">
-      ${steps.map(([h, d], i) => `<li data-reveal style="--d:${i * 100}ms"><span class="steps__n">0${i + 1}</span><h3>${esc(h)}</h3><p>${esc(d)}</p></li>`).join('')}
-    </ol>
-  </div>
-</section>
-
-<section class="section section--alt" aria-labelledby="faq-title">
+<section class="section" aria-labelledby="faq-title">
   <div class="container faq-grid">
     <div class="faq-grid__head">
       <p class="eyebrow" data-reveal>FAQ</p>
