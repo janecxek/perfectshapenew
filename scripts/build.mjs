@@ -504,14 +504,14 @@ function buildLang(lang) {
   /* Startseite – Reihenfolge nach Entscheidungsweg: Angebot → Vertrauen → Ablauf → Einwände → Abschluss */
   {
     const H = de ? {
-      eyebrow: 'Ästhetik &amp; Lasermedizin · Bahnhofstrasse 94, Zürich', l1: 'Ästhetik &amp;', l2: 'Lasermedizin', l3: 'in Zürich',
-      lead: 'Fadenlifting, Hyaluron, Laser-Haarentfernung &amp; Endolift® – präzise durchgeführt von geprüften Ärzten und Spezialistinnen. Für Ergebnisse, die natürlich wirken.', second: 'Behandlungen ansehen',
+      l1: 'Ästhetik &amp;', l2: 'Lasermedizin', l3: 'in Zürich',
+      second: 'Behandlungen ansehen',
       aEyebrow: 'Perfect Shape Zürich', aTitle: 'Das Beauty Studio', aAccent: 'auf höchstem Niveau',
       aText: 'Wohlfühlen in Ihrer Haut – darum geht es bei Perfect Shape. Diagnostik und Behandlung liegen bei geprüften Ärzten und Spezialistinnen, mit modernster Lasertechnologie und hochwertigsten Materialien.',
       aLink: 'Über uns', aAlt: 'Natürliches Facelifting – Ästhetik &amp; Lasermedizin bei Perfect Shape Zürich',
       facts: [['Ärztlich', 'Geprüfte Ärzte und Spezialistinnen'], ['13', 'Behandlungen unter einem Dach'], ['Zentral', 'Bahnhofstrasse 94, nahe Hauptbahnhof']],
       brands: 'Premium-Marken &amp; Technologien',
-      tEyebrow: 'Behandlungen', tTitle: 'Unsere', tAccent: 'Behandlungen', tText: 'Ästhetische Medizin, Laser, apparative Kosmetik, Massagen und Fruchtsäure – individuell abgestimmt, mit transparenten Richtpreisen.', allPrices: 'Alle Preise',
+      tEyebrow: 'Behandlungen', tTitle: 'Unsere', tAccent: 'Behandlungen', tText: 'Fadenlifting, Hyaluron, Laser-Haarentfernung &amp; Endolift® – präzise durchgeführt von geprüften Ärzten und Spezialistinnen. Für Ergebnisse, die natürlich wirken.', allPrices: 'Alle Preise',
       sEyebrow: 'Bahnhofstrasse 94 · 2. Etage', sTitle: 'Unser', sAccent: 'Studio', sText: 'Hell, ruhig und diskret – nur wenige Gehminuten vom Hauptbahnhof Zürich entfernt.', route: 'Route planen',
       g: ['Empfang und Wartebereich von Perfect Shape an der Bahnhofstrasse Zürich', 'Behandlungsraum bei Perfect Shape Zürich', 'Zertifikate und Diplome bei Perfect Shape Zürich'],
       cEyebrow: 'Online-Termin', cTitle: 'Bereit für Ihre', cAccent: 'Behandlung?', cText: 'Buchen Sie jetzt schnell und einfach Ihren Termin online – oder rufen Sie uns an, wir beraten Sie gerne.', cAlt: HOME.ctaAlt,
@@ -522,14 +522,14 @@ function buildLang(lang) {
       heroAlt: HOME.heroAlt,
       gReviews: 'Google-Bewertungen', studioNav: ['Empfang', 'Behandlungsraum', 'Zertifikate'], studioShow: 'Bild anzeigen:',
     } : {
-      eyebrow: 'Aesthetics &amp; Laser Medicine · Bahnhofstrasse 94, Zurich', l1: 'Aesthetic &amp;', l2: 'Laser Clinic', l3: 'in Zurich',
-      lead: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', second: 'View treatments',
+      l1: 'Aesthetic &amp;', l2: 'Laser Clinic', l3: 'in Zurich',
+      second: 'View treatments',
       aEyebrow: 'Perfect Shape Zurich', aTitle: 'The Beauty Studio', aAccent: 'at the highest level',
       aText: 'Feeling good in your skin – that is what Perfect Shape is about. Diagnosis and treatment are in the hands of certified physicians and specialists, using state-of-the-art laser technology and the finest materials.',
       aLink: 'About us', aAlt: 'Natural facelift – aesthetics &amp; laser medicine at Perfect Shape Zurich',
       facts: [['Medical', 'Certified physicians and specialists'], ['13', 'Treatments under one roof'], ['Central', 'Bahnhofstrasse 94, near the main station']],
       brands: 'Premium brands &amp; technologies',
-      tEyebrow: 'Treatments', tTitle: 'Our', tAccent: 'Treatments', tText: 'Aesthetic medicine, laser, device-based skincare, massages and chemical peels – tailored to you, with transparent guide prices.', allPrices: 'All prices',
+      tEyebrow: 'Treatments', tTitle: 'Our', tAccent: 'Treatments', tText: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', allPrices: 'All prices',
       sEyebrow: 'Bahnhofstrasse 94 · 2nd floor', sTitle: 'Our', sAccent: 'Studio', sText: 'Bright, calm and discreet – just a few minutes’ walk from Zurich main station.', route: 'Get directions',
       g: ['Reception and waiting area at Perfect Shape on Bahnhofstrasse Zurich', 'Treatment room at Perfect Shape Zurich', 'Certificates and diplomas at Perfect Shape Zurich'],
       cEyebrow: 'Online booking', cTitle: 'Ready for your', cAccent: 'treatment?', cText: 'Book your appointment online – quickly and easily. Or give us a call, we’re happy to advise you.', cAlt: 'Relaxing treatment at Perfect Shape Zurich',
@@ -544,12 +544,10 @@ function buildLang(lang) {
 <section class="hero" aria-labelledby="hero-title">
   ${heroMedia(HOME.heroImage, H.heroAlt, HOME.heroPos, HOME.heroPosMobile)}
   <div class="container hero__content">
-    <p class="eyebrow eyebrow--light fade-up">${H.eyebrow}</p>
     <div class="hero__grid">
       <h1 class="title title--xl title--light hero__title" id="hero-title"><span class="ln"><span>${H.l1}</span></span><span class="ln"><span>${H.l2}</span></span><span class="ln"><span><em>${H.l3}</em></span></span></h1>
       <div class="hero__side">
-        <p class="fade-up d1">${H.lead}</p>
-        <div class="hero__ctas fade-up d2">${bookBtn(S.book, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="#behandlungen"><span>${H.second}</span></a></div>
+        <div class="hero__ctas fade-up d1">${bookBtn(S.book, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="#behandlungen"><span>${H.second}</span></a></div>
       </div>
     </div>
   </div>
