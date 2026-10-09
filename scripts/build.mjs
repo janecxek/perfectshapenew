@@ -327,6 +327,12 @@ function suffixIds(html) {
     .replace(/href="#([^"]+)"/g, 'href="#$1-en"');
 }
 
+// Weiche Trennstellen für lange Wörter in grossen Überschriften (kleine Smartphones)
+const SHY = ['Micro|derm|abrasion', 'Bio|stimula|toren', 'Bio|stimula|tors', 'Meso|therapie', 'Meso|therapy', 'Madero|therapie', 'Madero|therapy', 'Laser|behandlungen', 'Laser|behandlung', 'Haar|entfernung', 'Hyaluron|säure', 'Micro|needling', 'Faden|lifting', 'Laser|medizin', 'Behand|lungen', 'Kontra|indikationen', 'Contra|indications', 'Vampire|lifting', 'Frucht|säure', 'Kollagen|aufbau', 'Nebenwir|kungen', 'Erholungs|zeit', 'Ausfall|zeiten', 'Empfeh|lungen', 'Expertin|nen', 'Erfahrun|gen', 'Endo|lift', 'Massa|gen'];
+const SHY_RE = new RegExp(`(${SHY.map((w) => w.replace(/\|/g, '')).join('|')})`, 'g');
+const SHY_MAP = Object.fromEntries(SHY.map((w) => [w.replace(/\|/g, ''), w.replace(/\|/g, '\u00AD')]));
+const shyHeadings = (html) => html.replace(/(<h[12][^>]*>)([\s\S]*?)(<\/h[12]>)/g, (m, a, inner, z) => a + inner.replace(/(^|>)([^<]+)/g, (mm, gt, txt) => gt + txt.replace(SHY_RE, (w) => SHY_MAP[w])) + z);
+
 function compose(key, de, en) {
   const canonical = abs(P(key));
   return `<!doctype html>
@@ -1032,7 +1038,7 @@ writeFileSync(join(ROOT, 'assets/css/style.min.css'), css);
 
 /* ---------- Schreiben ---------- */
 const pages = Object.values(PAGES);
-for (const p of pages) writeFileSync(join(ROOT, p.file), compose(p.key, p.de, p.en));
+for (const p of pages) writeFileSync(join(ROOT, p.file), shyHeadings(compose(p.key, p.de, p.en)));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
