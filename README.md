@@ -11,7 +11,7 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
 | `scripts/content.en.mjs` | Treści angielskie |
 | `scripts/build.mjs` | Generator: layout, header/footer, podstrony, JSON-LD, sitemap.xml, robots.txt |
 | `assets/css/style.css` | Style (źródło) → build tworzy `style.min.css` |
-| `assets/js/main.js` | Interakcje: płynny scroll, header nad hero, paralaksa, menu, lista zabiegów z podglądem, slider, FAQ, modal rezerwacji, mapa, formularz |
+| `assets/js/main.js` | Interakcje: płynny scroll, header nad hero, paralaksa, menu, kategorie zabiegów (rozwijane karty ze zdjęciem), slider, FAQ, modal rezerwacji, mapa, formularz |
 | `assets/js/lenis.min.js` | Biblioteka płynnego przewijania (MIT) |
 | `assets/img/` | Zoptymalizowane obrazy WebP (480–2560 px) + JPG fallback, logo wektorowe (`logo.svg`, `logo-white.svg`), OG-image |
 | `assets/fonts/` | Fonty self-hosted (Inter Tight, Instrument Serif – licencja OFL) |

@@ -153,6 +153,35 @@
       });
     });
 
+    /* Kategorien: aufklappen (immer nur eine offen) */
+    $$('[data-cats]', P).forEach(function (wrap) {
+      var cats = $$('.cat', wrap);
+      var set = function (cat, open) {
+        cat.classList.toggle('is-open', open);
+        $('.cat__btn', cat).setAttribute('aria-expanded', String(open));
+      };
+      cats.forEach(function (cat) {
+        var btn = $('.cat__btn', cat);
+        var panel = $('.cat__panel', cat);
+        btn.addEventListener('click', function () {
+          var open = !cat.classList.contains('is-open');
+          var before = btn.getBoundingClientRect().top;
+          cats.forEach(function (c) { if (c !== cat) set(c, false); });
+          set(cat, open);
+          panel.addEventListener('transitionend', function done(e) {
+            if (e.target !== panel) return;
+            panel.removeEventListener('transitionend', done);
+            if (lenis) lenis.resize();
+          });
+          // Wenn eine Kategorie darüber zuklappt, Position halten bzw. sanft nachführen
+          if (open) setTimeout(function () {
+            var top = btn.getBoundingClientRect().top;
+            if (top < headerOffset() || top > window.innerHeight * .6) scrollToEl(cat);
+          }, before < headerOffset() ? 0 : 720);
+        });
+      });
+    });
+
     /* Bewertungs-Slider */
     $$('[data-slider]', P).forEach(function (slider) {
       var slides = $$('.review', slider);

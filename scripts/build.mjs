@@ -64,15 +64,15 @@ const STR = {
     htmlLang: 'en', ogLocale: 'en_GB', skip: 'Skip to content', homeAria: 'Perfect Shape Zurich – Home', mainNav: 'Main navigation',
     nav: { treatments: 'Treatments', prices: 'Prices', about: 'About', contact: 'Contact', home: 'Home' },
     book: 'Book now', bookOnline: 'Book online', bookNow: 'Book your appointment', bookSecure: 'Secure your appointment', bookShort: 'Book', consult: 'Book a consultation',
-    megaTitle: 'Not sure?', megaAccent: 'We’ll advise you.', megaText: 'Honest and personal – we’ll even advise against a treatment if it isn’t right for you.',
+    megaTitle: 'Not sure?', megaAccent: 'We’ll advise you.', megaText: 'Honest and personal – we even advise against what doesn’t suit you.',
     from: 'from', call: 'Call', allTreatments: 'View all treatments →', menuOpen: 'Open menu', menuClose: 'Close menu', mobileNav: 'Mobile navigation', quick: 'Quick contact',
     floor: '2nd floor', city: 'Zurich',
-    ctaEyebrow: 'Ready for your treatment?', ctaTitle: 'Your appointment', ctaAccent: 'is waiting', ctaText: 'Choose your treatment and preferred time online – in less than a minute. Or give us a call, we’re happy to advise you.', ctaSmall: ['Online booking 24/7', 'Free rescheduling up to 24 h before', 'Bahnhofstrasse 94, Zurich'],
+    ctaEyebrow: 'Ready for your treatment?', ctaTitle: 'Your visit', ctaAccent: 'awaits you', ctaText: 'Choose your treatment and preferred time online – in less than a minute. Or give us a call, we’re happy to advise you.', ctaSmall: ['Online booking 24/7', 'Free rescheduling up to 24 h before', 'Bahnhofstrasse 94, Zurich'],
     ftrText: 'Studio for aesthetics &amp; laser medicine on Bahnhofstrasse in Zurich. Treatments by certified physicians and specialists.', ftrAesthetic: 'Aesthetic Medicine', ftrOther: 'Laser, Skin &amp; Body', ftrContact: 'Contact', ftrStudio: 'Studio', ftrCopy: 'Aesthetics &amp; Laser Medicine',
     legal: [['agb', 'Terms (DE)'], ['privacy', 'Privacy (DE)'], ['imprint', 'Imprint (DE)']],
     modalTitle: 'Book', modalAccent: 'online', modalExt: 'Open in new tab', close: 'Close', modalIframe: 'Online booking Perfect Shape Zurich', modalFoot: 'Trouble booking? Give us a call:',
     crumbs: 'Breadcrumb', more: 'Learn more',
-    visitEyebrow: 'Contact &amp; directions', visitTitle: 'Get in', visitAccent: 'touch', address: 'Address', phone: 'Phone', email: 'Email', appointments: 'Appointments', appointmentsText: 'By appointment – book online 24/7', whatsappText: 'Send a message', route: 'Get directions',
+    visitEyebrow: 'Contact &amp; directions', visitTitle: 'Get in', visitAccent: 'touch', address: 'Address', phone: 'Phone', email: 'Email', appointments: 'Appointments', appointmentsText: 'By appointment – online booking around the clock', whatsappText: 'Send a message', route: 'Get directions',
     mapLoad: 'Load map', mapNote: 'Loading the map transfers data to Google.', privacy: 'Privacy', mapTitle: 'Google Maps – Perfect Shape Zurich, Bahnhofstrasse 94', mapAria: 'Map',
     langLabel: 'Choose language',
   },
@@ -409,6 +409,33 @@ function treatmentList(list, { preview = true, groups = true, headingTag = 'h3' 
   </div>`;
 }
 
+// Kategorien als aufklappbare Bildkarten → Behandlungen → Unterseite
+function categoryList(list, { catTag = 'h3', itemTag = 'h4', open = -1 } = {}) {
+  const de = LANG === 'de';
+  const count = (n) => (de ? `${n} ${n === 1 ? 'Behandlung' : 'Behandlungen'}` : `${n} ${n === 1 ? 'treatment' : 'treatments'}`);
+  return `<div class="cats" data-cats>${D.CATEGORIES.map((c, i) => {
+    const items = list.filter((t) => t.category === c.id);
+    if (!items.length) return '';
+    const from = Math.min(...items.map(minPrice));
+    const isOpen = i === open;
+    return `<div class="cat${isOpen ? ' is-open' : ''}" data-reveal>
+      <${catTag} class="cat__h"><button type="button" class="cat__btn" aria-expanded="${isOpen}" aria-controls="cat-${c.id}">
+        <span class="cat__img">${pic(c.image, '', { sizes: '(max-width: 640px) 96px, 240px' })}</span>
+        <span class="cat__num">${String(i + 1).padStart(2, '0')}</span>
+        <span class="cat__body"><span class="cat__name">${esc(c.name)}</span><span class="cat__short">${esc(c.short)}</span></span>
+        <span class="cat__meta"><span>${count(items.length)}</span><span>${S.from} ${chf(from)}</span></span>
+        <span class="cat__plus" aria-hidden="true"></span>
+      </button></${catTag}>
+      <div class="cat__panel" id="cat-${c.id}" role="region" aria-label="${esc(c.name)}"><div class="cat__inner"><ul class="cat__list">${items.map((t) => `<li><a class="cat__item" href="${tPath(t)}">
+        <span class="cat__thumb">${pic(t.image, '', { sizes: '80px' })}</span>
+        <div class="cat__txt"><${itemTag} class="cat__iname">${esc(t.navName)}</${itemTag}><p class="cat__card">${esc(t.card)}</p></div>
+        <span class="cat__price">${S.from} ${chf(minPrice(t))}</span>
+        <span class="cat__arrow">${icon('arrow')}</span>
+      </a></li>`).join('')}</ul></div></div>
+    </div>`;
+  }).join('')}</div>`;
+}
+
 const priceRow = (p) => `<li class="prow">
   <div><p class="prow__name">${esc(p.name)}${p.detail ? ` <span>· ${esc(p.detail)}</span>` : ''}${p.featured ? `<b class="badge">${LANG === 'de' ? 'Beliebt' : 'Popular'}</b>` : ''}</p><p class="prow__desc">${esc(p.desc)}</p>${p.extra ? `<p class="prow__extra">${esc(p.extra)}</p>` : ''}</div>
   <div class="prow__side"><p class="prow__price">${p.priceText && p.price ? esc(p.priceText).replace(' · ', '<br>') : p.price ? `${p.from ? `<small>${S.from}</small> ` : ''}${chf(p.price)}` : esc(p.priceText)}</p>${bookBtn(S.bookShort, 'btn btn--line btn--xs')}</div>
@@ -534,7 +561,7 @@ function buildLang(lang) {
       <div><p class="eyebrow" data-reveal>${H.tEyebrow}</p>${title(H.tTitle, H.tAccent, { id: 'treat-title' })}</div>
       <div class="head__text" data-reveal><p>${H.tText}</p></div>
     </div>
-    ${treatmentList(TR)}
+    ${categoryList(TR)}
     <div class="tl__more" data-reveal>${bookBtn()}<a class="btn btn--line" href="${P('prices')}"><span>${H.allPrices}</span>${icon('arrow')}</a></div>
   </div>
 </section>
@@ -713,7 +740,7 @@ ${visitBlock()}
   <div class="container results">
     <div>
       <p class="eyebrow eyebrow--light" data-reveal>${TP.expect}</p>
-      ${title(t.results.title, '', { id: 'erg-title', cls: 'title--light' })}
+      ${title(t.results.title.split(' & ')[0], t.results.title.includes(' & ') ? '& ' + t.results.title.split(' & ')[1] : '', { id: 'erg-title', cls: 'title--light' })}
       <ul class="checks checks--light" data-reveal>${t.results.items.map((b) => `<li>${icon('check')}<span>${esc(b)}</span></li>`).join('')}</ul>
       <p class="note" style="color:rgba(255,255,255,.62)" data-reveal>${esc(t.results.note)}</p>
     </div>
@@ -787,7 +814,7 @@ ${visitBlock()}
     </div>
   </div>
 </section>
-<section class="section"><div class="container">${treatmentList(TR, { headingTag: 'h2' })}</div></section>
+<section class="section"><div class="container">${categoryList(TR, { catTag: 'h2', itemTag: 'h3', open: 0 })}</div></section>
 `;
     add('treatments', layout({
       key: 'treatments', title: T.title, description: T.description, active: 'treatments', body, hasHero: true, preload: preloadImg(HOME.treatmentsHero),
