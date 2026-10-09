@@ -300,25 +300,63 @@ body.menu-open { overflow: hidden; }
 .tl__preview img { width: 100%; height: 100%; object-fit: cover; }
 .tl__more { margin-top: 44px; }
 
-/* Vertrauensleiste unter dem Hero */
-.trust { background: var(--bg); }
-.trust__in { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
-.trust__in li { padding: 30px 24px; display: flex; flex-direction: column; gap: 4px; }
-.trust__in li:first-child { padding-left: 0; }
-.trust__in li + li { border-left: 1px solid var(--line); }
-.trust__in b { font-size: 1.05rem; font-weight: 500; letter-spacing: -.01em; }
-.trust__in span { font-size: .88rem; color: var(--muted); line-height: 1.4; }
-.trust__g { display: flex; flex-direction: column; gap: 4px; }
-.trust__g .stars { display: flex; gap: 2px; margin: 0 0 4px; color: var(--accent); }
-.trust__g .stars .ico { width: 14px; height: 14px; }
-.trust__g:hover b { color: var(--accent); }
-.team-wrap { margin-top: clamp(64px, 8vw, 120px); }
-@media (max-width: 900px) {
-  .trust__in { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .trust__in li { padding: 22px 18px; }
-  .trust__in li:nth-child(odd) { padding-left: 0; border-left: 0; }
-  .trust__in li:nth-child(n+3) { border-top: 1px solid var(--line); }
+/* Studio: Bilder als Vollbild-Hintergrund (Überblendung) */
+.studio { position: relative; min-height: min(92svh, 860px); display: flex; align-items: flex-end; color: #fff; background: var(--dark); overflow: hidden; isolation: isolate; }
+.studio__media, .studio__slide { position: absolute; inset: 0; margin: 0; }
+.studio__media { z-index: -1; }
+.studio__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14, 11, 9, .78) 0%, rgba(14, 11, 9, .42) 50%, rgba(14, 11, 9, .12) 100%), linear-gradient(0deg, rgba(14, 11, 9, .55) 0%, rgba(14, 11, 9, 0) 45%); }
+.studio__slide { opacity: 0; transition: opacity 1.6s var(--ease); }
+.studio__slide.is-active { opacity: 1; }
+.studio__slide picture, .studio__slide img { width: 100%; height: 100%; }
+.studio__slide img { object-fit: cover; transform: scale(1.12); transition: transform 9s linear; }
+.studio__slide.is-active img { transform: scale(1.02); }
+.studio__in { width: 100%; padding-top: clamp(120px, 14vw, 200px); padding-bottom: clamp(40px, 5vw, 72px); display: grid; grid-template-columns: minmax(0, 620px) auto; justify-content: space-between; align-items: end; gap: 40px; }
+.studio__text .title { margin-bottom: 26px; }
+.studio__text p { color: rgba(255, 255, 255, .86); font-size: 1.1rem; max-width: 540px; }
+.studio__links { display: flex; flex-wrap: wrap; gap: 14px 32px; margin-top: 30px; }
+.studio__nav { display: grid; grid-template-columns: repeat(3, 120px); gap: 14px; }
+.studio__dot { all: unset; box-sizing: border-box; cursor: pointer; display: flex; flex-direction: column; gap: 10px; font-size: .8rem; color: rgba(255, 255, 255, .6); transition: color .4s; }
+.studio__dot:focus-visible { outline: 2px solid #fff; outline-offset: 4px; }
+.studio__dot i { position: relative; display: block; height: 2px; background: rgba(255, 255, 255, .28); overflow: hidden; }
+.studio__dot i::after { content: ''; position: absolute; inset: 0; background: #fff; transform: scaleX(0); transform-origin: left; }
+.studio__dot.is-active { color: #fff; }
+.studio__dot.is-active i::after { animation: studio-progress var(--studio-t, 6s) linear forwards; }
+.studio.is-paused .studio__dot.is-active i::after { animation-play-state: paused; }
+@keyframes studio-progress { to { transform: scaleX(1); } }
+
+/* Expertinnen: kompakte Zeilen mit ovalen Porträts */
+.experts-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 7vw, 120px); align-items: start; }
+.experts-grid__head .title { margin-bottom: 22px; }
+.experts-grid__head p { color: var(--muted); max-width: 420px; }
+.experts { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.experts li { border-bottom: 1px solid var(--line); }
+.expert { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: clamp(18px, 3vw, 36px); padding: 28px 0; }
+.expert__img { display: block; width: 104px; height: 136px; border-radius: 999px; overflow: hidden; background: var(--sand); transition: width .8s var(--ease-out); }
+.expert__img picture { height: 100%; }
+.expert__img img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 18%; transition: transform 1.2s var(--ease-out); }
+.expert:hover .expert__img { width: 148px; }
+.expert:hover .expert__img img { transform: scale(1.06); }
+.expert__txt { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.expert__num { font-size: .78rem; color: var(--muted); letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.expert__name { margin: 0; font-size: clamp(1.4rem, 2.4vw, 2.1rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.1; }
+.expert__role { font-size: .92rem; color: var(--muted); line-height: 1.4; }
+.expert .arrow-circle { transition: transform .6s var(--ease-out), background .4s, color .4s, border-color .4s; }
+.expert:hover .arrow-circle { background: var(--ink); color: #fff; border-color: var(--ink); transform: rotate(45deg); }
+@media (max-width: 1024px) {
+  .studio__in { grid-template-columns: 1fr; }
+  .experts-grid { grid-template-columns: 1fr; }
 }
+@media (max-width: 640px) {
+  .studio { min-height: 640px; }
+  .studio__media::after { background: linear-gradient(0deg, rgba(14, 11, 9, .85) 0%, rgba(14, 11, 9, .45) 60%, rgba(14, 11, 9, .2) 100%); }
+  .studio__nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .studio__text p { font-size: 1rem; }
+  .expert { grid-template-columns: auto 1fr; padding: 22px 0; }
+  .expert__img { width: 76px; height: 100px; }
+  .expert:hover .expert__img { width: 76px; }
+  .expert .arrow-circle { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .studio__slide, .studio__slide img, .expert__img { transition: none !important; } .studio__slide img { transform: none; } }
 
 /* Kategorien (aufklappbar) */
 .cats { border-top: 1px solid var(--line); }

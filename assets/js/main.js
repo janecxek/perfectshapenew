@@ -182,6 +182,34 @@
       });
     });
 
+    /* Studio: Hintergrundbilder überblenden */
+    $$('[data-studio]', P).forEach(function (sec) {
+      var slides = $$('[data-slide]', sec), dots = $$('[data-dot]', sec);
+      var i = 0, timer = null, visible = false, T = 6000;
+      sec.style.setProperty('--studio-t', T + 'ms');
+      var go = function (n) {
+        slides[i].classList.remove('is-active'); dots[i].classList.remove('is-active'); dots[i].setAttribute('aria-pressed', 'false');
+        i = (n + slides.length) % slides.length;
+        slides[i].classList.add('is-active'); dots[i].classList.add('is-active'); dots[i].setAttribute('aria-pressed', 'true');
+        // Fortschrittsbalken neu starten
+        var bar = $('i', dots[i]); bar.style.display = 'none'; void bar.offsetWidth; bar.style.display = '';
+      };
+      var stop = function () { clearInterval(timer); timer = null; sec.classList.add('is-paused'); };
+      var start = function () {
+        if (reduceMotion || timer || !visible) return;
+        sec.classList.remove('is-paused');
+        timer = setInterval(function () { go(i + 1); }, T);
+      };
+      dots.forEach(function (d, k) { d.addEventListener('click', function () { stop(); go(k); start(); }); });
+      if (reduceMotion) sec.classList.add('is-paused');
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          visible = es[0].isIntersecting;
+          if (visible) { go(i); start(); } else stop();
+        }, { threshold: 0.25 }).observe(sec);
+      } else { visible = true; start(); }
+    });
+
     /* Bewertungs-Slider */
     $$('[data-slider]', P).forEach(function (slider) {
       var slides = $$('.review', slider);

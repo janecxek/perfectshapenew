@@ -509,10 +509,7 @@ function buildLang(lang) {
       fTitle: 'Häufige', fAccent: 'Fragen', fText: 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns – wir helfen gerne.', fLink: 'Kontakt aufnehmen',
       title: 'Ästhetik & Lasermedizin Zürich | Perfect Shape', description: 'Fadenlifting, Hyaluron, Laser-Haarentfernung & Endolift® in Zürich – ärztlich geführt an der Bahnhofstrasse 94. Transparente Preise. Jetzt Termin buchen.',
       heroAlt: HOME.heroAlt,
-      trustAria: 'Darum Perfect Shape', gReviews: 'Google-Bewertungen', gRead: 'Bewertungen ansehen',
-      trust: [['Ärztlich geführt', 'Geprüfte Ärzte &amp; Spezialistinnen'], ['13 Behandlungen', 'Ästhetik, Laser &amp; Haut'], ['Bahnhofstrasse 94', 'Wenige Minuten vom HB']],
-      freeTrust: ['Kostenlose Erstberatung', 'Unverbindlich &amp; ehrlich'],
-      teamSub: 'Ihre Expertinnen',
+      gReviews: 'Google-Bewertungen', studioNav: ['Empfang', 'Behandlungsraum', 'Zertifikate'], studioShow: 'Bild anzeigen:',
       pEyebrow: 'So läuft es ab', pTitle: 'Ihr erster', pAccent: 'Besuch', pText: 'Kein Druck, keine Überraschungen: Sie wissen von Anfang an, was Sie erwartet – und was es kostet.',
       steps: [['Persönliche Beratung', 'Wir hören zu, analysieren Ihre Haut und sagen ehrlich, was sinnvoll ist – mit klaren Kosten.'], ['Behandlung', 'Durch Ärzte und Spezialistinnen – sorgfältig, hygienisch und so schonend wie möglich.'], ['Nachsorge', 'Sie erhalten klare Pflegetipps und bleiben auch nach dem Termin mit uns in Kontakt.']],
       freeStep: 'Kostenlose Erstberatung',
@@ -533,16 +530,11 @@ function buildLang(lang) {
       fTitle: 'Frequent', fAccent: 'Questions', fText: 'Your question isn’t listed? Call or write to us – we’re happy to help.', fLink: 'Get in touch',
       title: 'Aesthetic & Laser Clinic Zurich | Perfect Shape', description: 'Thread lifts, lip fillers, laser hair removal & Endolift® in Zurich – at Bahnhofstrasse 94. Transparent prices, honest advice. Book your appointment online.',
       heroAlt: 'Aesthetic facial treatment at Perfect Shape Zurich',
-      trustAria: 'Why Perfect Shape', gReviews: 'Google reviews', gRead: 'Read our reviews',
-      trust: [['Physician-led', 'Certified physicians &amp; specialists'], ['13 treatments', 'Aesthetics, laser &amp; skin'], ['Bahnhofstrasse 94', 'Near the main station']],
-      freeTrust: ['Free consultation', 'No obligation, honest advice'],
-      teamSub: 'Your experts',
+      gReviews: 'Google reviews', studioNav: ['Reception', 'Treatment room', 'Certificates'], studioShow: 'Show image:',
       pEyebrow: 'How it works', pTitle: 'Your first', pAccent: 'Visit', pText: 'No pressure, no surprises: from the start you know what to expect – and what it costs.',
       steps: [['Personal consultation', 'We listen, analyse your skin and goals and tell you honestly what makes sense – with transparent costs.'], ['Treatment', 'By physicians and specialists – careful, hygienic and as gentle as possible.'], ['Aftercare', 'You get clear aftercare advice and stay in touch with us after your appointment.']],
       freeStep: 'Free consultation',
     };
-    const rating = SITE.googleRating && SITE.googleReviewCount;
-    const trustItems = SITE.freeConsultation ? [H.freeTrust, ...H.trust.filter((_, i) => i !== 1)] : H.trust;
     const steps = SITE.freeConsultation ? [[H.freeStep, H.steps[0][1]], ...H.steps.slice(1)] : H.steps;
     const body = `
 <section class="hero" aria-labelledby="hero-title">
@@ -559,15 +551,6 @@ function buildLang(lang) {
   </div>
 </section>
 
-<section class="trust" aria-label="${H.trustAria}">
-  <div class="container">
-    <ul class="trust__in">
-      <li data-reveal><a class="trust__g" href="${SITE.googleMaps}" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">${icon('star').repeat(5)}</span><b>${rating ? `${String(SITE.googleRating).replace('.', de ? ',' : '.')} / 5` : 'Google'}</b><span>${rating ? `${SITE.googleReviewCount} ${H.gReviews}` : H.gRead}</span></a></li>
-      ${trustItems.map(([b, x], i) => `<li data-reveal style="--d:${(i + 1) * 90}ms"><b>${b}</b><span>${x}</span></li>`).join('')}
-    </ul>
-  </div>
-</section>
-
 <section class="section section--alt" id="behandlungen" aria-labelledby="treat-title">
   <div class="container">
     <div class="head">
@@ -579,24 +562,36 @@ function buildLang(lang) {
   </div>
 </section>
 
-<section class="section" id="perfect-shape" aria-labelledby="about-title">
-  <div class="container about">
-    <figure class="about__img" data-reveal="img">${pic('studio-perfect-shape-zuerich-empfang', H.g[0], { sizes: '(max-width: 900px) 92vw, 44vw' })}</figure>
-    <div class="about__text">
-      <p class="eyebrow" data-reveal>${H.aEyebrow}</p>
-      ${title(H.aTitle, H.aAccent, { id: 'about-title' })}
-      <p class="lead" data-reveal>${H.aText}</p>
-      <p data-reveal><a class="link" href="${P('about')}">${H.aLink} ${icon('right')}</a></p>
-    </div>
+<section class="studio" id="perfect-shape" aria-labelledby="about-title" data-studio>
+  <div class="studio__media">
+    ${['studio-perfect-shape-zuerich-empfang', 'studio-perfect-shape-zuerich-behandlungsraum', 'studio-perfect-shape-zuerich-zertifikate'].map((img, i) => `<figure class="studio__slide${i === 0 ? ' is-active' : ''}" data-slide>${pic(img, H.g[i], { sizes: '100vw' })}</figure>`).join('')}
   </div>
-  <div class="container team-wrap">
-    <p class="eyebrow" data-reveal>${H.teamSub}</p>
-    <div class="team">
-      ${D.TEAM.map((p) => `<a class="member" href="${P('about')}" data-reveal>
-        <div class="member__img" data-reveal="img">${pic(p.image, p.alt, { sizes: '(max-width: 900px) 48vw, 44vw' })}</div>
-        <div class="member__row"><div><h3 class="member__name">${esc(p.name)}</h3><p class="member__role">${esc(p.role)}</p></div><span class="arrow-circle">${icon('arrow')}</span></div>
-      </a>`).join('')}
+  <div class="container studio__in">
+    <div class="studio__text">
+      <p class="eyebrow eyebrow--light" data-reveal>${H.sEyebrow}</p>
+      ${title(H.aTitle, H.aAccent, { id: 'about-title', cls: 'title--light' })}
+      <p data-reveal>${H.aText}</p>
+      <div class="studio__links"><a class="link link--light" href="${P('about')}">${H.aLink} ${icon('right')}</a><a class="link link--light" href="${SITE.route}" target="_blank" rel="noopener">${H.route} ${icon('arrow')}</a></div>
     </div>
+    <div class="studio__nav">${H.studioNav.map((n, i) => `<button type="button" class="studio__dot${i === 0 ? ' is-active' : ''}" data-dot="${i}" aria-label="${H.studioShow} ${n}" aria-pressed="${i === 0}"><i></i><span>${n}</span></button>`).join('')}</div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="team-title">
+  <div class="container experts-grid">
+    <div class="experts-grid__head">
+      <p class="eyebrow" data-reveal>${H.teamEyebrow}</p>
+      ${title(H.teamTitle, H.teamAccent, { id: 'team-title' })}
+      <p data-reveal>${H.teamText}</p>
+      <p data-reveal><a class="link" href="${P('about')}">${H.teamLink} ${icon('right')}</a></p>
+    </div>
+    <ul class="experts">
+      ${D.TEAM.map((p, i) => `<li data-reveal${i ? ` style="--d:120ms"` : ''}><a class="expert" href="${P('about')}">
+        <span class="expert__img">${pic(p.image, p.alt, { sizes: '160px' })}</span>
+        <div class="expert__txt"><span class="expert__num">0${i + 1}</span><h3 class="expert__name">${esc(p.name)}</h3><span class="expert__role">${esc(p.role)}</span></div>
+        <span class="arrow-circle">${icon('arrow')}</span>
+      </a></li>`).join('')}
+    </ul>
   </div>
 </section>
 
@@ -618,7 +613,7 @@ function buildLang(lang) {
         <button type="button" class="arrow-circle" data-next aria-label="${H.next}">${icon('right')}</button>
       </div>
     </div>
-    <p class="reviews__google" data-reveal><a class="link" href="${SITE.googleMaps}" target="_blank" rel="noopener">${H.google} ${icon('arrow')}</a></p>
+    <p class="reviews__google" data-reveal><a class="link" href="${SITE.googleMaps}" target="_blank" rel="noopener">${SITE.googleRating && SITE.googleReviewCount ? `${String(SITE.googleRating).replace('.', de ? ',' : '.')} / 5 · ${SITE.googleReviewCount} ${H.gReviews}` : H.google} ${icon('arrow')}</a></p>
   </div>
 </section>
 
