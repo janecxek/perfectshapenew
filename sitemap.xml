@@ -1,142 +1,371 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://perfectshape-zuerich.ch/</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/"/>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/fadenlifting-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/fadenlifting-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/thread-lift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/fadenlifting-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/fadenlifting-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/hyaluron-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/hyaluron-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/hyaluronic-acid-fillers-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/hyaluron-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/hyaluron-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/mesotherapie-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/mesotherapie-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/mesotherapy-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/mesotherapie-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/mesotherapie-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/biostimulatoren-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/biostimulatoren-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/biostimulators-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/biostimulatoren-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/biostimulatoren-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/prp-vampirelifting-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/prp-vampirelifting-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/prp-vampire-facelift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/prp-vampirelifting-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/prp-vampirelifting-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/laser-haarentfernung-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/laser-haarentfernung-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/laser-hair-removal-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/laser-haarentfernung-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/laser-haarentfernung-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/endolift-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/endolift-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/endolift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/endolift-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/endolift-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/rf-needling-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/rf-needling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/rf-microneedling-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/rf-needling-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/rf-needling-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/microdermabrasion-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/microdermabrasion-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/microdermabrasion-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/microdermabrasion-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/microdermabrasion-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/carbon-laser-peeling-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/carbon-laser-peeling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/carbon-laser-peel-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/carbon-laser-peeling-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/carbon-laser-peeling-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/klassische-massage-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/klassische-massage-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/massage-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/klassische-massage-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/klassische-massage-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/anti-cellulite-massage-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/anti-cellulite-massage-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/anti-cellulite-massage-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/anti-cellulite-massage-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/anti-cellulite-massage-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/fruchtsaeure-peeling-zuerich</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/fruchtsaeure-peeling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/chemical-peel-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/fruchtsaeure-peeling-zuerich"/>
     <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/fruchtsaeure-peeling-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/behandlungen</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/behandlungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/treatments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/behandlungen"/>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/preise</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/preise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/prices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/preise"/>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/ueber-uns</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/ueber-uns"/>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/kontakt</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/kontakt"/>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/agb</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/datenschutz</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/impressum</loc>
-    <lastmod>2026-10-08</lastmod>
+    <lastmod>2026-10-09</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/"/>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/thread-lift-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/fadenlifting-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/thread-lift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/fadenlifting-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/fadenlifting-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/hyaluronic-acid-fillers-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/hyaluron-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/hyaluronic-acid-fillers-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/hyaluron-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/hyaluron-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/mesotherapy-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/mesotherapie-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/mesotherapy-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/mesotherapie-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/mesotherapie-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/biostimulators-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/biostimulatoren-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/biostimulators-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/biostimulatoren-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/biostimulatoren-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/prp-vampire-facelift-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/prp-vampirelifting-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/prp-vampire-facelift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/prp-vampirelifting-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/prp-vampirelifting-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/laser-hair-removal-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/laser-haarentfernung-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/laser-hair-removal-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/laser-haarentfernung-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/laser-haarentfernung-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/endolift-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/endolift-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/endolift-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/endolift-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/endolift-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/rf-microneedling-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/rf-needling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/rf-microneedling-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/rf-needling-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/rf-needling-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/microdermabrasion-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/microdermabrasion-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/microdermabrasion-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/microdermabrasion-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/microdermabrasion-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/carbon-laser-peel-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/carbon-laser-peeling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/carbon-laser-peel-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/carbon-laser-peeling-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/carbon-laser-peeling-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/massage-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/klassische-massage-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/massage-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/klassische-massage-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/klassische-massage-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/anti-cellulite-massage-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/anti-cellulite-massage-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/anti-cellulite-massage-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/anti-cellulite-massage-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/anti-cellulite-massage-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/chemical-peel-zurich</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/fruchtsaeure-peeling-zuerich"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/chemical-peel-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/fruchtsaeure-peeling-zuerich"/>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/fruchtsaeure-peeling-zuerich.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/treatments</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/behandlungen"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/treatments"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/behandlungen"/>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/prices</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/preise"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/prices"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/preise"/>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/about</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/ueber-uns"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/about"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/ueber-uns"/>
+  </url>
+  <url>
+    <loc>https://perfectshape-zuerich.ch/en/contact</loc>
+    <lastmod>2026-10-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de-CH" href="https://perfectshape-zuerich.ch/kontakt"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://perfectshape-zuerich.ch/en/contact"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://perfectshape-zuerich.ch/kontakt"/>
   </url>
 </urlset>

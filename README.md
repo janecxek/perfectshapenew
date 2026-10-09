@@ -7,12 +7,13 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
 
 | Ścieżka | Co to jest |
 | --- | --- |
-| `scripts/content.mjs` | **Wszystkie treści**: dane kontaktowe, zabiegi, ceny, FAQ, zespół, opinie, AGB |
+| `scripts/content.mjs` | **Wszystkie treści DE**: dane kontaktowe, zabiegi, ceny, FAQ, zespół, opinie, AGB, zdjęcia strony głównej (`HOME`) |
+| `scripts/content.en.mjs` | Treści angielskie |
 | `scripts/build.mjs` | Generator: layout, header/footer, podstrony, JSON-LD, sitemap.xml, robots.txt |
 | `assets/css/style.css` | Style (źródło) → build tworzy `style.min.css` |
 | `assets/js/main.js` | Interakcje: płynny scroll, header nad hero, paralaksa, menu, lista zabiegów z podglądem, slider, FAQ, modal rezerwacji, mapa, formularz |
 | `assets/js/lenis.min.js` | Biblioteka płynnego przewijania (MIT) |
-| `assets/img/` | Zoptymalizowane obrazy WebP (480–1600 px) + JPG fallback, logo, OG-image |
+| `assets/img/` | Zoptymalizowane obrazy WebP (480–2560 px) + JPG fallback, logo wektorowe (`logo.svg`, `logo-white.svg`), OG-image |
 | `assets/fonts/` | Fonty self-hosted (Inter Tight, Instrument Serif – licencja OFL) |
 | `*.html`, `sitemap.xml`, `robots.txt` | **Wygenerowane** – nie edytować ręcznie |
 | `vercel.json` | Czyste URL-e, przekierowania 301 ze starych adresów, cache, nagłówki bezpieczeństwa |
@@ -28,6 +29,13 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
    - `aboutHero`, `treatmentsHero` – hero podstron „Über uns” i „Behandlungen”
    - zdjęcia zabiegów: pole `image` przy każdym zabiegu
 3. `node scripts/build.mjs`
+
+## Wersja angielska
+
+- Niemiecki (de-CH) jest językiem głównym (adresy w katalogu głównym), angielski jest pod `/en/...` z angielskimi adresami pod SEO (np. `/en/thread-lift-zurich`).
+- Treści EN: `scripts/content.en.mjs` (klucz = niemiecki slug zabiegu, ceny liczbowe brane automatycznie z wersji DE). Teksty interfejsu i strony głównej: `STR` i bloki `de ? … : …` w `scripts/build.mjs`.
+- Każda strona ma `hreflang` (de-CH / en / x-default), sitemap zawiera alternatywy językowe. Przełącznik DE/EN prowadzi do odpowiednika aktualnej strony.
+- AGB, Datenschutz i Impressum są tylko po niemiecku (wersja prawnie wiążąca) – w EN stopka linkuje do nich z dopiskiem „(DE)”.
 
 ## Zmiana treści / cen
 

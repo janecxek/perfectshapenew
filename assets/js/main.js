@@ -117,7 +117,7 @@
   function setMenu(open) {
     if (!burger || !mnav) return;
     burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Menü schliessen' : 'Menü öffnen');
+    burger.setAttribute('aria-label', burger.getAttribute(open ? 'data-label-close' : 'data-label-open') || '');
     if (open) {
       mnav.hidden = false;
       stopScroll();
@@ -289,7 +289,7 @@
     btn.addEventListener('click', function () {
       var f = doc.createElement('iframe');
       f.src = box.getAttribute('data-map');
-      f.title = 'Google Maps – Perfect Shape Zürich, Bahnhofstrasse 94';
+      f.title = box.getAttribute('data-map-title') || 'Google Maps';
       f.loading = 'lazy';
       f.referrerPolicy = 'no-referrer-when-downgrade';
       f.setAttribute('allowfullscreen', '');
@@ -332,6 +332,7 @@
   var form = $('#contactForm');
   if (form) {
     var status = $('.form__status', form);
+    var isEn = form.getAttribute('data-lang') === 'en';
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       var ok = true;
@@ -342,15 +343,15 @@
         if (!valid && ok) { ok = false; el.focus(); }
       });
       if (!ok) {
-        status.textContent = 'Bitte füllen Sie alle Pflichtfelder (*) korrekt aus.';
+        status.textContent = isEn ? 'Please fill in all required fields (*) correctly.' : 'Bitte füllen Sie alle Pflichtfelder (*) korrekt aus.';
         status.className = 'form__status is-error';
         return;
       }
       var d = new FormData(form);
-      var topic = d.get('topic') || 'Allgemeine Anfrage';
-      var body = 'Name: ' + d.get('name') + '\nE-Mail: ' + d.get('email') + '\nTelefon: ' + (d.get('phone') || '–') + '\nBehandlung: ' + topic + '\n\n' + d.get('message');
-      window.location.href = 'mailto:' + form.getAttribute('data-mailto') + '?subject=' + encodeURIComponent('Anfrage Website – ' + topic) + '&body=' + encodeURIComponent(body);
-      status.textContent = 'Ihr E-Mail-Programm wurde geöffnet – bitte senden Sie die Nachricht dort ab. Alternativ erreichen Sie uns telefonisch.';
+      var topic = d.get('topic') || (isEn ? 'General enquiry' : 'Allgemeine Anfrage');
+      var body = 'Name: ' + d.get('name') + '\nE-Mail: ' + d.get('email') + '\n' + (isEn ? 'Phone' : 'Telefon') + ': ' + (d.get('phone') || '–') + '\n' + (isEn ? 'Treatment' : 'Behandlung') + ': ' + topic + '\n\n' + d.get('message');
+      window.location.href = 'mailto:' + form.getAttribute('data-mailto') + '?subject=' + encodeURIComponent((isEn ? 'Website enquiry – ' : 'Anfrage Website – ') + topic) + '&body=' + encodeURIComponent(body);
+      status.textContent = isEn ? 'Your email app has been opened – please send the message from there. You can also reach us by phone.' : 'Ihr E-Mail-Programm wurde geöffnet – bitte senden Sie die Nachricht dort ab. Alternativ erreichen Sie uns telefonisch.';
       status.className = 'form__status is-ok';
     });
     form.addEventListener('input', function (e) {
@@ -358,6 +359,36 @@
       if (wrap) wrap.classList.remove('is-invalid');
     });
   }
+
+  /* ---------- Logo: auf derselben Seite sanft nach oben ---------- */
+  $$('[data-top]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+      var target = a.pathname.replace(/\/$/, '') || '/';
+      var here = location.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
+      if (target === here) {
+        e.preventDefault();
+        if (burger && burger.getAttribute('aria-expanded') === 'true') setMenu(false);
+        if (lenis) lenis.scrollTo(0, { duration: 1.4 }); else window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+        if (history.replaceState) history.replaceState(null, '', location.pathname);
+      }
+    });
+  });
+
+  /* ---------- Sprachumschalter: Animation vor dem Seitenwechsel ---------- */
+  $$('.lang').forEach(function (sw) {
+    $$('a', sw).forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || a.hasAttribute('aria-current')) { if (a.hasAttribute('aria-current')) e.preventDefault(); return; }
+        e.preventDefault();
+        sw.setAttribute('data-active', a.getAttribute('data-lang'));
+        $$('a', sw).forEach(function (x) { x.removeAttribute('aria-current'); });
+        a.setAttribute('aria-current', 'true');
+        try { localStorage.setItem('ps-lang', a.getAttribute('data-lang')); } catch (err) {}
+        setTimeout(function () { location.href = a.href; }, reduceMotion ? 0 : 260);
+      });
+    });
+  });
 
   /* ---------- Jahr im Footer ---------- */
   $$('[data-year]').forEach(function (el) { el.textContent = new Date().getFullYear(); });
