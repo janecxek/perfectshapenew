@@ -475,6 +475,50 @@
   syncSwitches(lang());
   applyMeta(lang());
 
+  /* ---------- DE/EN: identisches Layout ----------
+     Beide Sprachen haben dieselbe Struktur. Jeder Textblock bekommt die Höhe der
+     längeren Sprachversion, damit Abschnitte, Buttons und Bilder in beiden Sprachen
+     exakt gleich sitzen – auf jeder Bildschirmbreite. */
+  var EQ_SEL = 'h1,h2,h3,h4,p,li,summary,blockquote,figcaption,dt,dd,label,.btn,.cat__name,.cat__short,.cat__meta,.expert__role,.price-tag,.studio__dot';
+  var EQ_BOX = '.crumbs ol,.chips';
+  var eqDone = [];
+  var leaves = function (pane) { return $$(EQ_SEL, pane).filter(function (el) { return !el.closest(EQ_BOX) && !el.querySelector(EQ_SEL); }); };
+  var boxes = function (pane) { return $$(EQ_BOX, pane); };
+  function eqPass(de, en, off, pick) {
+    off.style.width = doc.documentElement.clientWidth + 'px';
+    off.classList.add('is-measure');
+    var A = pick(de), B = pick(en), hA = [], hB = [];
+    if (A.length === B.length) A.forEach(function (el, i) { hA[i] = el.offsetHeight; hB[i] = B[i].offsetHeight; });
+    off.classList.remove('is-measure');
+    off.style.width = '';
+    if (A.length !== B.length) return;
+    A.forEach(function (el, i) {
+      var a = hA[i], b = hB[i];
+      if (!a || !b || Math.abs(a - b) < 2) return;
+      var t = a < b ? el : B[i];
+      t.style.minHeight = Math.max(a, b) + 'px';
+      eqDone.push(t);
+    });
+  }
+  function equalize() {
+    var de = $('.lp[data-pane="de"]'), en = $('.lp[data-pane="en"]');
+    if (!de || !en) return;
+    eqDone.forEach(function (el) { el.style.minHeight = ''; });
+    eqDone = [];
+    var off = lang() === 'en' ? de : en;
+    eqPass(de, en, off, leaves);
+    eqPass(de, en, off, boxes);
+    if (lenis) lenis.resize();
+  }
+  equalize();
+  if (doc.fonts && doc.fonts.ready) doc.fonts.ready.then(equalize);
+  window.addEventListener('load', equalize);
+  var eqW = window.innerWidth, eqT = null;
+  window.addEventListener('resize', function () {
+    if (window.innerWidth === eqW) return;
+    eqW = window.innerWidth; clearTimeout(eqT); eqT = setTimeout(equalize, 150);
+  });
+
   /* ---------- Reveal beim Scrollen ---------- */
   var revealEls = $$('[data-reveal]');
   var io = null;
