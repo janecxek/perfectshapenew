@@ -1,160 +1,4 @@
 {
- "fadenlifting-zuerich": {
-  "w": 1241,
-  "h": 768,
-  "widths": [
-   480,
-   800,
-   1200,
-   1241
-  ],
-  "ratio": 0.6188557614826753
- },
- "hyaluron-zuerich": {
-  "w": 1920,
-  "h": 1080,
-  "widths": [
-   480,
-   800,
-   1200,
-   1600,
-   1920
-  ],
-  "ratio": 0.5625
- },
- "mesotherapie-zuerich": {
-  "w": 1125,
-  "h": 624,
-  "widths": [
-   480,
-   800,
-   1125
-  ],
-  "ratio": 0.5546666666666666
- },
- "biostimulatoren-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "prp-vampirelifting-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "laser-haarentfernung-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "endolift-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "rf-needling-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "microdermabrasion-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "carbon-laser-peeling-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "klassische-massage-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "anti-cellulite-massage-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "fruchtsaeure-peeling-zuerich": {
-  "w": 1536,
-  "h": 1024,
-  "widths": [
-   480,
-   800,
-   1200,
-   1536
-  ],
-  "ratio": 0.6666666666666666
- },
- "aesthetik-lasermedizin-zuerich": {
-  "w": 2800,
-  "h": 1964,
-  "widths": [
-   480,
-   800,
-   1200,
-   1600,
-   2000,
-   2560
-  ],
-  "ratio": 0.7014285714285714
- },
  "studio-perfect-shape-zuerich-empfang": {
   "w": 3840,
   "h": 2880,
@@ -219,18 +63,6 @@
   ],
   "ratio": 1.3367003367003367
  },
- "agnieszka-jaggy-behandlung": {
-  "w": 1800,
-  "h": 2048,
-  "widths": [
-   480,
-   800,
-   1200,
-   1600,
-   1800
-  ],
-  "ratio": 1.1377777777777778
- },
  "partner-endolift": {
   "w": 480,
   "h": 204
@@ -246,10 +78,6 @@
  "partner-dives-med": {
   "w": 480,
   "h": 197
- },
- "logo": {
-  "w": 400,
-  "h": 78
  },
  "aesthetische-medizin-zuerich": {
   "w": 1536,
@@ -321,6 +149,384 @@
   "ratio": 0.562200956937799
  },
  "aesthetik-klinik-zuerich-hero-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "fadenlifting-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 75,
+  "fy": 40
+ },
+ "fadenlifting-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "hyaluron-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 78,
+  "fy": 40
+ },
+ "hyaluron-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "mesotherapie-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 70,
+  "fy": 40
+ },
+ "mesotherapie-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "biostimulatoren-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 80,
+  "fy": 40
+ },
+ "biostimulatoren-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "prp-vampirelifting-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 66,
+  "fy": 40
+ },
+ "prp-vampirelifting-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "laser-haarentfernung-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 80,
+  "fy": 40
+ },
+ "laser-haarentfernung-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "endolift-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 72,
+  "fy": 40
+ },
+ "endolift-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "rf-needling-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 72,
+  "fy": 40
+ },
+ "rf-needling-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "microdermabrasion-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 74,
+  "fy": 40
+ },
+ "microdermabrasion-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "carbon-laser-peeling-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 66,
+  "fy": 40
+ },
+ "carbon-laser-peeling-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "klassische-massage-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 62,
+  "fy": 40
+ },
+ "klassische-massage-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "anti-cellulite-massage-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 62,
+  "fy": 40
+ },
+ "anti-cellulite-massage-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "fruchtsaeure-peeling-zuerich-behandlung": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 56,
+  "fy": 40
+ },
+ "fruchtsaeure-peeling-zuerich-behandlung-portrait": {
+  "w": 1058,
+  "h": 1880,
+  "widths": [
+   480,
+   720,
+   1058
+  ],
+  "ratio": 1.776937618147448
+ },
+ "termin-perfect-shape-zuerich": {
+  "w": 3344,
+  "h": 1880,
+  "widths": [
+   480,
+   640,
+   960,
+   1280,
+   1600,
+   1920,
+   2560,
+   3344
+  ],
+  "ratio": 0.562200956937799,
+  "fx": 84,
+  "fy": 40
+ },
+ "termin-perfect-shape-zuerich-portrait": {
   "w": 1058,
   "h": 1880,
   "widths": [

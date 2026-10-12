@@ -107,8 +107,8 @@ function pic(name, alt, { sizes = '100vw', eager = false } = {}) {
   if (!m) throw new Error('Bild fehlt: ' + name);
   const fw = Math.min(1200, m.w);
   const fh = Math.round(m.h * (fw / m.w));
-  // Optionaler Hochformat-Ausschnitt (<name>-portrait) für Smartphones im Hochformat
-  const portrait = IMG[name + '-portrait'] ? `<source media="(orientation: portrait)" type="image/webp" srcset="${srcset(name + '-portrait')}" sizes="${PORTRAIT_SIZES}">` : '';
+  // Optionaler Hochformat-Ausschnitt (<name>-portrait) – nur für bildschirmfüllende Bilder (Hero, CTA-Band)
+  const portrait = IMG[name + '-portrait'] && (sizes === HERO_SIZES || sizes === '100vw') ? `<source media="(orientation: portrait)" type="image/webp" srcset="${srcset(name + '-portrait')}" sizes="${PORTRAIT_SIZES}">` : '';
   // Fokuspunkt (fx/fy in %) hält die Person auch in Miniaturen und schmalen Ausschnitten im Bild
   const focus = m.fx != null ? ` style="object-position:${m.fx}% ${m.fy ?? 50}%"` : '';
   return `<picture>${portrait}<source type="image/webp" srcset="${srcset(name)}" sizes="${portrait ? '100vw' : sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}"${focus} ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
