@@ -109,7 +109,9 @@ function pic(name, alt, { sizes = '100vw', eager = false } = {}) {
   const fh = Math.round(m.h * (fw / m.w));
   // Optionaler Hochformat-Ausschnitt (<name>-portrait) für Smartphones im Hochformat
   const portrait = IMG[name + '-portrait'] ? `<source media="(orientation: portrait)" type="image/webp" srcset="${srcset(name + '-portrait')}" sizes="${PORTRAIT_SIZES}">` : '';
-  return `<picture>${portrait}<source type="image/webp" srcset="${srcset(name)}" sizes="${portrait ? '100vw' : sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}" ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
+  // Fokuspunkt (fx/fy in %) hält die Person auch in Miniaturen und schmalen Ausschnitten im Bild
+  const focus = m.fx != null ? ` style="object-position:${m.fx}% ${m.fy ?? 50}%"` : '';
+  return `<picture>${portrait}<source type="image/webp" srcset="${srcset(name)}" sizes="${portrait ? '100vw' : sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}"${focus} ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const HERO_SIZES = '(orientation: portrait) 160vh, 100vw';
 const PORTRAIT_SIZES = '(max-aspect-ratio: 9/16) 57vh, 100vw';
@@ -255,7 +257,7 @@ function header(active, key) {
 function ctaBand() {
   return `
 <section class="band band--cta" aria-labelledby="cta-title">
-  <div class="band__media" data-parallax>${pic(HOME.ctaImage, LANG === 'de' ? HOME.ctaAlt : 'Relaxing treatment at Perfect Shape Zurich')}</div>
+  <div class="band__media" data-parallax>${pic(HOME.ctaImage, LANG === 'de' ? HOME.ctaAlt : 'Happy client after her treatment at Perfect Shape Zurich')}</div>
   <div class="container band__in">
     <p class="eyebrow eyebrow--light" data-reveal>${S.ctaEyebrow}</p>
     <h2 class="title title--lg title--light" id="cta-title" data-reveal>${esc(S.ctaTitle)} <em>${esc(S.ctaAccent)}</em></h2>
@@ -507,7 +509,7 @@ function buildLang(lang) {
     tEyebrow: 'Treatments', tTitle: 'Our', tAccent: 'Treatments', tText: 'Thread lifts, hyaluronic acid, laser hair removal &amp; Endolift® – performed with precision by certified physicians and specialists. For results that look natural.', allPrices: 'All prices',
     sEyebrow: 'Bahnhofstrasse 94 · 2nd floor', sTitle: 'Our', sAccent: 'Studio', sText: 'Bright, calm and discreet – just a few minutes’ walk from Zurich main station.', route: 'Get directions',
     g: ['Reception and waiting area at Perfect Shape on Bahnhofstrasse Zurich', 'Treatment room at Perfect Shape Zurich', 'Certificates and diplomas at Perfect Shape Zurich'],
-    cEyebrow: 'Online booking', cTitle: 'Ready for your', cAccent: 'treatment?', cText: 'Book your appointment online – quickly and easily. Or give us a call, we’re happy to advise you.', cAlt: 'Relaxing treatment at Perfect Shape Zurich',
+    cEyebrow: 'Online booking', cTitle: 'Ready for your', cAccent: 'treatment?', cText: 'Book your appointment online – quickly and easily. Or give us a call, we’re happy to advise you.', cAlt: 'Happy client after her treatment at Perfect Shape Zurich',
     teamEyebrow: 'In the best hands', teamTitle: 'Our', teamAccent: 'Experts', teamText: 'Medical expertise, certified laser safety and many years of experience in aesthetic medicine.', teamLink: 'Meet the team',
     revEyebrow: 'Client reviews', revTitle: 'Real', revAccent: 'Experiences', stars: '5 out of 5 stars', prev: 'Previous review', next: 'Next review', google: 'All reviews on Google',
     fTitle: 'Frequent', fAccent: 'Questions', fText: 'Your question isn’t listed? Call or write to us – we’re happy to help.', fLink: 'Get in touch',
