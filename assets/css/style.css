@@ -269,8 +269,9 @@ body.menu-open { overflow: hidden; }
 /* ---------- Intro (Wort-für-Wort) ---------- */
 .intro__text { font-size: clamp(1.6rem, 3.4vw, 3rem); line-height: 1.18; letter-spacing: -.02em; font-weight: 500; max-width: 1180px; margin: 0; }
 .intro__text em { font-family: var(--serif); font-weight: 400; letter-spacing: -.01em; font-size: 1.1em; color: var(--accent); }
-.words .w { opacity: .2; transition: opacity .25s linear; }
-.words .w.on { opacity: 1; }
+.words .w { color: #8c827a; transition: color .3s linear; }
+.words .w.on { color: var(--ink); }
+.words em .w.on, .words .w.on em { color: var(--accent); }
 .facts { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(56px, 7vw, 100px); border-top: 1px solid var(--line); }
 .facts li { padding: 26px 30px 0 0; }
 .facts li + li { padding-left: 30px; border-left: 1px solid var(--line); }
@@ -491,6 +492,38 @@ body.menu-open { overflow: hidden; }
 .slider__nav button:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
 .slider__count { font-size: .9rem; color: var(--muted); min-width: 44px; }
 .reviews__google { margin-top: 36px; }
+.reviews__slider { margin-top: 56px; }
+
+/* Vertrauen (Unterseiten): Bewertung + Expertinnen */
+.trust-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); align-items: start; }
+.trust-grid .slider { text-align: left; }
+.trust-grid .review p { font-size: clamp(1.35rem, 2.2vw, 1.85rem); }
+.trust-grid .slider__nav { justify-content: flex-start; margin-top: 32px; }
+.trust-grid .reviews__google { margin-top: 28px; }
+
+/* Persönliche Beratung */
+.consult { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(32px, 6vw, 96px); align-items: center; padding: clamp(36px, 5vw, 72px); background: var(--sand); border-radius: var(--radius); }
+.section--alt .consult { background: var(--bg); }
+.consult__text .title { margin-bottom: 18px; }
+.consult__text p:not(.eyebrow) { color: var(--ink-2, var(--ink)); max-width: 520px; margin: 0; }
+.consult__actions { display: grid; gap: 10px; }
+.consult__actions .btn { width: 100%; }
+
+/* Behandlungen als flache Liste (verwandte Behandlungen, 404) */
+.cat__list--flat { padding: 0; border-top: 1px solid var(--line); }
+.cat__list--flat li { border-bottom: 1px solid var(--line); }
+.cat__list--flat li + li { border-top: 0; }
+.cat__list--flat .cat__item { opacity: 1; transform: none; padding: 16px 0; }
+@media (max-width: 900px) {
+  .trust-grid, .consult { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .consult { padding: 28px 18px; }
+  .consult__actions .btn { padding-inline: 14px; }
+}
+@media (max-width: 340px) {
+  .consult__actions .btn { font-size: .9rem; gap: 8px; }
+}
 
 /* ---------- Preis-Karten ---------- */
 .pcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; }
@@ -821,7 +854,8 @@ body.menu-open { overflow: hidden; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
   .js [data-reveal] { opacity: 1; transform: none; clip-path: none; }
   .js [data-reveal="img"] img { transform: none; }
-  .words .w { opacity: 1; }
+  .words .w { color: var(--ink); }
+  .words em .w { color: var(--accent); }
   .hero__media img { transform: none; }
   .hero__title .ln > span, .fade-up { transform: none; opacity: 1; }
 }

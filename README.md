@@ -38,6 +38,16 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
 - Treści EN: `scripts/content.en.mjs` (klucz = niemiecki slug zabiegu, ceny liczbowe brane automatycznie z wersji DE). Teksty interfejsu i strony głównej: `STR` i bloki `de ? … : …` w `scripts/build.mjs`.
 - Google indeksuje wersję niemiecką (główną). AGB, Datenschutz i Impressum mają treść tylko po niemiecku (wersja prawnie wiążąca).
 
+## Budowa podstron (wspólne bloki)
+
+Wszystkie strony korzystają z tych samych bloków z `scripts/build.mjs` (`studioBand`, `expertsSection`, `reviewsSection`, `trustSection`, `consultSection`, `faqSection`, `treatmentRows`, `categoryList`), więc wyglądają spójnie.
+
+- **Strona zabiegu:** hero (nagłówek, cena „ab CHF”, przyciski, etykiety) → opis → dla kogo → przebieg → efekty → ceny → opinie + ekspertki → FAQ → podobne zabiegi → CTA
+- **Behandlungen:** kategorie (rozwijane) → bezpłatna rozmowa/doradztwo → opinie → CTA
+- **Preise:** cennik → doradztwo → FAQ o cenach, płatności i odwoływaniu (dane strukturalne FAQ)
+- **Über uns:** zespół → studio (zdjęcia na całe tło) → opinie → kontakt
+- **Kontakt:** dane, formularz, mapa → FAQ
+
 ## Zmiana treści / cen
 
 1. Edytuj `scripts/content.mjs` (np. cenę w `prices`, pytanie w `faq`).
