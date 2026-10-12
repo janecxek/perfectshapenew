@@ -110,7 +110,10 @@ function pic(name, alt, { sizes = '100vw', eager = false } = {}) {
   // Optionaler Hochformat-Ausschnitt (<name>-portrait) – nur für bildschirmfüllende Bilder (Hero, CTA-Band)
   const portrait = IMG[name + '-portrait'] && (sizes === HERO_SIZES || sizes === '100vw') ? `<source media="(orientation: portrait)" type="image/webp" srcset="${srcset(name + '-portrait')}" sizes="${PORTRAIT_SIZES}">` : '';
   // Fokuspunkt (fx/fy in %) hält die Person auch in Miniaturen und schmalen Ausschnitten im Bild
-  const focus = m.fx != null ? ` style="object-position:${m.fx}% ${m.fy ?? 50}%"` : '';
+  // + unscharfe Mini-Vorschau (LQIP, ~250 Bytes), sichtbar bis das eigentliche Bild geladen ist
+  const pos = m.fx != null ? `${m.fx}% ${m.fy ?? 50}%` : '';
+  const styles = [pos && `object-position:${pos}`, m.lqip && !/^\d+px$/.test(sizes) && `background:url(${m.lqip}) ${pos || '50% 50%'}/cover no-repeat`].filter(Boolean).join(';');
+  const focus = styles ? ` style="${styles}"` : '';
   return `<picture>${portrait}<source type="image/webp" srcset="${srcset(name)}" sizes="${portrait ? '100vw' : sizes}"><img src="/assets/img/${name}.jpg" alt="${esc(alt)}" width="${fw}" height="${fh}"${focus} ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async"></picture>`;
 }
 const HERO_SIZES = '(orientation: portrait) 160vh, 100vw';
@@ -381,6 +384,7 @@ ${de.preload}
 <script src="/assets/js/lenis.min.js?v=${VERSION}" defer></script>
 <script src="/assets/js/main.js?v=${VERSION}" defer></script>
 ${de.ld}
+<script type="speculationrules">{"prerender":[{"where":{"and":[{"href_matches":"/*"},{"not":{"selector_matches":"[target=_blank], [data-book], [download]"}}]},"eagerness":"moderate"}]}</script>
 </head>
 <body${de.hasHero ? ' class="has-hero"' : ''}>
 <div class="lp lp--de" data-pane="de" lang="de-CH">
