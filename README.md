@@ -28,7 +28,7 @@ Statyczna strona (HTML/CSS/JS bez frameworków i bez jQuery, płynny scroll: Len
    - `ctaImage` – zdjęcie w końcowym CTA „Ihr Termin wartet auf Sie”
    - `aboutHero`, `treatmentsHero` – hero podstron „Über uns” i „Behandlungen”
    - zdjęcia kategorii: pole `image` w `CATEGORIES`
-   - zdjęcia zabiegów: pole `image` przy każdym zabiegu
+   - zdjęcia zabiegów: pole `image` przy każdym zabiegu (hero strony zabiegu + miniaturki); opcjonalnie w `imgmeta.json` pola `fx`/`fy` (punkt skupienia w %), żeby osoba była w kadrze w miniaturkach
 3. `node scripts/build.mjs`
 
 ## Wersja angielska (na tej samej stronie)
