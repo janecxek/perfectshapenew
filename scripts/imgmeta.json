@@ -12,7 +12,8 @@
    3200,
    3840
   ],
-  "ratio": 0.75
+  "ratio": 0.75,
+  "lqip": "data:image/webp;base64,UklGRqgAAABXRUJQVlA4IJwAAAAQBQCdASoYABIAPt1kqE+opaOiKAqpEBuJQBOmcj6Ng6UHi/3NJIYP1MQUp02dNjXAAP7nk5bsUJ5txk9vH9Tr3nzEkjfSRlMNXXREJabJuEuXDNk2ltSw6pdgHNmSriE64Riq+MMW46hdjDienbW3Uyk29vdUSs6hLgoCznWRlRMbwolt4PMUc6e3P6qt5YRcREnzJQVD1X8pQAA="
  },
  "studio-perfect-shape-zuerich-behandlungsraum": {
   "w": 3840,
@@ -27,7 +28,8 @@
    3200,
    3840
   ],
-  "ratio": 0.75
+  "ratio": 0.75,
+  "lqip": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAAAQBQCdASoYABIAPt1kqk+opaOiKAqpEBuJZQCdM1XBSNr45qD1p5LWpdXepJDmVjeAANq9KlMw0xfnpNV7mZnEPFKXGqr+CLtU2hgLBEcJoeWAsNcxarG9LOKDtW1gBys6dgfDhqBYEd8M2/ECNEHeVrvmWrbO+xwPHValmR1oPlwlVG0btZICReCZpRwF7x/alU9NDwRBZvAA"
  },
  "studio-perfect-shape-zuerich-zertifikate": {
   "w": 3840,
@@ -42,7 +44,8 @@
    3200,
    3840
   ],
-  "ratio": 0.734375
+  "ratio": 0.734375,
+  "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQBACdASoYABIAPt1kqlCopSOiqAgBEBuJYwC/OA6/TlWWiPUA+kP6boe8SQK1AAD+7YEeRO+oLQVhrCXlYmOjSxMr6Zin0SrIuajtZH/iGB0BLxUam0lWLw+vtiV4LSNWqZcliWurC9SRQfa23gv9fRnXHUpGAxiPs77WAtsFymLhuPWYmgAA"
  },
  "dr-med-roya-jeyrani": {
   "w": 693,
@@ -51,7 +54,8 @@
    480,
    693
   ],
-  "ratio": 1.4776334776334776
+  "ratio": 1.4776334776334776,
+  "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAACwBgCdASoYACMAPt1mrVAopaQipWsxEBuJYgCsM4UCmDmCOQphLlWKLIhvkzJ1XY37q1BlZqWe8kxhz7MRwAD+UsDnVJ/MwmgwcAEa8zb8kFD0h4sWvED1ePqjZi8HEgAQlI/DOzNo97aRMFDvQgKE38DJZy6bw3ECPCV3DoE68RC7Rb47P78c6G0hJP9R3FdJtfE4guQUeAbFsGHEUaPVNV7kjJPxkXiTCt0AXkiUj+wcDp+pdc0fNj0IjhbPQWl+RoBlOS/fBOJMAoEQF2LhC0cWUwxFUQLqk15TvgnMxAgA"
  },
  "agnieszka-jaggy": {
   "w": 1188,
@@ -61,7 +65,8 @@
    800,
    1188
   ],
-  "ratio": 1.3367003367003367
+  "ratio": 1.3367003367003367,
+  "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAADwBQCdASoYACAAPt1gp0yopaOiMAgBEBuJQBOmYBHAQkAlDFg07dzhHeMBOSsMFpRHjEnr8rxDAAD+6neuHDDpvK4ARglB/DiEi+I+rhtNx4kPfBsKT5mWvYAwYyW1G0lTaKkusgjfYTHPYxCKDyHjn/dvqVdLxvq/48uurmC0+/IopeyQveL3od0EVm97B1YXrl9Mr2OW0JDZTxJ+QTDH7lB9xv+P5/uXLr67UcQDeyi14t9oySyc/rKfltIynAJlGIVEuonz3dwR3AAzYpAoIiB9YflXSgYtMC+MAAA="
  },
  "partner-endolift": {
   "w": 480,
@@ -88,7 +93,8 @@
    1200,
    1536
   ],
-  "ratio": 0.6666666666666666
+  "ratio": 0.6666666666666666,
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoYABAAPt1apkyopSOiMAgBEBuJYgCdMoMYACGYAQvNb1ksyvOSEADKreAeK+ux8qZiCTQ3rvAhR3AkING6YalB56kBF3i29SKKdIuZYpAv+hXZUWT3JJ032MKMVb7SrgSXyCqgxVmE1rZO+okO44X1PVMjmpk8AAA="
  },
  "laserbehandlungen-zuerich": {
   "w": 1536,
@@ -99,7 +105,8 @@
    1200,
    1536
   ],
-  "ratio": 0.6666666666666666
+  "ratio": 0.6666666666666666,
+  "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAAAwBACdASoYABAAPt1cpkyopSOiMAgBEBuJYgCdMoACTJP91Pqudr1ccYgA/dLWQISXVkEdhbqp6BV/AnPsPsi0a+5G3kWTzjqICLd6cJXdDTyuY23ZTsMVF/ZO9v72/2u1NXYkFR5pLO8xdt1mzF9VUqQeLiK729t5a+E6PM3BBDP9DQibi4cOT+gAAA=="
  },
  "apparative-kosmetik-behandlung-zuerich": {
   "w": 1536,
@@ -110,7 +117,8 @@
    1200,
    1536
   ],
-  "ratio": 0.6666666666666666
+  "ratio": 0.6666666666666666,
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAABwBACdASoYABAAPt1apkyopSOiMAgBEBuJQBYdg+2bh2ZjGE4YBwRdGs3oAAD+4f6GYfzyhP+LS2tf36/zqy6uNV7tS3J2IOLt4sl5Kz2SYtYwmQX5i1BcjuoWoUkP+/zgHE+flPzyPbKMz3BIKkTNCyTEFAPp4oNBaoOhAAA="
  },
  "massagen-zuerich": {
   "w": 1536,
@@ -121,7 +129,8 @@
    1200,
    1536
   ],
-  "ratio": 0.6666666666666666
+  "ratio": 0.6666666666666666,
+  "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoYABAAPt1cpkyopSOiMAgBEBuJQBdgA+2ZBqWH4IvYA9sRA+AA/pvKO0NCA+XLUWCU+LmAWt7rRe+9OmUanmWH3mo+NmdbQvRywOOxueQrZfDiynF5osLoTLOMZ/kd0l1aiAHZEhDEHXuYAAA="
  },
  "fruchtsaeure-peeling-behandlung-zuerich": {
   "w": 1536,
@@ -132,7 +141,8 @@
    1200,
    1536
   ],
-  "ratio": 0.6666666666666666
+  "ratio": 0.6666666666666666,
+  "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAQBACdASoYABAAPt1cpkyopSOiMAgBEBuJQBOmUABG+ricwpNXwsSoQADh1cOKtSkVedvBQ+Lx5KMo/fiiCcXFUr7HwSyjt6yea+RiXzjXuiQG9/q/pbpu0w8bwcvAFbZZppVapC+FCDET9ueB+6jj4NsRxoytdU4DX/kg5QJDZgAA"
  },
  "aesthetik-klinik-zuerich-hero": {
   "w": 3344,
@@ -146,7 +156,8 @@
    2560,
    3344
   ],
-  "ratio": 0.562200956937799
+  "ratio": 0.562200956937799,
+  "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQBACdASoYAA4APt1ep00opSOiMAgBEBuJQBOmUABp08euvs9wfwVNejRAAPz4m8a6Gj/JcCB7RXZRpR+ETWWzJOSfPrXK/f6Wh3+s7C5L3qN3P+XehRdeXhKOhiAO+S3CrQHS27IDJEcXsHAAAA=="
  },
  "aesthetik-klinik-zuerich-hero-portrait": {
   "w": 1058,
@@ -156,7 +167,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRvAAAABXRUJQVlA4IOQAAAAQBwCdASoYACsAPt1WpkyopCOiMBqqqRAbiUAZQLZoGQXfo+qkkQ+A1mRS6H0i6Jkf+q5TAg/Zdb/GBMb6hYHQAAD+65P5qyAPIihaex7sn5CPBBsDuN38by/geFqemlNMIh4TwQ/bG2PRGdTdwpWOotJLJ5eKw3/nvkKogE1gzt0yFsBpzNQECgsqEMz8JNOmViOCn97mnqnKptpk3Mwj3pxCwoN9CfaFNDWjQOIBmLZw/a6Wxgq+ZmCiPvd9wN0UF/aX4ej/Ezy0LWFVBhA/BFJGpWhmL3uyR5UM9XyqlDkQAAA="
  },
  "fadenlifting-zuerich-behandlung": {
   "w": 3344,
@@ -173,7 +185,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 75,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwBACdASoYAA4APt1cpkyopSOiMAgBEBuJYgCdMoRwAB8QAo5JX2gNeIu84AD+yaUMWE+qW0BPkS5LLWj7UB1T2WrCTRhoFhZxa2vPsckMRhjyr16yAgdtV7Bltx1qr6wZESqrXrRQiujApNOnNAUC+w4pLdVBgd9DJITjTw6wMK9QzjydOqfIJMcBqVAA"
  },
  "fadenlifting-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -183,7 +196,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRgoBAABXRUJQVlA4IP4AAABwBwCdASoYACsAPt1kqU8opaOiKqgBEBuJQBXJ/5Dkwwm9vJ7KuJgmoDgCqfP0fNzk8L2kcIDZWwTRp3xBqiXKT/iJIAD+z4BQxwjOuur4OZuBgiu4hNrU5FcP9KO3rcWiJptv64f8EFs3YuOc70Y09r8/AXlPk2lvrzvBJqT6G+WtwpDLH7GcEbxPLkkauYe9TIiVFp0Ey59DgIEBSY0RZZ4IEnuN2UcgprQ1+nNA5gkPL9JqIK/SuHXiA5J9n23yMJX3tqEBwlH+xQEC4os6OdXmiJmGgeOH5vKFLQCc3sueYBI7UYBLenPT27pS2P2CxQoNn6wOSwTabH7QAA=="
  },
  "hyaluron-zuerich-behandlung": {
   "w": 3344,
@@ -200,7 +214,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 78,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAACQBACdASoYAA4APt1apkyopSOiMAgBEBuJZACdMoR3AB4P+iqmG/fmGkilowAA/ta+3JasU/YFGVAxqcBSx7YNHaGkOa7SXp87EFdmy1Lr4v9ibARBreB0ZjYdE4FVDJ7dBK84WyiUEDK/rGZwvK09yij6RRL6KfxBPWuQmsoQRULYnyl3AT2H4vcWVAQwAAA="
  },
  "hyaluron-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -210,7 +225,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAABwBgCdASoYACsAPt1mq1CopSOipWsxEBuJYwC90AcS54R1S8JhS/C64pY5FC3QWsNLDc8klJz9qstFPgAA4cI7sFDaO8Ihb/tJTtd4Y5Wq42HpmyllfeJL3va/2fLM4V7L+RzvZ9WOXHXMRQbG5ea5788vI23dH4RwP2DbXqTnz1Mu35VXo0zu8YV1s/N8JBxxlgpg1G5HMdKGj54LJ4XU5ZbQuz8PopzIRvVYGO5QSSWDjxMzGfAznllEoDAYeAAAAA=="
  },
  "mesotherapie-zuerich-behandlung": {
   "w": 3344,
@@ -227,7 +243,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 70,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAAAQBACdASoYAA4APt1cpkyopSOiMAgBEBuJQBOmUABM9GL0B/Es+TzDGAD+yaQ8IEYmNI8KaTU/nrHxDqf5fJWYeytxgPeQxSok5yWGA6jbIwUMnldU2OlkBzsxPlvHE4nlBqDQO0YHEOWUDY+QE0YTVgYCh30wSQ4UFELCfqA5TCYgAAA="
  },
  "mesotherapie-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -237,7 +254,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4IPoAAAAQBwCdASoYACsAPt1mrlEopSQipWmZEBuJQBWGcKDfATSD8M3UG9V3MrJBAYRX12d++qC8oYXclLyE1clnlXuoAADZ+u4EzB/wgpIOYq9XGtRO4XnNO3hYVREr1/bkdaMmWk2IhTof7rcJXPWPsNHQ+GEN+z+0GBPxPtXnvkW35UOgfKEXN+PqDRWbHidveC2qzRvamElCX4wp5FpzQEckkJkFY4XNnRyaBK8gkDSACIuFAgfrVzwyzPvdlVWoRr8/XgLJe2rFxMsUldIKDvVwLrexrLAQ91vv8e2T73mvUK338JB+VW5egthGDd2tW0awdq90rYObgAAA"
  },
  "biostimulatoren-zuerich-behandlung": {
   "w": 3344,
@@ -254,7 +272,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 80,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoYAA4APt1cpkyopSOiMAgBEBuJQBOgBCqDBZSgwRuWTIAA/tdRqcQjONwyf+x/dIZqM7z2RfFRm0tYdYEx1D3Qq7fdgI+uK2mSpIpEqWoMYdTJ+w7UuEPVrCvyMzqPrkcoSgM1jrYAAA=="
  },
  "biostimulatoren-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -264,7 +283,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAACwBgCdASoYACsAPt1apUyopSOiMBqqqRAbiWMAvOAXDNdxCnV72yUO4HbF5IuGCV+idC8pftTOv4ycyc73QAD7GaHFs6bhAkhMLdeRAuWLZHtTUIPozY/Pc96tsDJrcgj4kUQofEMZSZjNWIJTZiFYx0oreSnHoM98Q+I3PAw+VaHr0GUosvpg6F0/ZPMXbC2y7dvnjpVKoyEwpoaXG/+SXaE2TdHmb5KN/LdDvZzYSfuuHEEokuzTay7gn/8mB5GFnUAV2p8jpfqeaFmvGi+qnOWJjDVg05SkQJE0685yQAAA"
  },
  "prp-vampirelifting-zuerich-behandlung": {
   "w": 3344,
@@ -281,7 +301,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 66,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoYAA4APt1cpkyopSOiMAgBEBuJYgCdMoACDEDVg3l7Jyx0WmAA/pFkWl2RU7CnWMHOrmw6O9dAQUlDanJVKWxFQgDOKiCLUWOd6tQAATp0v6IGHzCOEzLb0ak9NdFyHf7okGZEQkcTKOZ+oTwaUiMSy7LTcgGAAAA="
  },
  "prp-vampirelifting-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -291,7 +312,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRgYBAABXRUJQVlA4IPoAAACwBgCdASoYACsAPt1mqU4opiOiKrgMARAbiUATpmmhgAO5+cUTslU2Ok8zWQ/CrDiIGd7xtQtR7jsZMIklJAD5Ri2EnWhhY1mC/XmUBEz116P22GeJZaXQwxVqcE+oQsWF1OaSAVaE/kkvXU9vVdtbf/Ns+Ba0mffk3rVmUVnQB8x9HlbpipdWELY3fw9jgJPO3QJHi5XQ0g21abyg4PiW36LCW6njtSJ/YNSQmZAAJ1abrxIRteEZbvTPHDgzNar+U3ACF6VnGfL3YLtPnVFe/ffkEf+RCpsKW6ieGA4wspoQqjCTuC4oFmZlC2f8d+hzUxaJ4n2BcAAA"
  },
  "laser-haarentfernung-zuerich-behandlung": {
   "w": 3344,
@@ -308,7 +330,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 80,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAQBACdASoYAA4APt1apkyopSOiMAgBEBuJQBOgA+xMj5lEsDIRqG5agAD+xPwtHdefmydBoM4XiNs0CC1MALvcXLiqYuPGLDdaEGWqVu9g1JJbfkKsQkeTtwEDYjuR1vj/orTm8VrNFFrv0JyGfeVwb7QeWmLQ5yPARig6gAA="
  },
  "laser-haarentfernung-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -318,7 +341,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRvIAAABXRUJQVlA4IOYAAABwBwCdASoYACsAPt1ipk8opSMiKrgMARAbiUATpnHQhNvdEusvHL7aMgi89h2e20Py48h7cmcO/wEFSyJsIN6GsdRD3AD940MRHIsrnQzCQrCVsYvxlJ8Rk3BqC9SfrbcqRBDgqXj0RrtBN9WB2ifL0+3THbJiD7eEyu77/5RxMZ82+SNoFZVeiGNjOxwIHxUTKfjXIy5ihR0FTNd+Ilo+trNbu10LrnJx5BmWIMxFI289R/nFBpx/WlcMPvuK+dkQ5SICWnKCqGW8IpcpphsAVC2rpoPHJDUkRv2OXMSHEloSlNNAAA=="
  },
  "endolift-zuerich-behandlung": {
   "w": 3344,
@@ -335,7 +359,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 72,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADwAwCdASoYAA4APt1cpkyopSOiMAgBEBuJQBYdg4mAm65b32wPy75AAP7gfQWHg/3FL68ePTjHTsAMijRRb6xK6tsQsG2SJyOjHrRIikn+EycwTnaaIrjlk9CSsaP242E8Vb2BIzkibfyOSfaMFAAA"
  },
  "endolift-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -345,7 +370,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRs4AAABXRUJQVlA4IMIAAABQBgCdASoYACsAPt1mrVAopaQipWsxEBuJZQCyzAry6gnc8b/zv9iJF2hk4iSUwrXSlaf1UezWuTRaAAD+3HDEN3NtdhQHOcBdlTMumH9eAYuUBq+uyHoK7pKg+qo/N4xl+YBi95We/mmissWQAfQ/1jU2o20dOAJYY0FNx/bniG5hXFln1lKLBhlSPK1iqwi/X+Rem4ROJrJHfC1rowzWrr0jqnVRLyS2xbIO1830G0tKLc2yCpGj+D6oN7rljwAAAA=="
  },
  "rf-needling-zuerich-behandlung": {
   "w": 3344,
@@ -362,7 +388,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 72,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAABQBACdASoYAA4APt1ep00opSOiMAgBEBuJYgCdLwABlp48FGdH2HJsligAAP7iIu2Ve8sQCOj2dXeSRsPfKMin5kOOYsAiKZrp+kvfkSI586870ipPcQl9hJ9SBT7oHu/YJFTa3RTsBPYvJ/Kok5AEvGP6W+6AAAA="
  },
  "rf-needling-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -372,7 +399,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAADwBgCdASoYACsAPt1cp08opKMiKrgMARAbiUAVJPMIF0O0nm/dx0opu30ydqtxBiNxDCHhUFoPEiq/FzNxeIVAAP6vtsCB730zQwX9P5pOcTsJKZ/geeb+5LNxwdkni5EcSHlDQnBI6ZVMQ91hJwW+oPDuE07f/d8fVFPFjUS9tXjA1fBljStnq+D6DnJ+Dz/13g4dcpwJ/WZ9lKUe/bu68IxZXtyCgnOGsM82bYmBgSwi6sMzle1u8hf8GrvGPagi/jfR/DHC0QwHYi1FZboMX4aWY+AVoujG7VFVvh6j4kbQZzyBtaYll/fbv1lpcDgXcusbSAA="
  },
  "microdermabrasion-zuerich-behandlung": {
   "w": 3344,
@@ -389,7 +417,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 74,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAABQBACdASoYAA4APt1cpkyopSOiMAgBEBuJYgCdMoAC2YV8mMCjEiHo/YpYAP61nQJ0E2PB0XGH72pTcaBUN5hdpGBgTXYHArak1W4dRRhGXSHbaUecW1Cbc+mUnb0yu4uJSw+3Hcfk0kmyLtgWpmm1f+Q8mBQA"
  },
  "microdermabrasion-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -399,7 +428,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRuQAAABXRUJQVlA4INgAAADQBgCdASoYACsAPt1kq1CopSOipWsxEBuJYwDGQAbyLo+rNB3Rzr0t/9vLM4ReNMhJt/T80U2sACFa21uFzmAA98Krgiag/94pktbrHOtJGfMPKoxlG8N9LnA+Jf64ubIGHjwRXTWeiY+Px1NxmdO+0+7o7MpbRQovoahna7cURvVZbRDE/1/GxWO9R0j5yXIRba5UgCYzryzCXLu/tpQGmUn5qGdOkOHOrta8iAUJTLzXXp7KoJ6TDNMYU6BsFeMhCmnJqJaztTXD1XsuKx0WF5VVn9bgUAA="
  },
  "carbon-laser-peeling-zuerich-behandlung": {
   "w": 3344,
@@ -416,7 +446,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 66,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAAAwBACdASoYAA4APt1apkyopSOiMAgBEBuJQBOj+ABmHJU4IZCbgviavgAA/siUugiX4/vHosnfccgKx6035K9Dg5H4QT//m7ufn+6Dx+bwdZ1k7+5s44By6WuzGce6BaxCH2hkPeCP1uZNchBqEa8Ih6LgW3p3GngmntqHB9WGkAAA"
  },
  "carbon-laser-peeling-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -426,7 +457,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRhIBAABXRUJQVlA4IAYBAABQBwCdASoYACsAPt1or1EopaQipWmZEBuJQBbfaGjlgTElljwmcX1qIgb2uz6YlraW+evuYWY8SZY5zAr7wz7tcdSAAP7YObX1r8zihXqHXMf54zgwOAJVGjaJ4HYKWo3o3cZDOUuUubX/0qnk/rcKA6jBSEGIMKO8981rjDN/t+TMEmjmJDQuiPnkZgM5VQaVmDi6TtRq9OMMTFntcgPk6oHm58wzSUstkjThglFMx7Pb8ADVBfRkLl7c6LiHlg7RdoHBHUDOdC5KZuKs5XdckHtWXhaeonENm1BguwpC0RZSBQnUKaUesuECEzbsBxF8UdiVSfcElc59n8INitkodb7gIAAA"
  },
  "klassische-massage-zuerich-behandlung": {
   "w": 3344,
@@ -443,7 +475,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 62,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADwAwCdASoYAA4APt1cpkyopSOiMAgBEBuJYgCdMoACEjNmVFJiYDvQAMtKtgLawvFY7NssKVwdQlOoAKg2Ub5CYsVhBBIHS3TFTmmLFvVp9tE5eKk62mO6Pfwj+pZWoeh50dpiVepNlXujwY37t24181Dydwy6l8z9QZ20rIEgAA=="
  },
  "klassische-massage-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -453,7 +486,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRvgAAABXRUJQVlA4IOwAAAAQBwCdASoYACsAPt1epU6opKMiMBVaqRAbiUAXwSgngACFzbdda7tFM58WztRxEz5BpsxkEDGqVl37wkjRQxBHDAD+2rqGNzKaCGnkNKaxA5l8odpoWl1ObB6EebI4QKstJYbfLMp0LfncFthzTiXlcAeFKXTepCvrt2ea5g13KXIdzpQNMqmOS65lGG/p622fpYKqWxpGr/4dToRdRfRWv5wHKLiTjZ2ajsNrj+7t9nQ5XWhsHRbVRLc7kNNO/SSH/Xa4JkTnfnN09RSsaBOMu8rOmFLHdIW0j5skd3SU4rAcDol1hqkJ24AAAA=="
  },
  "anti-cellulite-massage-zuerich-behandlung": {
   "w": 3344,
@@ -470,7 +504,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 62,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQAwCdASoYAA4APt1ep00opSOiMAgBEBuJQBOmUABpSdNda8/bsOAA/q9Ois67SeZfvFZEwlxjLRyVEtxXQ3Y9UFt6REpTCjatUyjj+LmGjcY4KPOxs0WdCPhXYL2wXPAosHdP8v2l+epZJlNiYgAA"
  },
  "anti-cellulite-massage-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -480,7 +515,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAAAwBgCdASoYACsAPt1kqU+opaOiKqgBEBuJQBZ1/+AcEc1PAFHSbERRbltVllz2E2ynHsPC1zFEYX8AAP7oK2OUGdT1bWuEpyORIFN37flkRcA+A0nYcQGQH4yk1PyGsmWtPtayF+3PV2Z0h0UQsEgDsuKDFFBPaVDe5YiLLDfFFTPfqlE2NaOcRKfqN6pXT/dUoWreNVPI0YRBvMsbB69v2ZEGKcvDYNDhArCd+/s1N/pQnK12K9ltRxBeT2a9HGU9YJsrFhSzXHSOEBhilkf8Uid6ZWHu/x2fRDkFIfOayIAA"
  },
  "fruchtsaeure-peeling-zuerich-behandlung": {
   "w": 3344,
@@ -497,7 +533,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 56,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRogAAABXRUJQVlA4IHwAAABwBACdASoYAA4APt1cpkyopSOiMAgBEBuJYgCdMoACjY3KCiOzbqhOv42GeAD+4MC2e/T2FJzbihZpPpHZ3ge5mJeetrNqyxajAuZjppXSLKtXrmjJLMQFfIQ3rX/KP4DcWmSWBg03mat/lf6l7vKyvgQXwh/BYkGZf4AA"
  },
  "fruchtsaeure-peeling-zuerich-behandlung-portrait": {
   "w": 1058,
@@ -507,7 +544,8 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRhwBAABXRUJQVlA4IBABAACwBwCdASoYACsAPt1kq0+opaOiKrgKARAbiWIAnTKEgbSAMVEvUApvs1f5Us9gL349G2aitTxIeIImfmTNcnojRIMEMWgAAP6vi+KZCYfQFRKZL/QJ00SrkbBWqmIjUQdvTYczm/HMX0/x8wwt9Wu/XOkbBryHblGwfpK+nDCd3rvugmTI9NOAX81YBJaIoXX/p5U+umjawswzXXNLMHaWVOWJmFYyaL8Lz8HCYXxdc5Wruo1ZZAsTP5FhNX2D07zgdvQXiJmrUv/RcKWPQIJUMgiM3dgIcY1i33h6toBQpe/5DY5WsiD9JRvBEYelYKj+/1I0ifw4Xfp4Nhu16/5B05W0QYUWjFTNy74ENN0AAA=="
  },
  "termin-perfect-shape-zuerich": {
   "w": 3344,
@@ -524,7 +562,8 @@
   ],
   "ratio": 0.562200956937799,
   "fx": 84,
-  "fy": 40
+  "fy": 40,
+  "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAACwAwCdASoYAA4APt1cp00opSOiMAgBEBuJQBOgApR/yPMGXUQzAAD+5/3QmwXWN5UNV08R66Re0M2FpWHB2vKlITq1lypw6eHjjuOI0Apr3KJBFzK3hB5OmpY4IfnkKtrmcyVwWanV4a7EAAA="
  },
  "termin-perfect-shape-zuerich-portrait": {
   "w": 1058,
@@ -534,6 +573,7 @@
    720,
    1058
   ],
-  "ratio": 1.776937618147448
+  "ratio": 1.776937618147448,
+  "lqip": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAAAwBwCdASoYACsAPt1kp08opaMiJW5hEBuJYwDKBbYAavnQ1thKljgRyWrbXnq19RxrG1PIcpCa4+cDfeeH4QjJ0yAA/sPvCrBtN7aI6TlIlPfdNko2i9PuD1DhVnSHXN3uvmyd/d2Obmi/UEy/Hm0NmGGo9Q/fpm82w95RP9yn9X1dfJaqmy18Rh56bMwnvJeokBRi5jG2cIryZViKxHfRM3abiaE3l6CGE2wDcszuOwHPtiV8mu37sPHHpwP2xb8sj0c2Ry59v3SIbb1oUcSp6Mb2XI9bhzsUpfaEdAAAAA=="
  }
 }

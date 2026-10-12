@@ -139,6 +139,15 @@
 
     /* Kategorien: aufklappen (immer nur eine offen) */
     $$('[data-cats]', P).forEach(function (wrap) {
+      // Miniaturen in geschlossenen Kategorien vorladen, sobald der Bereich in die Nähe kommt
+      var warm = function () { $$('img[loading="lazy"]', wrap).forEach(function (im) { im.loading = 'eager'; }); };
+      var watch = function () {
+        if (!('IntersectionObserver' in window)) return warm();
+        var wio = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { warm(); wio.disconnect(); } }, { rootMargin: '800px 0px' });
+        wio.observe(wrap);
+      };
+      // erst nach dem Laden der Seite – damit das Hero-Bild Vorrang hat
+      if (doc.readyState === 'complete') watch(); else window.addEventListener('load', watch);
       var cats = $$('.cat', wrap);
       var set = function (cat, open) {
         cat.classList.toggle('is-open', open);
@@ -343,6 +352,21 @@
   });
   doc.addEventListener('keydown', function (e) { activePane().keydown(e); });
 
+  /* Unterseiten beim Hover/Touch vorladen (Safari/Firefox – Chrome nutzt Speculation Rules) */
+  if (!(HTMLScriptElement.supports && HTMLScriptElement.supports('speculationrules'))) {
+    var fetched = {};
+    var pre = function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="/"]');
+      if (!a || a.target || a.hasAttribute('data-book')) return;
+      var url = a.getAttribute('href').split('#')[0];
+      if (!url || fetched[url] || url === location.pathname) return;
+      fetched[url] = 1;
+      var l = doc.createElement('link'); l.rel = 'prefetch'; l.href = url; doc.head.appendChild(l);
+    };
+    doc.addEventListener('mouseover', pre, { passive: true });
+    doc.addEventListener('touchstart', pre, { passive: true });
+  }
+
   doc.addEventListener('click', function (e) {
     if (!e.target.closest) return;
     var lpEl = e.target.closest('.lp');
@@ -482,7 +506,7 @@
   if ('IntersectionObserver' in window && !reduceMotion) {
     io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) reveal(en.target); });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.01 });
+    }, { rootMargin: '0px 0px -2% 0px', threshold: 0.01 });
     revealEls.forEach(function (el) { io.observe(el); });
     var pending = false;
     var sweep = function () {
