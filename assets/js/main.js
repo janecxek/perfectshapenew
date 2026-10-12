@@ -137,22 +137,6 @@
       item.addEventListener('keydown', function (e) { if (e.key === 'Escape') { item.classList.add('is-closed'); state(false); link.focus(); } });
     });
 
-    /* Behandlungsliste: Bildvorschau */
-    $$('[data-tl-list]', P).forEach(function (list) {
-      var rows = $$('.tl__row', list);
-      var imgs = $$('[data-tl-img]', list);
-      if (!imgs.length) return;
-      var show = function (i) {
-        rows.forEach(function (r) { r.classList.toggle('is-active', r.getAttribute('data-tl') === String(i)); });
-        imgs.forEach(function (f) { f.classList.toggle('is-active', f.getAttribute('data-tl-img') === String(i)); });
-      };
-      rows.forEach(function (r) {
-        var i = r.getAttribute('data-tl');
-        r.addEventListener('mouseenter', function () { show(i); });
-        r.addEventListener('focus', function () { show(i); });
-      });
-    });
-
     /* Kategorien: aufklappen (immer nur eine offen) */
     $$('[data-cats]', P).forEach(function (wrap) {
       var cats = $$('.cat', wrap);
