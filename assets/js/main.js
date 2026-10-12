@@ -31,7 +31,7 @@
 
   function headerOffset() {
     var P = activePane().el;
-    return (($('.hdr', P) || {}).offsetHeight || 0) + (($('.toc', P) || {}).offsetHeight || 0) + 16;
+    return (($('.hdr', P) || {}).offsetHeight || 0) + 16;
   }
   function scrollToEl(el) {
     if (lenis) lenis.scrollTo(el, { offset: -headerOffset(), duration: 1.4 });
@@ -295,34 +295,6 @@
       });
     });
 
-    /* Inhaltsnavigation */
-    var toc = $('.toc', P);
-    if (toc && 'IntersectionObserver' in window) {
-      var links = $$('a[href^="#"]', toc);
-      var map = {};
-      links.forEach(function (a) { var s = doc.getElementById(a.getAttribute('href').slice(1)); if (s) map[s.id] = a; });
-      var ids = Object.keys(map);
-      if (ids.length) {
-        var tio = new IntersectionObserver(function (entries) {
-          entries.forEach(function (en) {
-            if (!en.isIntersecting) return;
-            links.forEach(function (a) { a.classList.remove('is-active'); });
-            var a = map[en.target.id];
-            if (a) {
-              a.classList.add('is-active');
-              var bar = a.parentNode;
-              if (bar.scrollTo) bar.scrollTo({ left: a.offsetLeft - bar.clientWidth / 2 + a.clientWidth / 2, behavior: reduceMotion ? 'auto' : 'smooth' });
-            }
-          });
-        }, { rootMargin: '-35% 0px -60% 0px' });
-        ids.forEach(function (id) { tio.observe(doc.getElementById(id)); });
-        var firstSec = doc.getElementById(ids[0]);
-        window.addEventListener('scroll', function () {
-          if (firstSec.getBoundingClientRect().top > window.innerHeight * 0.4) links.forEach(function (l) { l.classList.remove('is-active'); });
-        }, { passive: true });
-      }
-    }
-
     /* Kontaktformular */
     var form = $('form.form', P);
     if (form) {
@@ -464,7 +436,7 @@
      längeren Sprachversion, damit Abschnitte, Buttons und Bilder in beiden Sprachen
      exakt gleich sitzen – auf jeder Bildschirmbreite. */
   var EQ_SEL = 'h1,h2,h3,h4,p,li,summary,blockquote,figcaption,dt,dd,label,.btn,.cat__name,.cat__short,.cat__meta,.expert__role,.price-tag,.studio__dot';
-  var EQ_BOX = '.crumbs ol,.chips';
+  var EQ_BOX = '.crumbs ol';
   var eqDone = [];
   var leaves = function (pane) { return $$(EQ_SEL, pane).filter(function (el) { return !el.closest(EQ_BOX) && !el.querySelector(EQ_SEL); }); };
   var boxes = function (pane) { return $$(EQ_BOX, pane); };
