@@ -721,7 +721,6 @@ ${visitBlock()}
         <div class="hero__ctas fade-up d2">${bookBtn(S.book, 'btn btn--light btn--lg')}<a class="btn btn--line-light btn--lg" href="#preise"><span>${TP.prices}</span></a></div>
       </div>
     </div>
-    <div class="hero__bar fade-up d3"><ul class="chips">${t.chips.map((c) => `<li>${esc(c)}</li>`).join('')}</ul></div>
   </div>
 </section>
 
