@@ -654,6 +654,8 @@ body.menu-open { overflow: hidden; }
 .ftr ul li a { display: inline-block; padding: 4px 0; font-size: .95rem; transition: color .3s; }
 .ftr a:hover { color: #fff; }
 .ftr address { display: grid; gap: 10px; font-size: .95rem; }
+.ftr__more { color: rgba(255, 255, 255, .62); }
+.ftr__book { margin-top: 24px; }
 .ftr__social { display: flex; gap: 10px; }
 .ftr__social a { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-light); display: grid; place-items: center; transition: background .3s, color .3s; }
 .ftr__social a:hover { background: #fff; color: var(--ink); }
@@ -850,7 +852,8 @@ body.menu-open { overflow: hidden; }
   .prow__side { flex-direction: row; align-items: center; justify-content: space-between; text-align: left; }
   .prow__price { white-space: normal; font-size: 1.35rem; }
   .gallery { grid-template-columns: 1fr; }
-  .ftr__top { grid-template-columns: 1fr; gap: 36px; }
+  .ftr__top { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .ftr__brand, .ftr__top > div:last-child { grid-column: 1 / -1; }
   .clist li { grid-template-columns: 1fr; gap: 2px; }
   .brands { justify-content: center; text-align: center; }
   .brands ul { justify-content: center; gap: 22px 34px; }
