@@ -570,6 +570,18 @@ body.menu-open { overflow: hidden; }
 }
 @media (max-width: 640px) { .channels--page { grid-template-columns: 1fr; } .channels--page .channel { padding: 16px; } }
 
+
+/* Beratungs-Modus im Kontakt-Pop-up: WhatsApp zuerst und hervorgehoben */
+.csheet.is-consult .channels li:nth-child(2) { order: -1; }
+.csheet.is-consult .channel--wa { background: var(--ink); color: #fff; }
+.csheet.is-consult .channel--wa:hover { background: var(--accent); }
+.csheet.is-consult .channel--wa .channel__ico { background: rgba(255, 255, 255, .12); }
+.csheet.is-consult .channel--wa .channel__txt small, .csheet.is-consult .channel--wa .channel__go { color: rgba(255, 255, 255, .75); }
+.csheet.is-consult .channel--primary { background: var(--alt); color: var(--ink); }
+.csheet.is-consult .channel--primary:hover { background: var(--sand); }
+.csheet.is-consult .channel--primary .channel__ico { background: var(--bg); }
+.csheet.is-consult .channel--primary .channel__txt small, .csheet.is-consult .channel--primary .channel__go { color: var(--muted); }
+
 /* Vertrauen (Unterseiten): Bewertung + Expertinnen */
 .trust-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); align-items: start; }
 .trust-grid .slider { text-align: left; }

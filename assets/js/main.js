@@ -259,10 +259,22 @@
     api.openContact = function (from) {
       if (!sheet) return false;
       sheetFocus = from || doc.activeElement;
+      // Beratungs-Modus: WhatsApp zuerst, mit passender Nachricht
+      var consult = !!(from && from.getAttribute && from.getAttribute('data-intent') === 'consult');
+      var wa = $('.channel--wa', sheet), txt = $('.csheet__text', sheet);
+      if (wa) {
+        if (!wa.getAttribute('data-wa-default')) wa.setAttribute('data-wa-default', wa.getAttribute('href'));
+        wa.setAttribute('href', wa.getAttribute(consult ? 'data-wa-consult' : 'data-wa-default'));
+      }
+      if (txt) {
+        if (!txt.getAttribute('data-default-text')) txt.setAttribute('data-default-text', txt.textContent);
+        txt.textContent = txt.getAttribute(consult ? 'data-consult-text' : 'data-default-text');
+      }
+      sheet.classList.toggle('is-consult', consult);
       sheet.hidden = false;
       requestAnimationFrame(function () { sheet.classList.add('is-open'); });
       $$('[data-contact]', P).forEach(function (b) { b.setAttribute('aria-expanded', 'true'); });
-      setTimeout(function () { var f = $('.channel', sheet); if (f) f.focus(); }, 60);
+      setTimeout(function () { var f = consult ? $('.channel--wa', sheet) : $('.channel', sheet); if (f) f.focus(); }, 60);
       return true;
     };
     api.closeContact = function (restore) {
