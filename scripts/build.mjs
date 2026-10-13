@@ -49,6 +49,7 @@ const STR = {
     nav: { treatments: 'Behandlungen', prices: 'Preise', about: 'Über uns', contact: 'Kontakt', home: 'Startseite' },
     book: 'Termin buchen', bookOnline: 'Termin online buchen', bookNow: 'Jetzt Termin buchen', bookSecure: 'Jetzt Termin sichern', bookShort: 'Buchen', consult: 'Beratung buchen',
     megaTitle: 'Unsicher?', megaAccent: 'Wir beraten Sie.', megaText: 'Ehrlich und persönlich – wir raten auch ab, wenn etwas nicht zu Ihnen passt.',
+    contactBtn: 'Kontakt', sheetTitle: 'Wie möchten Sie', sheetAccent: 'uns erreichen?', sheetText: 'Wählen Sie einfach Ihren Lieblingsweg – wir melden uns so schnell wie möglich.', chBook: ['Termin online buchen', 'Rund um die Uhr – in weniger als einer Minute'], chWa: 'Schreiben Sie uns – gerne auch mit Fotos', chIg: 'Direktnachricht an @', waMsg: 'Hallo Perfect Shape, ich interessiere mich für {t} und hätte gerne einen Termin bzw. eine Beratung.', waDefault: 'Ihre Behandlungen',
     from: 'ab', call: 'Anrufen', allTreatments: 'Alle Behandlungen ansehen →', menuOpen: 'Menü öffnen', menuClose: 'Menü schliessen', mobileNav: 'Mobile Navigation', quick: 'Schnellkontakt',
     floor: '2. Etage', city: 'Zürich',
     ctaEyebrow: 'Bereit für Ihre Behandlung?', ctaTitle: 'Ihr Termin', ctaAccent: 'wartet auf Sie', ctaText: 'Wählen Sie Behandlung und Wunschtermin online – in weniger als einer Minute. Oder rufen Sie uns an, wir beraten Sie gerne.', ctaSmall: ['Online buchbar rund um die Uhr', 'Kostenlose Umbuchung bis 24 h vorher', 'Bahnhofstrasse 94, Zürich'],
@@ -65,6 +66,7 @@ const STR = {
     nav: { treatments: 'Treatments', prices: 'Prices', about: 'About', contact: 'Contact', home: 'Home' },
     book: 'Book now', bookOnline: 'Book online', bookNow: 'Book your appointment', bookSecure: 'Secure your appointment', bookShort: 'Book', consult: 'Book a consultation',
     megaTitle: 'Not sure?', megaAccent: 'We’ll advise you.', megaText: 'Honest and personal – we even advise against what doesn’t suit you.',
+    contactBtn: 'Contact', sheetTitle: 'How would you like', sheetAccent: 'to reach us?', sheetText: 'Simply choose your preferred way – we’ll get back to you as soon as possible.', chBook: ['Book online', '24/7 – in less than a minute'], chWa: 'Message us – photos welcome', chIg: 'Direct message to @', waMsg: 'Hello Perfect Shape, I’m interested in {t} and would like an appointment or a consultation.', waDefault: 'your treatments',
     from: 'from', call: 'Call', allTreatments: 'View all treatments →', menuOpen: 'Open menu', menuClose: 'Close menu', mobileNav: 'Mobile navigation', quick: 'Quick contact',
     floor: '2nd floor', city: 'Zurich',
     ctaEyebrow: 'Ready for your treatment?', ctaTitle: 'Your visit', ctaAccent: 'awaits you', ctaText: 'Choose your treatment and preferred time online – in less than a minute. Or give us a call, we’re happy to advise you.', ctaSmall: ['Online booking 24/7', 'Free rescheduling up to 24 h before', 'Bahnhofstrasse 94, Zurich'],
@@ -134,6 +136,8 @@ const ICONS = {
   check: '<path d="M20 6 9 17l-5-5"/>',
   x: '<path d="M18 6 6 18M6 6l12 12"/>',
   plus: '<path d="M12 5v14M5 12h14"/>',
+  chat: '<path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12z"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
   calendar: '<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
   chevron: '<path d="m6 9 6 6 6-6"/>',
   star: '<path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z" fill="currentColor" stroke="none"/>',
@@ -150,7 +154,11 @@ const title = (main, accent, { tag = 'h2', cls = '', id = '' } = {}) =>
   `<${tag} class="title${cls ? ' ' + cls : ''}"${id ? ` id="${id}"` : ''} data-reveal>${esc(main)}${accent ? ` <em>${esc(accent)}</em>` : ''}</${tag}>`;
 
 const BRANDS = [['partner-endolift', 'Endolift®'], ['partner-revolax', 'Revolax'], ['partner-vivacy', 'Vivacy Paris'], ['partner-dives-med', 'Dives Med']];
-const brands = (label) => `<div class="brands" data-reveal><p>${label}</p><ul>${BRANDS.map(([n, a]) => `<li><img src="/assets/img/${n}.webp" alt="${a}" width="${IMG[n].w}" height="${IMG[n].h}" loading="lazy"></li>`).join('')}</ul></div>`;
+const brands = (label) => {
+  // Endlos laufendes Logo-Band: zwei identische Listen hintereinander, die zweite nur dekorativ
+  const items = (hidden) => [...BRANDS, ...BRANDS].map(([n, a]) => `<li><img src="/assets/img/${n}.webp" alt="${hidden ? '' : a}" width="${IMG[n].w}" height="${IMG[n].h}" loading="lazy"></li>`).join('');
+  return `<div class="brands" data-reveal><p>${label}</p><div class="brands__track"><ul class="brands__list">${items(false)}</ul><ul class="brands__list" aria-hidden="true">${items(true)}</ul></div></div>`;
+};
 
 /* ---------- Strukturierte Daten ---------- */
 const BUSINESS_ID = SITE.url + '/#business';
@@ -217,7 +225,7 @@ function header(active, key) {
       <ul class="nav__list">
         <li class="nav__item has-mega"><a href="${P('treatments')}" class="nav__link"${a('treatments')} aria-haspopup="true" aria-expanded="false">${S.nav.treatments} ${icon('chevron')}</a>
           <div class="mega"><div class="mega__in">
-            ${D.CATEGORIES.map((c) => `<div class="mega__col"><p class="mega__title">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}<span>${S.from} ${chf(minPrice(t))}</span></a></li>`).join('')}</ul></div>`).join('')}
+            ${D.CATEGORIES.map((c) => `<div class="mega__col"><p class="mega__title">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}</ul></div>`).join('')}
             <div class="mega__cta"><p class="title">${esc(S.megaTitle)} <em>${esc(S.megaAccent)}</em></p><p>${esc(S.megaText)}</p>${bookBtn(S.consult, 'btn btn--dark btn--sm')}</div>
           </div></div>
         </li>
@@ -240,7 +248,7 @@ function header(active, key) {
       <ul class="mnav__list">
         <li><a href="${P('home')}">${S.nav.home}</a></li>
         <li><details><summary>${S.nav.treatments} ${icon('plus')}</summary>
-          ${D.CATEGORIES.map((c) => `<p class="mnav__cat">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}<span>${S.from} ${chf(minPrice(t))}</span></a></li>`).join('')}</ul>`).join('')}
+          ${D.CATEGORIES.map((c) => `<p class="mnav__cat">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}</ul>`).join('')}
           <p class="mnav__cat"><a href="${P('treatments')}">${S.allTreatments}</a></p>
         </details></li>
         <li><a href="${P('prices')}">${S.nav.prices}</a></li>
@@ -271,7 +279,18 @@ function ctaBand() {
 </section>`;
 }
 
-function footer({ cta = true } = {}) {
+// Kontaktwege – im Pop-up und auf der Kontaktseite
+const IG_HANDLE = SITE.instagram.replace(/\/+$/, '').split('/').pop();
+const waLink = (topic) => `${SITE.whatsapp}?text=${encodeURIComponent(S.waMsg.replace('{t}', topic || S.waDefault))}`;
+const channels = (topic, cls = '') => `<ul class="channels${cls}">
+  <li><a class="channel channel--primary" href="${esc(bk())}" target="_blank" rel="noopener" data-book><span class="channel__ico">${icon('calendar')}</span><span class="channel__txt"><b>${S.chBook[0]}</b><small>${S.chBook[1]}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+  <li><a class="channel" href="${esc(waLink(topic))}" target="_blank" rel="noopener"><span class="channel__ico">${icon('whatsapp')}</span><span class="channel__txt"><b>WhatsApp</b><small>${S.chWa}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+  <li><a class="channel" href="https://ig.me/m/${esc(IG_HANDLE)}" target="_blank" rel="noopener"><span class="channel__ico">${icon('instagram')}</span><span class="channel__txt"><b>Instagram</b><small>${S.chIg}${esc(IG_HANDLE)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+  <li><a class="channel" href="${SITE.phoneHref}"><span class="channel__ico">${icon('phone')}</span><span class="channel__txt"><b>${S.call}</b><small>${esc(SITE.phone)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+  <li><a class="channel" href="mailto:${SITE.email}"><span class="channel__ico">${icon('mail')}</span><span class="channel__txt"><b>${S.email}</b><small>${esc(SITE.email)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+</ul>`;
+
+function footer({ cta = true, topic = '' } = {}) {
   const col = (catIds) => D.TREATMENTS.filter((t) => catIds.includes(t.category)).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('');
   return `${cta ? ctaBand() : ''}
 <footer class="ftr">
@@ -303,10 +322,21 @@ function footer({ cta = true } = {}) {
   </div>
 </footer>
 <nav class="mbar" aria-label="${S.quick}">
-  <a href="${SITE.phoneHref}" class="mbar__btn">${icon('phone')}<span>${S.call}</span></a>
-  <a href="${SITE.whatsapp}" class="mbar__btn" target="_blank" rel="noopener">${icon('whatsapp')}<span>WhatsApp</span></a>
+  <button type="button" class="mbar__btn" data-contact aria-haspopup="dialog" aria-controls="contact">${icon('chat')}<span>${S.contactBtn}</span></button>
   <a href="${esc(bk())}" class="mbar__btn mbar__btn--primary" target="_blank" rel="noopener" data-book>${icon('calendar')}<span>${S.book}</span></a>
 </nav>
+<button type="button" class="cfab" data-contact aria-haspopup="dialog" aria-controls="contact">${icon('chat')}<span>${S.contactBtn}</span></button>
+<div class="csheet" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden data-lenis-prevent>
+  <div class="csheet__backdrop" data-cclose></div>
+  <div class="csheet__box">
+    <div class="csheet__head">
+      <p class="csheet__title" id="contact-title">${S.sheetTitle} <em>${S.sheetAccent}</em></p>
+      <button class="csheet__close" type="button" data-cclose aria-label="${S.close}">${icon('x')}</button>
+    </div>
+    <p class="csheet__text">${S.sheetText}</p>
+    ${channels(topic)}
+  </div>
+</div>
 <div class="modal" id="booking" role="dialog" aria-modal="true" aria-labelledby="booking-title" hidden data-lenis-prevent>
   <div class="modal__backdrop" data-close></div>
   <div class="modal__box">
@@ -321,11 +351,11 @@ function footer({ cta = true } = {}) {
 </div>`;
 }
 
-function layout({ key, title: pageTitle, description, active = '', body, schemas = [], ogImage = '/assets/img/og-image.jpg', preload = '', noindex = false, hasHero = false, cta = true }) {
+function layout({ key, title: pageTitle, description, active = '', body, schemas = [], ogImage = '/assets/img/og-image.jpg', preload = '', noindex = false, hasHero = false, cta = true, topic = '' }) {
   return {
     title: pageTitle, description, ogImage, preload, noindex, hasHero,
     ld: [websiteSchema(), businessSchema(), ...schemas].map((x) => `<script type="application/ld+json">${JSON.stringify(x)}</script>`).join('\n'),
-    inner: `${header(active, key)}\n<main id="main">\n${body}\n</main>\n${footer({ cta })}`,
+    inner: `${header(active, key)}\n<main id="main">\n${body}\n</main>\n${footer({ cta, topic })}`,
   };
 }
 
@@ -838,7 +868,7 @@ ${trustSection({ first: t.category === 'aesthetik' ? 0 : 1, alt: true })}
       offers: t.prices.filter((p) => p.price).map((p) => ({ '@type': 'Offer', name: p.name + (p.detail ? ` (${p.detail})` : ''), price: p.price, priceCurrency: 'CHF', url: abs(path) + '#preise', availability: 'https://schema.org/InStock', ...(p.from ? { priceSpecification: { '@type': 'PriceSpecification', minPrice: p.price, priceCurrency: 'CHF' } } : {}) })),
     };
     add(key, layout({
-      key, title: t.title, description: t.description, active: 'treatments', body, hasHero: true,
+      key, title: t.title, description: t.description, active: 'treatments', body, hasHero: true, topic: t.navName,
       schemas: [serviceSchema, faqSchema(t.faq), breadcrumbSchema([[S.nav.treatments, P('treatments')], [t.navName, path]])],
       ogImage: `/assets/img/${t.image}.jpg`, preload: preloadImg(t.image),
     }), { priority: de ? '0.9' : '0.8' });
@@ -975,39 +1005,10 @@ ${visitBlock()}
     </div>
   </div>
 </section>
-<section class="section section--tight">
-  <div class="container contact">
-    <div data-reveal>
-      <p class="eyebrow">${T.direct}</p>
-      <ul class="clist" style="margin-top:0">
-        <li><b>${T.online}</b><a href="${esc(bk())}" target="_blank" rel="noopener" data-book>${T.onlineText}</a></li>
-        <li><b>${S.phone}</b><a href="${SITE.phoneHref}">${esc(SITE.phone)}</a></li>
-        <li><b>WhatsApp</b><a href="${SITE.whatsapp}" target="_blank" rel="noopener">${S.whatsappText}</a></li>
-        <li><b>${S.email}</b><a href="mailto:${SITE.email}">${esc(SITE.email)}</a></li>
-        <li><b>${S.address}</b><a href="${SITE.route}" target="_blank" rel="noopener">${addr()}</a></li>
-      </ul>
-      <div class="contact__quick">${bookBtn(S.bookOnline, 'btn btn--dark btn--lg')}</div>
-    </div>
-    <div data-reveal style="--d:120ms">
-      <p class="eyebrow">${T.send}</p>
-      <form class="form" id="contactForm" novalidate data-mailto="${SITE.email}" data-lang="${LANG}">
-        <div class="form__row">
-          <div class="field"><label for="cfName">${T.name} *</label><input id="cfName" name="name" type="text" autocomplete="name" required placeholder="${T.namePh}"></div>
-          <div class="field"><label for="cfEmail">${S.email} *</label><input id="cfEmail" name="email" type="email" autocomplete="email" required placeholder="${T.emailPh}"></div>
-        </div>
-        <div class="form__row">
-          <div class="field"><label for="cfPhone">${S.phone}</label><input id="cfPhone" name="phone" type="tel" autocomplete="tel" placeholder="+41 …"></div>
-          <div class="field"><label for="cfTopic">${T.topic}</label><select id="cfTopic" name="topic"><option value="">${T.topicPh}</option>${TR.map((t) => `<option>${esc(t.navName)}</option>`).join('')}<option>${T.general}</option></select></div>
-        </div>
-        <div class="field"><label for="cfMsg">${T.msg} *</label><textarea id="cfMsg" name="message" rows="4" required placeholder="${T.msgPh}"></textarea></div>
-        <label class="check"><input type="checkbox" name="consent" required> <span>${T.consent} (<a href="${P('privacy')}">${S.privacy}</a>). *</span></label>
-        <button class="btn btn--dark btn--lg" type="submit"><span>${T.send}</span>${icon('arrow')}</button>
-        <p class="form__status" role="status" aria-live="polite"></p>
-      </form>
-    </div>
-  </div>
+<section class="section section--tight" aria-label="${T.direct}">
+  <div class="container" data-reveal>${channels('', ' channels--page')}</div>
 </section>
-<section class="section section--tight" aria-label="${S.mapAria}"><div class="container">${mapBox()}</div></section>
+${visitBlock()}
 ${faqSection(D.HOME_FAQ.filter(([q]) => !/natürlich|natural|schmerz|painful|gesellschaft|back to my day/i.test(q)), { alt: true })}
 `;
     add('contact', layout({

@@ -42,6 +42,7 @@
     var api = { el: P };
     var hdr = $('.hdr', P);
     var mbar = $('.mbar', P);
+    var cfab = $('.cfab', P);
     var heroPar = $('[data-hero-parallax]', P);
     var hero = $('.hero', P);
     var bands = $$('[data-parallax]', P);
@@ -58,6 +59,7 @@
         if (Math.abs(y - lastY) > 2) hdr.classList.toggle('is-hidden', hide);
       }
       if (mbar) mbar.classList.toggle('is-visible', y > vh * 0.6);
+      if (cfab) cfab.classList.toggle('is-visible', y > vh * 0.6);
       if (!reduceMotion) {
         if (heroPar && hero && y < hero.offsetHeight) heroPar.style.transform = 'translate3d(0,' + (y * 0.28).toFixed(1) + 'px,0)';
         for (var i = 0; i < bands.length; i++) {
@@ -249,6 +251,27 @@
       });
     });
 
+    /* Kontakt-Pop-up */
+    var sheet = $('.csheet', P);
+    var sheetFocus = null;
+    api.contactOpen = function () { return !!sheet && !sheet.hidden; };
+    api.openContact = function (from) {
+      if (!sheet) return false;
+      sheetFocus = from || doc.activeElement;
+      sheet.hidden = false;
+      requestAnimationFrame(function () { sheet.classList.add('is-open'); });
+      $$('[data-contact]', P).forEach(function (b) { b.setAttribute('aria-expanded', 'true'); });
+      setTimeout(function () { var f = $('.channel', sheet); if (f) f.focus(); }, 60);
+      return true;
+    };
+    api.closeContact = function (restore) {
+      if (!sheet || sheet.hidden) return;
+      sheet.classList.remove('is-open');
+      $$('[data-contact]', P).forEach(function (b) { b.setAttribute('aria-expanded', 'false'); });
+      setTimeout(function () { sheet.hidden = true; }, reduceMotion ? 0 : 320);
+      if (restore !== false && sheetFocus && sheetFocus.focus) sheetFocus.focus();
+    };
+
     /* Buchungs-Modal */
     var modal = $('.modal', P);
     var lastFocus = null;
@@ -260,6 +283,7 @@
         frame.addEventListener('load', function () { if (loader) loader.hidden = true; }, { once: true });
         frame.setAttribute('src', frame.getAttribute('data-src'));
       }
+      api.closeContact(false);
       lastFocus = doc.activeElement;
       modal.hidden = false;
       stopScroll();
@@ -275,7 +299,15 @@
     api.keydown = function (e) {
       if (e.key === 'Escape') {
         if (modal && !modal.hidden) api.closeBooking();
+        else if (api.contactOpen()) api.closeContact();
         else if (api.menuOpen()) { api.setMenu(false); burger.focus(); }
+      }
+      if (e.key === 'Tab' && api.contactOpen()) {
+        var c = $$('a[href], button', sheet);
+        if (c.length) {
+          if (e.shiftKey && doc.activeElement === c[0]) { e.preventDefault(); c[c.length - 1].focus(); }
+          else if (!e.shiftKey && doc.activeElement === c[c.length - 1]) { e.preventDefault(); c[0].focus(); }
+        }
       }
       if (e.key === 'Tab' && modal && !modal.hidden) {
         var f = $$('a[href], button, iframe', modal).filter(function (el) { return el.offsetParent !== null; });
@@ -303,38 +335,6 @@
         if (ph) ph.remove();
       });
     });
-
-    /* Kontaktformular */
-    var form = $('form.form', P);
-    if (form) {
-      var status = $('.form__status', form);
-      var isEn = form.getAttribute('data-lang') === 'en';
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        var ok = true;
-        $$('[required]', form).forEach(function (el) {
-          var wrap = el.closest('.field') || el.closest('.check');
-          var valid = el.type === 'checkbox' ? el.checked : el.value.trim() !== '' && (el.type !== 'email' || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value.trim()));
-          if (wrap) wrap.classList.toggle('is-invalid', !valid);
-          if (!valid && ok) { ok = false; el.focus(); }
-        });
-        if (!ok) {
-          status.textContent = isEn ? 'Please fill in all required fields (*) correctly.' : 'Bitte füllen Sie alle Pflichtfelder (*) korrekt aus.';
-          status.className = 'form__status is-error';
-          return;
-        }
-        var d = new FormData(form);
-        var topic = d.get('topic') || (isEn ? 'General enquiry' : 'Allgemeine Anfrage');
-        var body = 'Name: ' + d.get('name') + '\nE-Mail: ' + d.get('email') + '\n' + (isEn ? 'Phone' : 'Telefon') + ': ' + (d.get('phone') || '–') + '\n' + (isEn ? 'Treatment' : 'Behandlung') + ': ' + topic + '\n\n' + d.get('message');
-        window.location.href = 'mailto:' + form.getAttribute('data-mailto') + '?subject=' + encodeURIComponent((isEn ? 'Website enquiry – ' : 'Anfrage Website – ') + topic) + '&body=' + encodeURIComponent(body);
-        status.textContent = isEn ? 'Your email app has been opened – please send the message from there. You can also reach us by phone.' : 'Ihr E-Mail-Programm wurde geöffnet – bitte senden Sie die Nachricht dort ab. Alternativ erreichen Sie uns telefonisch.';
-        status.className = 'form__status is-ok';
-      });
-      form.addEventListener('input', function (e) {
-        var wrap = e.target.closest('.field') || e.target.closest('.check');
-        if (wrap) wrap.classList.remove('is-invalid');
-      });
-    }
 
     return api;
   }
@@ -380,6 +380,10 @@
       return;
     }
     if (e.target.closest('[data-close]')) { pane.closeBooking(); return; }
+    // Kontakt-Pop-up
+    var ct = e.target.closest('[data-contact]');
+    if (ct) { e.preventDefault(); if (pane.contactOpen()) pane.closeContact(); else pane.openContact(ct); return; }
+    if (e.target.closest('[data-cclose]')) { pane.closeContact(); return; }
     // Logo → nach oben
     var top = e.target.closest('[data-top]');
     if (top && !(e.metaKey || e.ctrlKey || e.shiftKey)) {
@@ -435,6 +439,7 @@
     if (l === lang()) return;
     var from = activePane();
     if (from.menuOpen()) from.setMenu(false);
+    if (from.contactOpen()) from.closeContact(false);
     syncSwitches(l);
     try { localStorage.setItem('ps-lang', l); } catch (err) {}
     var swap = function () {
