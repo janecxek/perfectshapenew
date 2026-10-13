@@ -504,6 +504,20 @@ body.menu-open { overflow: hidden; }
 @media (max-width: 640px) { .brands { grid-template-columns: 1fr; gap: 18px; } .brands img { height: 28px; } }
 
 
+
+/* Datenschutz-Hinweis */
+.notice { position: fixed; left: 24px; bottom: 24px; z-index: 56; display: flex; align-items: center; gap: 18px; max-width: 520px; padding: 16px 16px 16px 20px; background: var(--bg); color: var(--ink-2); border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 24px 50px -24px rgba(0, 0, 0, .35); font-size: .86rem; line-height: 1.45; opacity: 0; transform: translateY(16px); transition: opacity .4s var(--ease), transform .5s var(--ease-out), bottom .5s var(--ease-out); }
+.notice.is-in { opacity: 1; transform: none; }
+.notice[hidden] { display: none; }
+.notice p { margin: 0; }
+.notice a { text-decoration: underline; text-underline-offset: 2px; color: var(--ink); }
+.notice .btn { flex: none; }
+@media (max-width: 1024px) {
+  .notice { left: 10px; right: 10px; bottom: calc(10px + env(safe-area-inset-bottom)); max-width: none; }
+  .mbar.is-visible ~ .notice { bottom: calc(76px + env(safe-area-inset-bottom)); }
+}
+@media (max-width: 480px) { .notice { flex-direction: column; align-items: stretch; gap: 12px; } .notice .btn { width: 100%; } }
+
 /* ---------- Kontakt: Button, Pop-up & Kontaktwege ---------- */
 .cfab { position: fixed; right: 24px; bottom: 24px; z-index: 55; display: inline-flex; align-items: center; gap: 10px; min-height: 52px; padding: 0 22px 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; font: inherit; font-size: .95rem; font-weight: 500; cursor: pointer; box-shadow: 0 18px 40px -16px rgba(0, 0, 0, .45); transform: translateY(160%); transition: transform .6s var(--ease-out), background .3s; }
 .cfab .ico { width: 20px; height: 20px; }
@@ -903,6 +917,6 @@ body.menu-open { overflow: hidden; }
 }
 
 @media print {
-  .hdr, .mnav, .mbar, .modal, .toc, .cfab, .csheet { display: none !important; }
+  .hdr, .mnav, .mbar, .modal, .toc, .cfab, .csheet, .notice { display: none !important; }
   .js [data-reveal] { opacity: 1; transform: none; clip-path: none; }
 }

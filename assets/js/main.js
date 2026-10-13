@@ -368,6 +368,11 @@
     doc.addEventListener('touchstart', pre, { passive: true });
   }
 
+  /* Datenschutz-Hinweis: einmal bestätigen, danach nicht mehr anzeigen */
+  var noticeSeen = false;
+  try { noticeSeen = localStorage.getItem('ps-notice') === '1'; } catch (err) {}
+  if (!noticeSeen) $$('[data-notice]').forEach(function (n) { n.hidden = false; requestAnimationFrame(function () { n.classList.add('is-in'); }); });
+
   doc.addEventListener('click', function (e) {
     if (!e.target.closest) return;
     var lpEl = e.target.closest('.lp');
@@ -381,6 +386,11 @@
       return;
     }
     if (e.target.closest('[data-close]')) { pane.closeBooking(); return; }
+    if (e.target.closest('[data-notice-ok]')) {
+      try { localStorage.setItem('ps-notice', '1'); } catch (err) {}
+      $$('[data-notice]').forEach(function (n) { n.classList.remove('is-in'); setTimeout(function () { n.hidden = true; }, 350); });
+      return;
+    }
     // Kontakt-Pop-up
     var ct = e.target.closest('[data-contact]');
     if (ct) { e.preventDefault(); if (pane.contactOpen()) pane.closeContact(); else pane.openContact(ct); return; }
