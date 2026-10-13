@@ -150,7 +150,11 @@ const title = (main, accent, { tag = 'h2', cls = '', id = '' } = {}) =>
   `<${tag} class="title${cls ? ' ' + cls : ''}"${id ? ` id="${id}"` : ''} data-reveal>${esc(main)}${accent ? ` <em>${esc(accent)}</em>` : ''}</${tag}>`;
 
 const BRANDS = [['partner-endolift', 'Endolift®'], ['partner-revolax', 'Revolax'], ['partner-vivacy', 'Vivacy Paris'], ['partner-dives-med', 'Dives Med']];
-const brands = (label) => `<div class="brands" data-reveal><p>${label}</p><ul>${BRANDS.map(([n, a]) => `<li><img src="/assets/img/${n}.webp" alt="${a}" width="${IMG[n].w}" height="${IMG[n].h}" loading="lazy"></li>`).join('')}</ul></div>`;
+const brands = (label) => {
+  // Endlos laufendes Logo-Band: zwei identische Listen hintereinander, die zweite nur dekorativ
+  const items = (hidden) => [...BRANDS, ...BRANDS].map(([n, a]) => `<li><img src="/assets/img/${n}.webp" alt="${hidden ? '' : a}" width="${IMG[n].w}" height="${IMG[n].h}" loading="lazy"></li>`).join('');
+  return `<div class="brands" data-reveal><p>${label}</p><div class="brands__track"><ul class="brands__list">${items(false)}</ul><ul class="brands__list" aria-hidden="true">${items(true)}</ul></div></div>`;
+};
 
 /* ---------- Strukturierte Daten ---------- */
 const BUSINESS_ID = SITE.url + '/#business';
@@ -217,7 +221,7 @@ function header(active, key) {
       <ul class="nav__list">
         <li class="nav__item has-mega"><a href="${P('treatments')}" class="nav__link"${a('treatments')} aria-haspopup="true" aria-expanded="false">${S.nav.treatments} ${icon('chevron')}</a>
           <div class="mega"><div class="mega__in">
-            ${D.CATEGORIES.map((c) => `<div class="mega__col"><p class="mega__title">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}<span>${S.from} ${chf(minPrice(t))}</span></a></li>`).join('')}</ul></div>`).join('')}
+            ${D.CATEGORIES.map((c) => `<div class="mega__col"><p class="mega__title">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}</ul></div>`).join('')}
             <div class="mega__cta"><p class="title">${esc(S.megaTitle)} <em>${esc(S.megaAccent)}</em></p><p>${esc(S.megaText)}</p>${bookBtn(S.consult, 'btn btn--dark btn--sm')}</div>
           </div></div>
         </li>
@@ -240,7 +244,7 @@ function header(active, key) {
       <ul class="mnav__list">
         <li><a href="${P('home')}">${S.nav.home}</a></li>
         <li><details><summary>${S.nav.treatments} ${icon('plus')}</summary>
-          ${D.CATEGORIES.map((c) => `<p class="mnav__cat">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}<span>${S.from} ${chf(minPrice(t))}</span></a></li>`).join('')}</ul>`).join('')}
+          ${D.CATEGORIES.map((c) => `<p class="mnav__cat">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}</ul>`).join('')}
           <p class="mnav__cat"><a href="${P('treatments')}">${S.allTreatments}</a></p>
         </details></li>
         <li><a href="${P('prices')}">${S.nav.prices}</a></li>

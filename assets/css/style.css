@@ -161,9 +161,14 @@ body.menu-open .hdr .lang button[aria-pressed="true"] { color: var(--ink) !impor
 .has-mega:hover .nav__link .ico, .has-mega:focus-within .nav__link .ico { transform: rotate(180deg); }
 .mega__in { max-width: calc(var(--maxw) - 2 * var(--gutter)); margin: 6px auto 0; background: #fff; border: 1px solid var(--line); box-shadow: 0 40px 80px -40px rgba(28, 20, 12, .35); padding: 36px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)) minmax(0, 1.25fr); gap: 28px; }
 .mega__title { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
-.mega__col a { display: flex; justify-content: space-between; gap: 10px; padding: 7px 0; font-size: .95rem; font-weight: 500; border-bottom: 1px solid transparent; transition: color .3s; }
-.mega__col a span { color: var(--muted); font-weight: 400; font-size: .82rem; white-space: nowrap; }
+.mega__col a { display: block; padding: 7px 0; font-size: .95rem; font-weight: 500; border-bottom: 1px solid transparent; transition: color .3s; }
 .mega__col a:hover { color: var(--accent); }
+/* Fokus auf eine Kategorie: die anderen treten zurück, bleiben aber sichtbar */
+.mega__col { transition: opacity .35s var(--ease); }
+.mega__title { transition: color .35s var(--ease); }
+.mega__col:hover .mega__title, .mega__col:focus-within .mega__title { color: var(--ink); }
+@media (hover: hover) { .mega__in:has(.mega__col:hover) .mega__col:not(:hover) { opacity: .3; } }
+.mega__in:has(.mega__col:focus-within) .mega__col:not(:focus-within) { opacity: .3; }
 .mega__cta { background: var(--alt); padding: 26px; display: flex; flex-direction: column; justify-content: flex-start; align-self: start; gap: 16px; font-size: .92rem; color: var(--ink-2); }
 .mega__cta .title { font-size: 1.3rem; }
 .mega__cta > p:not(.title) { min-height: 4.6em; margin: 0; }
@@ -194,7 +199,6 @@ body.menu-open .hdr .burger span { background: var(--ink) !important; }
 .mnav details[open] summary .ico { transform: rotate(45deg); }
 .mnav details ul { padding-bottom: 8px; }
 .mnav details li a { display: flex; justify-content: space-between; padding: 8px 0; color: var(--ink-2); font-size: 1.05rem; }
-.mnav details li a span { color: var(--muted); font-size: .88rem; }
 .mnav__cat { font-size: .72rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 16px 0 2px; }
 .mnav__foot { display: grid; gap: 12px; }
 .mnav__row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
@@ -276,11 +280,6 @@ body.menu-open { overflow: hidden; }
 .facts span { color: var(--muted); font-size: .95rem; }
 
 /* Partner */
-.brands { display: flex; align-items: center; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding: 34px 0; border-block: 1px solid var(--line); }
-.brands p { margin: 0; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); }
-.brands ul { display: flex; align-items: center; gap: clamp(28px, 5vw, 72px); flex-wrap: wrap; }
-.brands img { height: 34px; width: auto; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.1); opacity: .7; transition: opacity .4s, filter .4s; }
-.brands img:hover { opacity: 1; filter: none; }
 
 /* ---------- Behandlungsliste (minimal) ---------- */
 .tl { display: grid; grid-template-columns: 1.3fr .7fr; gap: clamp(40px, 6vw, 110px); align-items: start; }
@@ -490,6 +489,19 @@ body.menu-open { overflow: hidden; }
 .slider__count { font-size: .9rem; color: var(--muted); min-width: 44px; }
 .reviews__google { margin-top: 36px; }
 .reviews__slider { margin-top: 56px; }
+
+.brands { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: clamp(24px, 4vw, 64px); padding: 34px 0; border-block: 1px solid var(--line); }
+.brands p { margin: 0; font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.brands__track { position: relative; display: flex; overflow: hidden; }
+.brands__track::before, .brands__track::after { content: ''; position: absolute; top: 0; bottom: 0; z-index: 1; width: 12%; pointer-events: none; }
+.brands__track::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.brands__track::after { right: 0; background: linear-gradient(270deg, var(--bg), transparent); }
+.brands__list { display: flex; flex: none; align-items: center; background: var(--bg); gap: clamp(48px, 6vw, 96px); padding-right: clamp(48px, 6vw, 96px); margin: 0; list-style: none; animation: brands-run 32s linear infinite; }
+.brands__track:hover .brands__list { animation-play-state: paused; }
+.brands img { height: 34px; width: auto; max-width: none; mix-blend-mode: multiply; filter: grayscale(1) contrast(1.1); opacity: .7; transition: opacity .4s, filter .4s; }
+.brands img:hover { opacity: 1; filter: none; }
+@keyframes brands-run { to { transform: translateX(-100%); } }
+@media (max-width: 640px) { .brands { grid-template-columns: 1fr; gap: 18px; } .brands img { height: 28px; } }
 
 /* Vertrauen (Unterseiten): Bewertung + Expertinnen */
 .trust-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 7vw, 110px); align-items: start; }
