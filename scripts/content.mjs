@@ -679,7 +679,7 @@ export const TEAM = [
     name: 'Dr. med. Roya Jeyrani',
     role: 'Fachärztin für Radiologie · Ästhetische Medizin',
     roleShort: 'Ärztin für ästhetische Medizin',
-    image: 'dr-med-roya-jeyrani',
+    image: 'dr-med-roya-jeyrani-perfect-shape-zuerich',
     alt: 'Dr. med. Roya Jeyrani – Ärztin für ästhetische Medizin in Zürich',
     bio: [
       'Nach dem Medizinstudium in Hamburg (2001) startete Roya ihre Facharztausbildung in der Radiologie in Essen. 2005 setzte sie ihre Ausbildung am Inselspital in Bern fort, erlangte 2007 den Facharzttitel für Radiologie und im Folgejahr den Doktortitel.',
@@ -692,7 +692,7 @@ export const TEAM = [
     name: 'Agnieszka Jaggy',
     role: 'Medizinisch-kosmetische Therapeutin · Laserschutzbeauftragte',
     roleShort: 'Med.-kosmetische Therapeutin',
-    image: 'agnieszka-jaggy',
+    image: 'agnieszka-jaggy-perfect-shape-zuerich',
     alt: 'Agnieszka Jaggy – medizinisch-kosmetische Therapeutin bei Perfect Shape Zürich',
     bio: [
       'Heilpraktikerin (i. A.) und medizinisch-kosmetische Therapeutin mit Weiterbildung im Bereich der apparativen Kosmetik (Kavitation, Stosswellentherapie, RF Needling, HIFU Ultraschall, Kryolipolyse).',

@@ -47,27 +47,6 @@
   "ratio": 0.734375,
   "lqip": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAADQBACdASoYABIAPt1kqlCopSOiqAgBEBuJYwC/OA6/TlWWiPUA+kP6boe8SQK1AAD+7YEeRO+oLQVhrCXlYmOjSxMr6Zin0SrIuajtZH/iGB0BLxUam0lWLw+vtiV4LSNWqZcliWurC9SRQfa23gv9fRnXHUpGAxiPs77WAtsFymLhuPWYmgAA"
  },
- "dr-med-roya-jeyrani": {
-  "w": 693,
-  "h": 1024,
-  "widths": [
-   480,
-   693
-  ],
-  "ratio": 1.4776334776334776,
-  "lqip": "data:image/webp;base64,UklGRu4AAABXRUJQVlA4IOIAAACwBgCdASoYACMAPt1mrVAopaQipWsxEBuJYgCsM4UCmDmCOQphLlWKLIhvkzJ1XY37q1BlZqWe8kxhz7MRwAD+UsDnVJ/MwmgwcAEa8zb8kFD0h4sWvED1ePqjZi8HEgAQlI/DOzNo97aRMFDvQgKE38DJZy6bw3ECPCV3DoE68RC7Rb47P78c6G0hJP9R3FdJtfE4guQUeAbFsGHEUaPVNV7kjJPxkXiTCt0AXkiUj+wcDp+pdc0fNj0IjhbPQWl+RoBlOS/fBOJMAoEQF2LhC0cWUwxFUQLqk15TvgnMxAgA"
- },
- "agnieszka-jaggy": {
-  "w": 1188,
-  "h": 1588,
-  "widths": [
-   480,
-   800,
-   1188
-  ],
-  "ratio": 1.3367003367003367,
-  "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4IN4AAADwBQCdASoYACAAPt1gp0yopaOiMAgBEBuJQBOmYBHAQkAlDFg07dzhHeMBOSsMFpRHjEnr8rxDAAD+6neuHDDpvK4ARglB/DiEi+I+rhtNx4kPfBsKT5mWvYAwYyW1G0lTaKkusgjfYTHPYxCKDyHjn/dvqVdLxvq/48uurmC0+/IopeyQveL3od0EVm97B1YXrl9Mr2OW0JDZTxJ+QTDH7lB9xv+P5/uXLr67UcQDeyi14t9oySyc/rKfltIynAJlGIVEuonz3dwR3AAzYpAoIiB9YflXSgYtMC+MAAA="
- },
  "partner-endolift": {
   "w": 480,
   "h": 204
@@ -575,5 +554,28 @@
   ],
   "ratio": 1.776937618147448,
   "lqip": "data:image/webp;base64,UklGRuwAAABXRUJQVlA4IOAAAAAwBwCdASoYACsAPt1kp08opaMiJW5hEBuJYwDKBbYAavnQ1thKljgRyWrbXnq19RxrG1PIcpCa4+cDfeeH4QjJ0yAA/sPvCrBtN7aI6TlIlPfdNko2i9PuD1DhVnSHXN3uvmyd/d2Obmi/UEy/Hm0NmGGo9Q/fpm82w95RP9yn9X1dfJaqmy18Rh56bMwnvJeokBRi5jG2cIryZViKxHfRM3abiaE3l6CGE2wDcszuOwHPtiV8mu37sPHHpwP2xb8sj0c2Ry59v3SIbb1oUcSp6Mb2XI9bhzsUpfaEdAAAAA=="
+ },
+ "agnieszka-jaggy-perfect-shape-zuerich": {
+  "w": 1440,
+  "h": 1880,
+  "widths": [
+   480,
+   800,
+   1200,
+   1440
+  ],
+  "ratio": 1.3055555555555556,
+  "lqip": "data:image/webp;base64,UklGRg4BAABXRUJQVlA4IAIBAABQBgCdASoYAB8APt1eqU4opSOiMBgIARAbiUATpmMUS+UcSkA5Qpt0hCCUMVtBfqm/Ibq3xSMH+jSckAD+8dW4r8HgF4DPKoHbe0CaqvNr2abXGqkMeaQrNmQxMma2QL7aaoa6Nk29wWP6s5ng+OnFBT/CZ1QbfqSsRrlT2cf6Z5odNbLNlvyU12rjAQTS1yYyb7m+StY5VFGa3Xx6JRBZaxomFZmVzaSVofmV+NHj4yMlZtE564p60becLT7+2VLNwPYFqel4gvrHoirjhEk2SkIVThKKNSxm0IFutlPbTmHug0dkUPMyBhy9nMpqDuPtmfpXg25XH+yTo7ZO1sdoAAA="
+ },
+ "dr-med-roya-jeyrani-perfect-shape-zuerich": {
+  "w": 1086,
+  "h": 1448,
+  "widths": [
+   480,
+   800,
+   1086
+  ],
+  "ratio": 1.3333333333333333,
+  "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4IPAAAADQBQCdASoYACAAPt1ep0yopSOiMAgBEBuJQBOgZYA11p1HUVpGQCfR0VKvlB5VR7rt0gIQ7RiAAP7nO3JNmSnU38aH7M6brK5M+HSKPnsHfDh1Ggv2Mb3EYG/z3R7bc9d6vBSJDt5Dub/DIRSNlHkecU0rB97PR9V/YSi/KRfvwpbfi0nxjqlrO6dos6xbEeBIDpN10Nr9QKptcytuxVmqE7FrD1UjbXmFiXF3S0EsI/GsIUJrvvaGK7L2jzdNQ0nb0aIldqcZwCMxNreabUREg/fqIcEvLOKEo2gP/1u3H5vAiwjt/OM+zWg0WOKAAAA="
  }
 }
