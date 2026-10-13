@@ -53,7 +53,7 @@ const STR = {
     from: 'ab', call: 'Anrufen', allTreatments: 'Alle Behandlungen ansehen →', menuOpen: 'Menü öffnen', menuClose: 'Menü schliessen', mobileNav: 'Mobile Navigation', quick: 'Schnellkontakt',
     floor: '2. Etage', city: 'Zürich',
     ctaEyebrow: 'Bereit für Ihre Behandlung?', ctaTitle: 'Ihr Termin', ctaAccent: 'wartet auf Sie', ctaText: 'Wählen Sie Behandlung und Wunschtermin online – in weniger als einer Minute. Oder rufen Sie uns an, wir beraten Sie gerne.', ctaSmall: ['Online buchbar rund um die Uhr', 'Kostenlose Umbuchung bis 24 h vorher', 'Bahnhofstrasse 94, Zürich'],
-    ftrText: 'Studio für Ästhetik &amp; Lasermedizin an der Bahnhofstrasse in Zürich. Behandlungen von geprüften Ärzten und Spezialistinnen.', ftrAesthetic: 'Ästhetische Medizin', ftrOther: 'Laser, Haut &amp; Körper', ftrContact: 'Kontakt', ftrStudio: 'Studio', ftrCopy: 'Ästhetik &amp; Lasermedizin',
+    ftrText: 'Studio für Ästhetik &amp; Lasermedizin an der Bahnhofstrasse in Zürich. Behandlungen von geprüften Ärzten und Spezialistinnen.', ftrPopular: 'Beliebte Behandlungen', ftrContact: 'Kontakt', ftrStudio: 'Studio', ftrCopy: 'Ästhetik &amp; Lasermedizin',
     legal: [['agb', 'AGB'], ['privacy', 'Datenschutz'], ['imprint', 'Impressum']],
     modalTitle: 'Termin', modalAccent: 'online buchen', modalExt: 'In neuem Tab öffnen', close: 'Schliessen', modalIframe: 'Online-Terminbuchung Perfect Shape Zürich', modalFoot: 'Probleme mit der Buchung? Rufen Sie uns an:',
     crumbs: 'Breadcrumb', more: 'Mehr erfahren',
@@ -70,7 +70,7 @@ const STR = {
     from: 'from', call: 'Call', allTreatments: 'View all treatments →', menuOpen: 'Open menu', menuClose: 'Close menu', mobileNav: 'Mobile navigation', quick: 'Quick contact',
     floor: '2nd floor', city: 'Zurich',
     ctaEyebrow: 'Ready for your treatment?', ctaTitle: 'Your visit', ctaAccent: 'awaits you', ctaText: 'Choose your treatment and preferred time online – in less than a minute. Or give us a call, we’re happy to advise you.', ctaSmall: ['Online booking 24/7', 'Free rescheduling up to 24 h before', 'Bahnhofstrasse 94, Zurich'],
-    ftrText: 'Studio for aesthetics &amp; laser medicine on Bahnhofstrasse in Zurich. Treatments by certified physicians and specialists.', ftrAesthetic: 'Aesthetic Medicine', ftrOther: 'Laser, Skin &amp; Body', ftrContact: 'Contact', ftrStudio: 'Studio', ftrCopy: 'Aesthetics &amp; Laser Medicine',
+    ftrText: 'Studio for aesthetics &amp; laser medicine on Bahnhofstrasse in Zurich. Treatments by certified physicians and specialists.', ftrPopular: 'Popular treatments', ftrContact: 'Contact', ftrStudio: 'Studio', ftrCopy: 'Aesthetics &amp; Laser Medicine',
     legal: [['agb', 'Terms (DE)'], ['privacy', 'Privacy (DE)'], ['imprint', 'Imprint (DE)']],
     modalTitle: 'Book', modalAccent: 'online', modalExt: 'Open in new tab', close: 'Close', modalIframe: 'Online booking Perfect Shape Zurich', modalFoot: 'Trouble booking? Give us a call:',
     crumbs: 'Breadcrumb', more: 'Learn more',
@@ -180,7 +180,8 @@ const businessSchema = () => ({
   ...(SITE.hours.length ? { openingHoursSpecification: SITE.hours.map((h) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: h.days.map((d) => `https://schema.org/${{ Mo: 'Monday', Tu: 'Tuesday', We: 'Wednesday', Th: 'Thursday', Fr: 'Friday', Sa: 'Saturday', Su: 'Sunday' }[d]}`), opens: h.opens, closes: h.closes })) } : {}),
   currenciesAccepted: 'CHF',
   paymentAccepted: LANG === 'de' ? 'Bargeld, Kreditkarte, TWINT' : 'Cash, credit card, TWINT',
-  address: { '@type': 'PostalAddress', streetAddress: 'Bahnhofstrasse 94, 2. Etage', postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+  geo: { '@type': 'GeoCoordinates', latitude: 47.375973, longitude: 8.537067 },
+  address: { '@type': 'PostalAddress', streetAddress: SITE.street, postalCode: '8001', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
   hasMap: SITE.googleMaps,
   availableLanguage: ['de', 'en'],
   areaServed: [{ '@type': 'City', name: 'Zürich' }, { '@type': 'State', name: 'Kanton Zürich' }],
@@ -198,7 +199,7 @@ const businessSchema = () => ({
     })),
   },
 });
-const websiteSchema = () => ({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE.url + '/#website', url: SITE.url + '/', name: SITE.name, inLanguage: ['de-CH', 'en'], publisher: { '@id': BUSINESS_ID } });
+const websiteSchema = () => ({ '@context': 'https://schema.org', '@type': 'WebSite', '@id': SITE.url + '/#website', url: SITE.url + '/', name: SITE.name, alternateName: ['Perfect Shape', 'Perfect Shape Zurich', 'perfectshape-zuerich.ch'], inLanguage: ['de-CH', 'en'], publisher: { '@id': BUSINESS_ID } });
 const breadcrumbSchema = (items) => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -290,8 +291,12 @@ const channels = (topic, cls = '') => `<ul class="channels${cls}">
   <li><a class="channel" href="mailto:${SITE.email}"><span class="channel__ico">${icon('mail')}</span><span class="channel__txt"><b>${S.email}</b><small>${esc(SITE.email)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
 </ul>`;
 
+// Footer: beliebteste Behandlungen (deutsche Slugs)
+const FOOTER_TOP = ['fadenlifting-zuerich', 'hyaluron-zuerich', 'laser-haarentfernung-zuerich', 'endolift-zuerich', 'rf-needling-zuerich'];
+
 function footer({ cta = true, topic = '' } = {}) {
-  const col = (catIds) => D.TREATMENTS.filter((t) => catIds.includes(t.category)).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('');
+  // nur die wichtigsten Links: beliebteste Behandlungen, Studio-Seiten, Kontakt
+  const popular = FOOTER_TOP.map((slug) => D.TREATMENTS.find((t) => t.deSlug === slug)).filter(Boolean);
   return `${cta ? ctaBand() : ''}
 <footer class="ftr">
   <div class="container">
@@ -301,8 +306,8 @@ function footer({ cta = true, topic = '' } = {}) {
         <p>${S.ftrText}</p>
         <div class="ftr__social"><a href="${esc(SITE.instagram)}" target="_blank" rel="noopener" aria-label="Instagram">${icon('instagram')}</a><a href="${esc(SITE.facebook)}" target="_blank" rel="noopener" aria-label="Facebook">${icon('facebook')}</a><a href="${SITE.whatsapp}" target="_blank" rel="noopener" aria-label="WhatsApp">${icon('whatsapp')}</a></div>
       </div>
-      <div><p class="ftr__title">${S.ftrAesthetic}</p><ul>${col(['aesthetik'])}</ul></div>
-      <div><p class="ftr__title">${S.ftrOther}</p><ul>${col(['laser', 'apparativ', 'massage', 'peeling'])}</ul></div>
+      <nav aria-label="${S.ftrPopular}"><p class="ftr__title">${S.ftrPopular}</p><ul>${popular.map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}<li><a class="ftr__more" href="${P('treatments')}">${S.allTreatments}</a></li></ul></nav>
+      <nav aria-label="${S.ftrStudio}"><p class="ftr__title">${S.ftrStudio}</p><ul><li><a href="${P('treatments')}">${S.nav.treatments}</a></li><li><a href="${P('prices')}">${S.nav.prices}</a></li><li><a href="${P('about')}">${S.nav.about}</a></li><li><a href="${P('contact')}">${S.nav.contact}</a></li></ul></nav>
       <div>
         <p class="ftr__title">${S.ftrContact}</p>
         <address>
@@ -310,8 +315,7 @@ function footer({ cta = true, topic = '' } = {}) {
           <a href="${SITE.phoneHref}">${esc(SITE.phone)}</a>
           <a href="mailto:${SITE.email}">${esc(SITE.email)}</a>
         </address>
-        <p class="ftr__title" style="margin-top:28px">${S.ftrStudio}</p>
-        <ul class="ftr__inline"><li><a href="${P('prices')}">${S.nav.prices}</a></li><li><a href="${P('about')}">${S.nav.about}</a></li><li><a href="${P('contact')}">${S.nav.contact}</a></li><li><a href="${P('treatments')}">${S.nav.treatments}</a></li></ul>
+        <a class="btn btn--light btn--sm ftr__book" href="${esc(bk())}" target="_blank" rel="noopener" data-book><span>${S.book}</span>${icon('arrow')}</a>
       </div>
     </div>
   </div>
@@ -1035,26 +1039,29 @@ ${faqSection(D.HOME_FAQ.filter(([q]) => !/natürlich|natural|schmerz|painful|ges
 <p>Perfect Shape Zürich<br>${esc(SITE.street)}, ${esc(SITE.floor)}<br>${SITE.zip} ${esc(SITE.city)}, Schweiz<br>E-Mail: <a href="mailto:${SITE.email}">${esc(SITE.email)}</a><br>Telefon: <a href="${SITE.phoneHref}">${esc(SITE.phone)}</a></p>
 <h2>2. Besuch der Website</h2>
 <p>Beim Aufruf unserer Website werden durch unseren Hosting-Anbieter technisch notwendige Daten (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp) in Server-Logfiles verarbeitet. Diese Daten dienen ausschliesslich dem sicheren und stabilen Betrieb der Website. Unsere Website wird bei Vercel Inc. (USA) gehostet; dabei kann eine Übermittlung von Daten in die USA erfolgen, die durch geeignete Garantien (z. B. Standardvertragsklauseln) abgesichert ist.</p>
-<p>Wir verwenden keine Tracking- oder Marketing-Cookies. Schriftarten werden lokal von unserem Server geladen – es findet keine Verbindung zu Google Fonts statt.</p>
-<h2>3. Kontaktaufnahme</h2>
-<p>Wenn Sie uns per E-Mail, Telefon, WhatsApp oder über das Kontaktformular kontaktieren, bearbeiten wir Ihre Angaben (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachricht) ausschliesslich zur Beantwortung Ihrer Anfrage. Das Kontaktformular öffnet Ihr E-Mail-Programm; die Nachricht wird erst versendet, wenn Sie diese dort abschicken. Bei Nutzung von WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp/Meta.</p>
-<h2>4. Online-Terminbuchung</h2>
-<p>Für die Online-Terminbuchung nutzen wir den Dienst TIMIFY (TIMIFY GmbH, Deutschland). Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen Daten (z. B. Name, Kontaktdaten, gewünschte Behandlung, Termin) an TIMIFY übermittelt und dort zur Terminverwaltung gespeichert. Das Buchungsfenster wird erst geladen, wenn Sie aktiv auf «Termin buchen» klicken.</p>
-<h2>5. Google Maps</h2>
+<p>Wir verwenden keine Analyse-, Tracking- oder Marketing-Tools. Schriftarten werden lokal von unserem Server geladen – es findet keine Verbindung zu Google Fonts statt.</p>
+<h2>3. Cookies und lokale Speicherung</h2>
+<p>Unsere Website setzt keine Cookies. Wenn Sie die Sprache (Deutsch/Englisch) wechseln, wird Ihre Auswahl ausschliesslich lokal in Ihrem Browser gespeichert (localStorage), damit sie auf weiteren Seiten erhalten bleibt. Diese Information wird nicht an uns übermittelt und lässt sich jederzeit über die Einstellungen Ihres Browsers löschen.</p>
+<p>Inhalte von Drittanbietern (Online-Terminbuchung von TIMIFY, Karte von Google Maps) werden erst geladen, wenn Sie diese aktiv öffnen. Diese Anbieter können dabei eigene Cookies setzen; es gelten deren Datenschutzbestimmungen (siehe unten).</p>
+<h2>4. Kontaktaufnahme</h2>
+<p>Wenn Sie uns per E-Mail, Telefon, WhatsApp oder Instagram kontaktieren, bearbeiten wir Ihre Angaben (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachricht) ausschliesslich zur Beantwortung Ihrer Anfrage. Bei Nutzung von WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp/Meta.</p>
+<h2>5. Online-Terminbuchung</h2>
+<p>Für die Online-Terminbuchung nutzen wir den Dienst TIMIFY (TIMIFY GmbH, Deutschland). Wenn Sie einen Termin buchen, werden die von Ihnen eingegebenen Daten (z. B. Name, Kontaktdaten, gewünschte Behandlung, Termin) an TIMIFY übermittelt und dort zur Terminverwaltung gespeichert. Das Buchungsfenster wird erst geladen, wenn Sie aktiv auf «Termin buchen» klicken; dabei kann TIMIFY technisch notwendige Cookies setzen.</p>
+<h2>6. Google Maps</h2>
 <p>Auf unserer Website können Sie eine Karte von Google Maps (Google Ireland Ltd. / Google LLC) einblenden. Die Karte wird erst nach Ihrem Klick auf «Karte laden» geladen. Dabei werden Daten (insbesondere Ihre IP-Adresse) an Google übertragen, möglicherweise auch in die USA.</p>
-<h2>6. Social Media</h2>
-<p>Auf unserer Website verlinken wir auf unsere Profile bei Instagram und Facebook. Es handelt sich um einfache Links; Daten werden erst übertragen, wenn Sie den Links folgen.</p>
-<h2>7. Kundendaten &amp; Gesundheitsdaten</h2>
+<h2>7. Social Media &amp; Messenger</h2>
+<p>Auf unserer Website verlinken wir auf unsere Profile bei Instagram und Facebook sowie auf WhatsApp und Instagram-Direktnachrichten (teilweise mit einem vorausgefüllten Nachrichtentext, den Sie vor dem Senden ändern können). Es handelt sich um einfache Links; Daten werden erst übertragen, wenn Sie den Links folgen. Dabei gelten die Datenschutzbestimmungen von Meta (WhatsApp, Instagram, Facebook).</p>
+<h2>8. Kundendaten &amp; Gesundheitsdaten</h2>
 <p>Im Rahmen von Beratungen und Behandlungen bearbeiten wir auch besonders schützenswerte Personendaten (Gesundheitsdaten), soweit dies für eine sichere Behandlung erforderlich ist. Diese Daten behandeln wir streng vertraulich und geben sie nicht ohne Ihre ausdrückliche Einwilligung an Dritte weiter, sofern keine gesetzliche Pflicht besteht.</p>
-<h2>8. Aufbewahrung</h2>
+<h2>9. Aufbewahrung</h2>
 <p>Wir speichern Personendaten nur so lange, wie es für den jeweiligen Zweck erforderlich ist oder gesetzliche Aufbewahrungspflichten bestehen.</p>
-<h2>9. Ihre Rechte</h2>
+<h2>10. Ihre Rechte</h2>
 <p>Sie haben das Recht, Auskunft über Ihre bei uns gespeicherten Personendaten zu verlangen sowie deren Berichtigung, Löschung oder Herausgabe zu beantragen. Wenden Sie sich dazu an <a href="mailto:${SITE.email}">${esc(SITE.email)}</a>. Zudem können Sie sich an den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) wenden.</p>
-<h2>10. Änderungen</h2>
+<h2>11. Änderungen</h2>
 <p>Wir können diese Datenschutzerklärung jederzeit anpassen. Es gilt die jeweils aktuelle, auf dieser Website veröffentlichte Fassung.</p>
 <p class="note">Stand: ${stand}</p>`);
   legal('imprint', 'Impressum | Perfect Shape Zürich', 'Impressum',
-    'Impressum von Perfect Shape Zürich – Studio für Ästhetik & Lasermedizin, Bahnhofstrasse 94, 8001 Zürich.',
+    'Impressum von Perfect Shape Zürich – Studio für Ästhetik & Lasermedizin an der Bahnhofstrasse 94, 8001 Zürich: Kontakt, Haftung und Urheberrecht.',
     `<h2>Kontaktadresse</h2>
 <p>Perfect Shape Zürich<br>Studio für Ästhetik &amp; Lasermedizin<br>${esc(SITE.street)}, ${esc(SITE.floor)}<br>${SITE.zip} ${esc(SITE.city)}<br>Schweiz</p>
 <p>Telefon: <a href="${SITE.phoneHref}">${esc(SITE.phone)}</a><br>E-Mail: <a href="mailto:${SITE.email}">${esc(SITE.email)}</a></p>
@@ -1095,16 +1102,19 @@ writeFileSync(join(ROOT, 'assets/css/style.min.css'), css);
 const pages = Object.values(PAGES);
 for (const p of pages) writeFileSync(join(ROOT, p.file), shyHeadings(compose(p.key, p.de, p.en)));
 
+const STUDIO_PICS = ['studio-perfect-shape-zuerich-empfang', 'studio-perfect-shape-zuerich-behandlungsraum', 'studio-perfect-shape-zuerich-zertifikate'];
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${pages.filter((p) => p.sitemap).map((p) => {
   const t = p.key.startsWith('t:') ? DE.TREATMENTS.find((x) => 't:' + x.slug === p.key) : null;
+  // Bilder je Seite für die Google-Bildersuche
+  const imgs = t ? [t.image] : ({ home: [HOME.heroImage, ...STUDIO_PICS], about: [HOME.aboutHero, ...STUDIO_PICS.slice(1), ...DE.TEAM.map((m) => m.image)], treatments: [HOME.treatmentsHero, ...DE.CATEGORIES.map((c) => c.image)] }[p.key] || []);
   return `  <url>
     <loc>${abs(p.path)}</loc>
     <lastmod>${TODAY}</lastmod>
     <changefreq>${p.changefreq}</changefreq>
-    <priority>${p.priority}</priority>${t ? `
-    <image:image><image:loc>${imgUrl(t.image)}</image:loc></image:image>` : ''}
+    <priority>${p.priority}</priority>${[...new Set(imgs)].map((n) => `
+    <image:image><image:loc>${imgUrl(n)}</image:loc></image:image>`).join('')}
   </url>`;
 }).join('\n')}
 </urlset>

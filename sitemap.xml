@@ -5,6 +5,10 @@
     <lastmod>2026-10-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/aesthetik-klinik-zuerich-hero.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-empfang.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-behandlungsraum.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-zertifikate.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/fadenlifting-zuerich</loc>
@@ -102,6 +106,12 @@
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-behandlungsraum.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/aesthetische-medizin-zuerich.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/laserbehandlungen-zuerich.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/apparative-kosmetik-behandlung-zuerich.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/massagen-zuerich.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/fruchtsaeure-peeling-behandlung-zuerich.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/preise</loc>
@@ -114,6 +124,11 @@
     <lastmod>2026-10-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-empfang.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-behandlungsraum.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/studio-perfect-shape-zuerich-zertifikate.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/dr-med-roya-jeyrani.jpg</image:loc></image:image>
+    <image:image><image:loc>https://perfectshape-zuerich.ch/assets/img/agnieszka-jaggy.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://perfectshape-zuerich.ch/kontakt</loc>

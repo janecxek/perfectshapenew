@@ -59,7 +59,8 @@
         if (Math.abs(y - lastY) > 2) hdr.classList.toggle('is-hidden', hide);
       }
       if (mbar) mbar.classList.toggle('is-visible', y > vh * 0.6);
-      if (cfab) cfab.classList.toggle('is-visible', y > vh * 0.6);
+      // am Seitenende ausblenden, damit die Links im Footer frei bleiben
+      if (cfab) cfab.classList.toggle('is-visible', y > vh * 0.6 && y + vh < doc.documentElement.scrollHeight - 160);
       if (!reduceMotion) {
         if (heroPar && hero && y < hero.offsetHeight) heroPar.style.transform = 'translate3d(0,' + (y * 0.28).toFixed(1) + 'px,0)';
         for (var i = 0; i < bands.length; i++) {
