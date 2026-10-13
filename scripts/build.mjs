@@ -47,10 +47,10 @@ const STR = {
   de: {
     htmlLang: 'de-CH', ogLocale: 'de_CH', skip: 'Zum Inhalt springen', homeAria: 'Perfect Shape Zürich – Startseite', mainNav: 'Hauptnavigation',
     nav: { treatments: 'Behandlungen', prices: 'Preise', about: 'Über uns', contact: 'Kontakt', home: 'Startseite' },
-    book: 'Termin buchen', bookOnline: 'Termin online buchen', bookNow: 'Jetzt Termin buchen', bookSecure: 'Jetzt Termin sichern', bookShort: 'Buchen', consult: 'Beratung buchen',
+    book: 'Termin buchen', bookOnline: 'Termin online buchen', bookNow: 'Jetzt Termin buchen', bookSecure: 'Jetzt Termin sichern', bookShort: 'Buchen', consult: 'Beratung anfragen',
     megaTitle: 'Unsicher?', megaAccent: 'Wir beraten Sie.', megaText: 'Ehrlich und persönlich – wir raten auch ab, wenn etwas nicht zu Ihnen passt.',
     noticeText: 'Wir verwenden keine Tracking-Cookies. Gespeichert werden nur technisch notwendige Angaben in Ihrem Browser, z. B. Ihre Sprachwahl.', noticeLink: 'Datenschutzerklärung', noticeOk: 'Verstanden', noticeAria: 'Hinweis zum Datenschutz',
-    contactBtn: 'Kontakt', sheetTitle: 'Wie möchten Sie', sheetAccent: 'uns erreichen?', sheetText: 'Wählen Sie einfach Ihren Lieblingsweg – wir melden uns so schnell wie möglich.', chBook: ['Termin online buchen', 'Rund um die Uhr – in weniger als einer Minute'], chWa: 'Schreiben Sie uns – gerne auch mit Fotos', chIg: 'Direktnachricht an @', waMsg: 'Hallo Perfect Shape, ich interessiere mich für {t} und hätte gerne einen Termin bzw. eine Beratung.', waDefault: 'Ihre Behandlungen',
+    contactBtn: 'Kontakt', sheetTitle: 'Wie möchten Sie', sheetAccent: 'uns erreichen?', sheetText: 'Wählen Sie einfach Ihren Lieblingsweg – wir melden uns so schnell wie möglich.', chBook: ['Termin online buchen', 'Rund um die Uhr – in weniger als einer Minute'], chWa: 'Schreiben Sie uns – gerne auch mit Fotos', chIg: 'Direktnachricht an @', waMsg: 'Hallo Perfect Shape, ich interessiere mich für {t} und hätte gerne einen Termin bzw. eine Beratung.', waDefault: 'Ihre Behandlungen', waConsult: 'Hallo Perfect Shape, ich bin mir noch unsicher, welche Behandlung zu mir passt, und hätte gerne eine kurze, unverbindliche Beratung.', sheetConsult: 'Schreiben Sie uns kurz, worum es geht, oder rufen Sie an – wir beraten Sie persönlich, ehrlich und unverbindlich.',
     from: 'ab', call: 'Anrufen', allTreatments: 'Alle Behandlungen ansehen →', menuOpen: 'Menü öffnen', menuClose: 'Menü schliessen', mobileNav: 'Mobile Navigation', quick: 'Schnellkontakt',
     floor: '2. Etage', city: 'Zürich',
     ctaEyebrow: 'Bereit für Ihre Behandlung?', ctaTitle: 'Ihr Termin', ctaAccent: 'wartet auf Sie', ctaText: 'Wählen Sie Behandlung und Wunschtermin online – in weniger als einer Minute. Oder rufen Sie uns an, wir beraten Sie gerne.', ctaSmall: ['Online buchbar rund um die Uhr', 'Kostenlose Umbuchung bis 24 h vorher', 'Bahnhofstrasse 94, Zürich'],
@@ -65,10 +65,10 @@ const STR = {
   en: {
     htmlLang: 'en', ogLocale: 'en_GB', skip: 'Skip to content', homeAria: 'Perfect Shape Zurich – Home', mainNav: 'Main navigation',
     nav: { treatments: 'Treatments', prices: 'Prices', about: 'About', contact: 'Contact', home: 'Home' },
-    book: 'Book now', bookOnline: 'Book online', bookNow: 'Book your appointment', bookSecure: 'Secure your appointment', bookShort: 'Book', consult: 'Book a consultation',
+    book: 'Book now', bookOnline: 'Book online', bookNow: 'Book your appointment', bookSecure: 'Secure your appointment', bookShort: 'Book', consult: 'Ask for advice',
     megaTitle: 'Not sure?', megaAccent: 'We’ll advise you.', megaText: 'Honest and personal – we even advise against what doesn’t suit you.',
     noticeText: 'We don’t use tracking cookies. Only technically necessary information is stored in your browser, e.g. your language choice.', noticeLink: 'Privacy policy (DE)', noticeOk: 'Got it', noticeAria: 'Privacy notice',
-    contactBtn: 'Contact', sheetTitle: 'How would you like', sheetAccent: 'to reach us?', sheetText: 'Simply choose your preferred way – we’ll get back to you as soon as possible.', chBook: ['Book online', '24/7 – in less than a minute'], chWa: 'Message us – photos welcome', chIg: 'Direct message to @', waMsg: 'Hello Perfect Shape, I’m interested in {t} and would like an appointment or a consultation.', waDefault: 'your treatments',
+    contactBtn: 'Contact', sheetTitle: 'How would you like', sheetAccent: 'to reach us?', sheetText: 'Simply choose your preferred way – we’ll get back to you as soon as possible.', chBook: ['Book online', '24/7 – in less than a minute'], chWa: 'Message us – photos welcome', chIg: 'Direct message to @', waMsg: 'Hello Perfect Shape, I’m interested in {t} and would like an appointment or a consultation.', waDefault: 'your treatments', waConsult: 'Hello Perfect Shape, I’m not sure yet which treatment suits me and would like some brief, no-obligation advice.', sheetConsult: 'Send us a short message or give us a call – we’ll advise you personally, honestly and without obligation.',
     from: 'from', call: 'Call', allTreatments: 'View all treatments →', menuOpen: 'Open menu', menuClose: 'Close menu', mobileNav: 'Mobile navigation', quick: 'Quick contact',
     floor: '2nd floor', city: 'Zurich',
     ctaEyebrow: 'Ready for your treatment?', ctaTitle: 'Your visit', ctaAccent: 'awaits you', ctaText: 'Choose your treatment and preferred time online – in less than a minute. Or give us a call, we’re happy to advise you.', ctaSmall: ['Online booking 24/7', 'Free rescheduling up to 24 h before', 'Bahnhofstrasse 94, Zurich'],
@@ -229,7 +229,7 @@ function header(active, key) {
         <li class="nav__item has-mega"><a href="${P('treatments')}" class="nav__link"${a('treatments')} aria-haspopup="true" aria-expanded="false">${S.nav.treatments} ${icon('chevron')}</a>
           <div class="mega"><div class="mega__in">
             ${D.CATEGORIES.map((c) => `<div class="mega__col"><p class="mega__title">${esc(c.name)}</p><ul>${D.TREATMENTS.filter((t) => t.category === c.id).map((t) => `<li><a href="${tPath(t)}">${esc(t.navName)}</a></li>`).join('')}</ul></div>`).join('')}
-            <div class="mega__cta"><p class="title">${esc(S.megaTitle)} <em>${esc(S.megaAccent)}</em></p><p>${esc(S.megaText)}</p>${bookBtn(S.consult, 'btn btn--dark btn--sm')}</div>
+            <div class="mega__cta"><p class="title">${esc(S.megaTitle)} <em>${esc(S.megaAccent)}</em></p><p>${esc(S.megaText)}</p><button type="button" class="btn btn--dark btn--sm" data-contact data-intent="consult" aria-haspopup="dialog" aria-controls="contact"><span>${S.consult}</span>${icon('arrow')}</button></div>
           </div></div>
         </li>
         <li class="nav__item"><a href="${P('prices')}" class="nav__link"${a('prices')}>${S.nav.prices}</a></li>
@@ -287,7 +287,7 @@ const IG_HANDLE = SITE.instagram.replace(/\/+$/, '').split('/').pop();
 const waLink = (topic) => `${SITE.whatsapp}?text=${encodeURIComponent(S.waMsg.replace('{t}', topic || S.waDefault))}`;
 const channels = (topic, cls = '') => `<ul class="channels${cls}">
   <li><a class="channel channel--primary" href="${esc(bk())}" target="_blank" rel="noopener" data-book><span class="channel__ico">${icon('calendar')}</span><span class="channel__txt"><b>${S.chBook[0]}</b><small>${S.chBook[1]}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
-  <li><a class="channel" href="${esc(waLink(topic))}" target="_blank" rel="noopener"><span class="channel__ico">${icon('whatsapp')}</span><span class="channel__txt"><b>WhatsApp</b><small>${S.chWa}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
+  <li><a class="channel channel--wa" href="${esc(waLink(topic))}" data-wa-consult="${esc(`${SITE.whatsapp}?text=${encodeURIComponent(S.waConsult)}`)}" target="_blank" rel="noopener"><span class="channel__ico">${icon('whatsapp')}</span><span class="channel__txt"><b>WhatsApp</b><small>${S.chWa}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
   <li><a class="channel" href="https://ig.me/m/${esc(IG_HANDLE)}" target="_blank" rel="noopener"><span class="channel__ico">${icon('instagram')}</span><span class="channel__txt"><b>Instagram</b><small>${S.chIg}${esc(IG_HANDLE)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
   <li><a class="channel" href="${SITE.phoneHref}"><span class="channel__ico">${icon('phone')}</span><span class="channel__txt"><b>${S.call}</b><small>${esc(SITE.phone)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
   <li><a class="channel" href="mailto:${SITE.email}"><span class="channel__ico">${icon('mail')}</span><span class="channel__txt"><b>${S.email}</b><small>${esc(SITE.email)}</small></span><span class="channel__go">${icon('arrow')}</span></a></li>
@@ -343,7 +343,7 @@ function footer({ cta = true, topic = '' } = {}) {
       <p class="csheet__title" id="contact-title">${S.sheetTitle} <em>${S.sheetAccent}</em></p>
       <button class="csheet__close" type="button" data-cclose aria-label="${S.close}">${icon('x')}</button>
     </div>
-    <p class="csheet__text">${S.sheetText}</p>
+    <p class="csheet__text" data-consult-text="${esc(S.sheetConsult)}">${S.sheetText}</p>
     ${channels(topic)}
   </div>
 </div>
@@ -540,7 +540,7 @@ function buildLang(lang) {
     fTitle: 'Häufige', fAccent: 'Fragen', fText: 'Ihre Frage ist nicht dabei? Rufen Sie uns an oder schreiben Sie uns – wir helfen gerne.', fLink: 'Kontakt aufnehmen',
     title: 'Ästhetik & Lasermedizin Zürich | Perfect Shape', description: 'Fadenlifting, Hyaluron, Laser-Haarentfernung & Endolift® in Zürich – ärztlich geführt an der Bahnhofstrasse 94. Transparente Preise. Jetzt Termin buchen.',
     heroAlt: HOME.heroAlt,
-    trustEyebrow: 'Echte Erfahrungen', trustTitle: 'In besten', trustAccent: 'Händen', cnEyebrow: 'Persönliche Beratung', cnText: 'Sie wissen noch nicht, welche Behandlung zu Ihnen passt? Wir analysieren Ihre Haut, beantworten alle Fragen und empfehlen nur, was wirklich sinnvoll ist – ehrlich und ohne Verkaufsdruck.',
+    trustEyebrow: 'Echte Erfahrungen', trustTitle: 'In besten', trustAccent: 'Händen', cnEyebrow: 'Persönliche Beratung', cnText: 'Sie wissen noch nicht, welche Behandlung zu Ihnen passt? Schreiben Sie uns kurz per WhatsApp – gerne mit Foto – oder rufen Sie an. Wir beraten Sie ehrlich und unverbindlich und empfehlen nur, was wirklich sinnvoll ist.', cnWa: 'Per WhatsApp fragen',
     gReviews: 'Google-Bewertungen', studioNav: ['Empfang', 'Behandlungsraum', 'Zertifikate'], studioShow: 'Bild anzeigen:',
   } : {
     l1: 'Aesthetic &amp;', l2: 'Laser Clinic', l3: 'in Zurich',
@@ -559,7 +559,7 @@ function buildLang(lang) {
     fTitle: 'Frequent', fAccent: 'Questions', fText: 'Your question isn’t listed? Call or write to us – we’re happy to help.', fLink: 'Get in touch',
     title: 'Aesthetic & Laser Clinic Zurich | Perfect Shape', description: 'Thread lifts, lip fillers, laser hair removal & Endolift® in Zurich – at Bahnhofstrasse 94. Transparent prices, honest advice. Book your appointment online.',
     heroAlt: 'Relaxed woman in the bright Perfect Shape studio overlooking Zurich',
-    trustEyebrow: 'Real experiences', trustTitle: 'In the best', trustAccent: 'hands', cnEyebrow: 'Personal consultation', cnText: 'Not sure which treatment is right for you? We analyse your skin, answer all your questions and only recommend what truly makes sense – honest and without sales pressure.',
+    trustEyebrow: 'Real experiences', trustTitle: 'In the best', trustAccent: 'hands', cnEyebrow: 'Personal consultation', cnText: 'Not sure which treatment is right for you? Send us a short WhatsApp message – photos welcome – or give us a call. We’ll advise you honestly and without obligation, and only recommend what truly makes sense.', cnWa: 'Ask on WhatsApp',
     gReviews: 'Google reviews', studioNav: ['Reception', 'Treatment room', 'Certificates'], studioShow: 'Show image:',
   };
 
@@ -646,9 +646,9 @@ function buildLang(lang) {
       <p>${H.cnText}</p>
     </div>
     <div class="consult__actions">
-      ${bookBtn(S.consult, 'btn btn--dark btn--lg')}
-      <a class="btn btn--line btn--lg" href="${SITE.whatsapp}" target="_blank" rel="noopener">${icon('whatsapp')}<span>WhatsApp</span></a>
+      <a class="btn btn--dark btn--lg" href="${esc(`${SITE.whatsapp}?text=${encodeURIComponent(S.waConsult)}`)}" target="_blank" rel="noopener">${icon('whatsapp')}<span>${H.cnWa}</span></a>
       <a class="btn btn--line btn--lg" href="${SITE.phoneHref}">${icon('phone')}<span>${esc(SITE.phone)}</span></a>
+      ${bookBtn(S.bookOnline, 'btn btn--line btn--lg')}
     </div>
   </div>
 </section>`;
