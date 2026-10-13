@@ -49,6 +49,7 @@ const STR = {
     nav: { treatments: 'Behandlungen', prices: 'Preise', about: 'Über uns', contact: 'Kontakt', home: 'Startseite' },
     book: 'Termin buchen', bookOnline: 'Termin online buchen', bookNow: 'Jetzt Termin buchen', bookSecure: 'Jetzt Termin sichern', bookShort: 'Buchen', consult: 'Beratung buchen',
     megaTitle: 'Unsicher?', megaAccent: 'Wir beraten Sie.', megaText: 'Ehrlich und persönlich – wir raten auch ab, wenn etwas nicht zu Ihnen passt.',
+    noticeText: 'Wir verwenden keine Tracking-Cookies. Gespeichert werden nur technisch notwendige Angaben in Ihrem Browser, z. B. Ihre Sprachwahl.', noticeLink: 'Datenschutzerklärung', noticeOk: 'Verstanden', noticeAria: 'Hinweis zum Datenschutz',
     contactBtn: 'Kontakt', sheetTitle: 'Wie möchten Sie', sheetAccent: 'uns erreichen?', sheetText: 'Wählen Sie einfach Ihren Lieblingsweg – wir melden uns so schnell wie möglich.', chBook: ['Termin online buchen', 'Rund um die Uhr – in weniger als einer Minute'], chWa: 'Schreiben Sie uns – gerne auch mit Fotos', chIg: 'Direktnachricht an @', waMsg: 'Hallo Perfect Shape, ich interessiere mich für {t} und hätte gerne einen Termin bzw. eine Beratung.', waDefault: 'Ihre Behandlungen',
     from: 'ab', call: 'Anrufen', allTreatments: 'Alle Behandlungen ansehen →', menuOpen: 'Menü öffnen', menuClose: 'Menü schliessen', mobileNav: 'Mobile Navigation', quick: 'Schnellkontakt',
     floor: '2. Etage', city: 'Zürich',
@@ -66,6 +67,7 @@ const STR = {
     nav: { treatments: 'Treatments', prices: 'Prices', about: 'About', contact: 'Contact', home: 'Home' },
     book: 'Book now', bookOnline: 'Book online', bookNow: 'Book your appointment', bookSecure: 'Secure your appointment', bookShort: 'Book', consult: 'Book a consultation',
     megaTitle: 'Not sure?', megaAccent: 'We’ll advise you.', megaText: 'Honest and personal – we even advise against what doesn’t suit you.',
+    noticeText: 'We don’t use tracking cookies. Only technically necessary information is stored in your browser, e.g. your language choice.', noticeLink: 'Privacy policy (DE)', noticeOk: 'Got it', noticeAria: 'Privacy notice',
     contactBtn: 'Contact', sheetTitle: 'How would you like', sheetAccent: 'to reach us?', sheetText: 'Simply choose your preferred way – we’ll get back to you as soon as possible.', chBook: ['Book online', '24/7 – in less than a minute'], chWa: 'Message us – photos welcome', chIg: 'Direct message to @', waMsg: 'Hello Perfect Shape, I’m interested in {t} and would like an appointment or a consultation.', waDefault: 'your treatments',
     from: 'from', call: 'Call', allTreatments: 'View all treatments →', menuOpen: 'Open menu', menuClose: 'Close menu', mobileNav: 'Mobile navigation', quick: 'Quick contact',
     floor: '2nd floor', city: 'Zurich',
@@ -329,6 +331,10 @@ function footer({ cta = true, topic = '' } = {}) {
   <button type="button" class="mbar__btn" data-contact aria-haspopup="dialog" aria-controls="contact">${icon('chat')}<span>${S.contactBtn}</span></button>
   <a href="${esc(bk())}" class="mbar__btn mbar__btn--primary" target="_blank" rel="noopener" data-book>${icon('calendar')}<span>${S.book}</span></a>
 </nav>
+<div class="notice" role="region" aria-label="${S.noticeAria}" hidden data-notice>
+  <p>${S.noticeText} <a href="${P('privacy')}">${S.noticeLink}</a></p>
+  <button type="button" class="btn btn--dark btn--sm" data-notice-ok><span>${S.noticeOk}</span></button>
+</div>
 <button type="button" class="cfab" data-contact aria-haspopup="dialog" aria-controls="contact">${icon('chat')}<span>${S.contactBtn}</span></button>
 <div class="csheet" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden data-lenis-prevent>
   <div class="csheet__backdrop" data-cclose></div>
@@ -1041,7 +1047,7 @@ ${faqSection(D.HOME_FAQ.filter(([q]) => !/natürlich|natural|schmerz|painful|ges
 <p>Beim Aufruf unserer Website werden durch unseren Hosting-Anbieter technisch notwendige Daten (z. B. IP-Adresse, Datum und Uhrzeit, aufgerufene Seite, Browsertyp) in Server-Logfiles verarbeitet. Diese Daten dienen ausschliesslich dem sicheren und stabilen Betrieb der Website. Unsere Website wird bei Vercel Inc. (USA) gehostet; dabei kann eine Übermittlung von Daten in die USA erfolgen, die durch geeignete Garantien (z. B. Standardvertragsklauseln) abgesichert ist.</p>
 <p>Wir verwenden keine Analyse-, Tracking- oder Marketing-Tools. Schriftarten werden lokal von unserem Server geladen – es findet keine Verbindung zu Google Fonts statt.</p>
 <h2>3. Cookies und lokale Speicherung</h2>
-<p>Unsere Website setzt keine Cookies. Wenn Sie die Sprache (Deutsch/Englisch) wechseln, wird Ihre Auswahl ausschliesslich lokal in Ihrem Browser gespeichert (localStorage), damit sie auf weiteren Seiten erhalten bleibt. Diese Information wird nicht an uns übermittelt und lässt sich jederzeit über die Einstellungen Ihres Browsers löschen.</p>
+<p>Unsere Website setzt keine Cookies. Ausschliesslich lokal in Ihrem Browser (localStorage) speichern wir zwei technisch notwendige Angaben: Ihre Sprachwahl (Deutsch/Englisch), damit sie auf weiteren Seiten erhalten bleibt, und dass Sie den Datenschutz-Hinweis bestätigt haben. Diese Information wird nicht an uns übermittelt und lässt sich jederzeit über die Einstellungen Ihres Browsers löschen.</p>
 <p>Inhalte von Drittanbietern (Online-Terminbuchung von TIMIFY, Karte von Google Maps) werden erst geladen, wenn Sie diese aktiv öffnen. Diese Anbieter können dabei eigene Cookies setzen; es gelten deren Datenschutzbestimmungen (siehe unten).</p>
 <h2>4. Kontaktaufnahme</h2>
 <p>Wenn Sie uns per E-Mail, Telefon, WhatsApp oder Instagram kontaktieren, bearbeiten wir Ihre Angaben (z. B. Name, E-Mail-Adresse, Telefonnummer, Nachricht) ausschliesslich zur Beantwortung Ihrer Anfrage. Bei Nutzung von WhatsApp gelten zusätzlich die Datenschutzbestimmungen von WhatsApp/Meta.</p>
