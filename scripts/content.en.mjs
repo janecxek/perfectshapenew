@@ -427,14 +427,14 @@ export const EN_TEAM = [
     facts: ['Medical studies in Hamburg', 'Specialist title in radiology (Inselspital Bern)', 'Thread lift training, Seoul 2018'],
   },
   {
-    role: 'Medical-Cosmetic Therapist · Laser Safety Officer',
+    role: 'Medical-Cosmetic Therapist · Laser Safety Officer · Certificate of competence under V‑NISSG for laser devices',
     roleShort: 'Medical-Cosmetic Therapist',
     alt: 'Agnieszka Jaggy – medical-cosmetic therapist at Perfect Shape Zurich',
     bio: [
       'Naturopath (in training) and medical-cosmetic therapist with further training in device-based cosmetics (cavitation, shockwave therapy, RF microneedling, HIFU ultrasound, cryolipolysis).',
-      'Graduate sports scientist with courses in sports medicine (lymphatic drainage, back training) and nutritionist specialising in cellulite. Certified laser safety officer for working with diode lasers.',
+      'Graduate sports scientist with courses in sports medicine (lymphatic drainage, back training) and nutritionist specialising in cellulite. Certified laser safety officer for working with diode lasers (certificate of competence under V‑NISSG for laser devices).',
     ],
-    facts: ['Certified laser safety officer', 'Graduate sports scientist', 'Nutritionist (cellulite specialist)'],
+    facts: ['Certified laser safety officer', 'Certificate of competence under V‑NISSG for laser devices', 'Graduate sports scientist', 'Nutritionist (cellulite specialist)'],
   },
 ];
 

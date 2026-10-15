@@ -690,15 +690,15 @@ export const TEAM = [
   },
   {
     name: 'Agnieszka Jaggy',
-    role: 'Medizinisch-kosmetische Therapeutin · Laserschutzbeauftragte',
+    role: 'Medizinisch-kosmetische Therapeutin · Laserschutzbeauftragte · Sachkundenachweis gemäss V‑NISSG für Lasergeräte',
     roleShort: 'Med.-kosmetische Therapeutin',
     image: 'agnieszka-jaggy-perfect-shape-zuerich',
     alt: 'Agnieszka Jaggy – medizinisch-kosmetische Therapeutin bei Perfect Shape Zürich',
     bio: [
       'Heilpraktikerin (i. A.) und medizinisch-kosmetische Therapeutin mit Weiterbildung im Bereich der apparativen Kosmetik (Kavitation, Stosswellentherapie, RF Needling, HIFU Ultraschall, Kryolipolyse).',
-      'Diplomierte Sportwissenschaftlerin mit Kursen in Sportmedizin (Lymphdrainage, Rückenschule) und Ernährungsberaterin mit Schwerpunkt Cellulite. Zertifizierte Laserschutzbeauftragte für die Arbeit mit Diodenlaser.',
+      'Diplomierte Sportwissenschaftlerin mit Kursen in Sportmedizin (Lymphdrainage, Rückenschule) und Ernährungsberaterin mit Schwerpunkt Cellulite. Zertifizierte Laserschutzbeauftragte für die Arbeit mit Diodenlaser (Sachkundenachweis gemäss V‑NISSG für Lasergeräte).',
     ],
-    facts: ['Zertifizierte Laserschutzbeauftragte', 'Dipl. Sportwissenschaftlerin', 'Ernährungsberaterin (Schwerpunkt Cellulite)'],
+    facts: ['Zertifizierte Laserschutzbeauftragte', 'Sachkundenachweis gemäss V‑NISSG für Lasergeräte', 'Dipl. Sportwissenschaftlerin', 'Ernährungsberaterin (Schwerpunkt Cellulite)'],
   },
 ];
 
